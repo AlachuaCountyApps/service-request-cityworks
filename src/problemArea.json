@@ -1,0 +1,10 @@
+{
+  "ACFD": ["General Facilities"],
+  "Default": [
+    "Critical Facilities",
+    "Engineering",
+    "Road and Bridge",
+    "Traffic Maintenance"
+  ],
+  "EPD": ["LID"]
+}

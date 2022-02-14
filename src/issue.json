@@ -1,0 +1,31 @@
+{
+  "General Facilities": [
+    "Carpet/Flooring Issue",
+    "Door/Wall/Window Request",
+    "Electrical Issue",
+    "Elevator Issue",
+    "HVAC Issue",
+    "Janitorial Issue",
+    "Landscaping Issue",
+    "Misc/Other Fac Request",
+    "Painting Request",
+    "Parking Lot Issue",
+    "Pest Issue",
+    "Plumbing Issue",
+    "Roof Issue"
+  ],
+  "Critical Facilities": ["Facilities"],
+  "Engineering": [],
+  "Road and Bridge": [
+    "Dead Animal",
+    "Drainage",
+    "Overgrown Vegetation",
+    "Road Repair",
+    "Sidewalk / Multi-Use Path",
+    "Sink Hole",
+    "Trash/Debris",
+    "Trees and Limbs"
+  ],
+  "Traffic Maintenance": ["Sign and Marking Issue"],
+  "LID": []
+}

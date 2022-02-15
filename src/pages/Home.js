@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { FormControl, Grid, InputLabel, MenuItem, Select } from '@mui/material';
+import { Grid } from '@mui/material';
 
 import Problem from '../components/Problem';
-import problemAreaData from '../problemArea.json';
-import issuesData from '../issue.json';
 import StyledDropdown from '../components/StyledDropdown';
 import Issue from '../components/Issue';
+import CallerQuestionsAnswers from '../components/CallerQuestionsAnswers';
+
+import problemAreaData from '../problemArea.json';
+import issuesData from '../issue.json';
+import questionsandAnswers from '../callerQuestions&Answers.json';
 
 export default function Home() {
   const [domain, setDomain] = useState('');
@@ -13,6 +16,8 @@ export default function Home() {
   const [problemArea, setProblemArea] = useState('');
   const [issues, setIssues] = useState([]);
   const [issue, setIssue] = useState('');
+  const [questionAnswers, setQuestionAnswers] = useState([]);
+  const [selectedAnswers, setSelectedAnswers] = useState({});
 
   const handleDomainChange = (e) => {
     setDomain(e.target.value);
@@ -28,6 +33,19 @@ export default function Home() {
 
   const handleIssueChange = (e) => {
     setIssue(e.target.value);
+    setSelectedAnswers({});
+    if (
+      questionsandAnswers[problemArea] &&
+      questionsandAnswers[problemArea][[e.target.value]]
+    )
+      setQuestionAnswers(questionsandAnswers[problemArea][e.target.value]);
+  };
+
+  const updateSelectedAnswers = (index, e) => {
+    setSelectedAnswers((prevVal) => ({
+      ...prevVal,
+      [index]: e.target.value,
+    }));
   };
 
   return (
@@ -52,13 +70,24 @@ export default function Home() {
         </Grid>
       )}
       {problemArea && issues.length > 0 && (
-        <Grid item xs={12}>
-          <Issue
-            issues={issues}
-            issue={issue}
-            handleIssueChange={handleIssueChange}
-          />
-        </Grid>
+        <>
+          <Grid item xs={12}>
+            <Issue
+              issues={issues}
+              issue={issue}
+              handleIssueChange={handleIssueChange}
+            />
+          </Grid>
+          {issue && questionAnswers.length > 0 && (
+            <Grid item xs={12}>
+              <CallerQuestionsAnswers
+                questionAnswers={questionAnswers}
+                selectedAnswers={selectedAnswers}
+                updateSelectedAnswers={updateSelectedAnswers}
+              />
+            </Grid>
+          )}
+        </>
       )}
     </Grid>
   );

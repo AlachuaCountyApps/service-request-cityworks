@@ -1,0 +1,280 @@
+{
+  "General Facilities": {
+    "Carpet/Flooring Issue": [
+      { "question": "Location Detail", "answers": ["Interior", "Exterior"] },
+      {
+        "question": "Carpet Issue Detail",
+        "answers": ["Broken", "Loose Floor", "Ripped", "Trip Hazard", "Torn"]
+      }
+    ],
+    "Door/Wall/Window Request": [
+      { "question": "Location Detail", "answers": ["Interior", "Exterior"] },
+      {
+        "question": "Issue Detail",
+        "answers": ["Damaged", "Need Feature Added", "Won't Close"]
+      }
+    ],
+    "Electrical Issue": [
+      { "question": "Location Detail", "answers": ["Interior", "Exterior"] },
+      {
+        "question": "Electrical Issue Detail",
+        "answers": ["Light Fixture", "Outlet", "Wall Switch"]
+      }
+    ],
+    "Elevator Issue": [
+      {
+        "question": "Elevator Issue Detail",
+        "answers": [
+          "Door Malfunction",
+          "Light Fixture",
+          "Panel Buttons",
+          "Other Elevator Issue"
+        ]
+      }
+    ],
+    "HVAC Issue": [
+      {
+        "question": "HVAC Issue Detail",
+        "answers": ["Too Cold", "Too Hot", "Bad Smell", "Very Noisy"]
+      }
+    ],
+    "Janitorial Issue": [
+      {
+        "question": "Missing Supplies?",
+        "answers": [
+          "Need TP",
+          "Need Seat Covers",
+          "Need Soap Refilled",
+          "Need Towels",
+          "Need TO & PT",
+          "Need Soap and Towels",
+          "No Supplies Needed"
+        ]
+      },
+      {
+        "question": "Cleaning Needs",
+        "answers": [
+          "Dirty Floors",
+          "Dirty Walls",
+          "Dirty Fixtures",
+          "No Cleaning Needed"
+        ]
+      }
+    ],
+    "Landscaping Issue": [
+      {
+        "question": "Landscaping Detail",
+        "answers": [
+          "Need Grass Cut",
+          "Need Weeds Pulled",
+          "Need Flower/Pants",
+          "Need Grass Cut and Weeds Pulled",
+          "Need Weeds Pulled and Flowers/Plants",
+          "Need Grass Cut and Flowers/Plants",
+          "Other Landscape Issue"
+        ]
+      }
+    ],
+    "Misc/Other Fac Request": [],
+    "Painting Request": [
+      { "question": "Location Detail", "answers": ["Interior", "Exterior"] },
+      {
+        "question": "Paint Detail",
+        "answers": [
+          "Halway Wall(s)",
+          "Office Wall(s)",
+          "Building Wall(s)",
+          "Door(s)",
+          "Fixtures(s)",
+          "Other"
+        ]
+      }
+    ],
+    "Parking Lot Issue": [],
+    "Pest Issue": [
+      {
+        "question": "Type of Pest",
+        "answers": ["Vermin/Rodent", "Insect", "Other"]
+      },
+      {
+        "question": "Location Detail",
+        "answers": [
+          "In Walls",
+          "Under Floor",
+          "In Celling",
+          "Inside Windowsill",
+          "Outside Window"
+        ]
+      }
+    ],
+    "Plumbing Issue": [
+      {
+        "question": "Is this an Emergency? (Is water exiting?)",
+        "answers": ["Yes - Please call 213-4840 immediately.", "No"]
+      }
+    ],
+    "Roof Issue": [
+      {
+        "question": "Is this and Emergency? (Is water leaking inside the building?)",
+        "answers": ["Yes - Please call 213-4840 immediately.", "No"]
+      }
+    ]
+  },
+  "Critical Facilities": {
+    "Facilities": [
+      {
+        "question": "What type of request?",
+        "answers": [
+          "Electrical",
+          "Fixture/Equipment",
+          "Floors",
+          "Grounds",
+          "HVAC",
+          "Indoor Structure",
+          "Outdoor Structure",
+          "Plumbing",
+          "Roof",
+          "Elevators",
+          "Fire",
+          "Security"
+        ]
+      },
+      { "question": "Is this repair for the jail?", "answers": ["Yes", "No"] }
+    ]
+  },
+  "Road and Bridge": {
+    "Dead Animal": [
+      {
+        "question": "Where is the animal located?",
+        "answers": ["In the road", "On the side of the road"]
+      },
+      {
+        "question": "What is the approximate size of the animal?",
+        "answers": ["Large", "Small"]
+      }
+    ],
+    "Drainage": [
+      {
+        "question": "What is the issue?",
+        "answers": ["Flooding", "Clogged or Damaged", "Other"]
+      },
+      {
+        "question": "What feature is affected?",
+        "answers": [
+          "Ditch",
+          "Culvert",
+          "Roadway",
+          "Yard",
+          "Pond",
+          "Storm Drain",
+          "Other"
+        ]
+      }
+    ],
+    "Overgrown Vegetation": [
+      { "question": "Is this a mowing request?", "answers": ["Yes", "No"] },
+      {
+        "question": "What feature is affected?",
+        "answers": [
+          "Ditch",
+          "Retention Basin",
+          "Roadsides",
+          "Sidewalk",
+          "Other"
+        ]
+      }
+    ],
+    "Road Repair": [
+      {
+        "question": "What type of repair is needed?",
+        "answers": [
+          "Pothole",
+          "Washboarding",
+          "Drop Off",
+          "Wash out in road",
+          "Depression / Hump in roadway",
+          "Driveway",
+          "Other"
+        ]
+      },
+      { "question": "Is the road paved?", "answers": ["Yes", "No"] },
+      {
+        "question": "Please estimate the size of the issue",
+        "answers": ["Small", "Medium", "Large"]
+      }
+    ],
+    "Sidewalk / Multi-Use Path": [
+      {
+        "question": "What is the issue?",
+        "answers": [
+          "Trip hazard",
+          "Cracks",
+          "Missing area (Gaps)",
+          "Obstruction / Debris on sidewalk",
+          "Other"
+        ]
+      }
+    ],
+    "Sink Hole": [
+      {
+        "question": "Have you noticed the issue getting larger?",
+        "answers": ["unknown", "Yes", "No"]
+      },
+      {
+        "question": "How does the sink hole appear?",
+        "answers": ["Open Hole", "Surface Depression"]
+      },
+      {
+        "question": "What is the approximate size?",
+        "answers": ["Small", "Medium", "Large"]
+      },
+      {
+        "question": "What feature is affected?",
+        "answers": ["Ditch", "Pond", "Roadway", "Yard", "Other"]
+      }
+    ],
+    "Trash/Debris": [
+      {
+        "question": "General location of the trash or debris",
+        "answers": ["Road", "Drainage", "Roadside", "Other"]
+      }
+    ],
+    "Trees and Limbs": [
+      {
+        "question": "What is the issue with the tree or limb?",
+        "answers": [
+          "Tree is fallen",
+          "Limbs Hanging / Detached",
+          "Tree or Limbs Dead"
+        ]
+      },
+      { "question": "Is it near a power line?", "answers": ["Yes", "No"] },
+      { "question": "Are wires down?", "answers": ["Yes", "No"] },
+      { "question": "Is it blocking the road?", "answers": ["Yes", "No"] },
+      { "question": "Is it blocking the sidewalk?", "answers": ["Yes", "No"] }
+    ]
+  },
+  "Traffic Maintenance": {
+    "Sign and Marking Issue": [
+      { "question": "What is the problem?", "answers": ["Sign", "Marking"] },
+      { "question": "Is it a Stop Sign?", "answers": ["Yes", "No"] },
+      {
+        "question": "What type of sign?",
+        "answers": [
+          "Destination",
+          "Guide",
+          "Information",
+          "Object",
+          "Regulatory",
+          "Route",
+          "School",
+          "Warning"
+        ]
+      },
+      {
+        "question": "What direction?",
+        "answers": ["Northbound", "Southbound", "Westbound", "Eastbound"]
+      }
+    ]
+  }
+}

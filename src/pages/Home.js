@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Grid } from '@mui/material';
+import { Box, Grid, Tab } from '@mui/material';
+import { TabContext, TabList, TabPanel } from '@mui/lab';
 
 import Problem from '../components/Problem';
 import StyledDropdown from '../components/StyledDropdown';
@@ -9,6 +10,8 @@ import CallerQuestionsAnswers from '../components/CallerQuestionsAnswers';
 import problemAreaData from '../problemArea.json';
 import issuesData from '../issue.json';
 import questionsandAnswers from '../callerQuestions&Answers.json';
+import CallerInformation from '../components/CallerInformation';
+import IncidentInformation from '../components/IncidentInformation';
 
 export default function Home() {
   const [domain, setDomain] = useState('');
@@ -18,6 +21,7 @@ export default function Home() {
   const [issue, setIssue] = useState('');
   const [questionAnswers, setQuestionAnswers] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [tabValue, setTabValue] = useState('1');
 
   const handleDomainChange = (e) => {
     setDomain(e.target.value);
@@ -46,6 +50,10 @@ export default function Home() {
       ...prevVal,
       [index]: e.target.value,
     }));
+  };
+
+  const handleTabChange = (event, newValue) => {
+    setTabValue(newValue);
   };
 
   return (
@@ -89,6 +97,37 @@ export default function Home() {
           )}
         </>
       )}
+
+      <Grid item xs={12}>
+        <Box sx={{ width: '100%' }}>
+          <TabContext value={tabValue}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <TabList
+                onChange={handleTabChange}
+                textColor='primary'
+                indicatorColor='primary'
+              >
+                <Tab
+                  label='Incident Information'
+                  value='1'
+                  sx={{ fontWeight: 'bold' }}
+                />
+                <Tab
+                  label='Caller Information'
+                  value='2'
+                  sx={{ fontWeight: 'bold' }}
+                />
+              </TabList>
+            </Box>
+            <TabPanel value='1'>
+              <IncidentInformation />
+            </TabPanel>
+            <TabPanel value='2'>
+              <CallerInformation />
+            </TabPanel>
+          </TabContext>
+        </Box>
+      </Grid>
     </Grid>
   );
 }

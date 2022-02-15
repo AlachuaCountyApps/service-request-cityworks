@@ -2,7 +2,7 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 export default function StyledDropdown({
   id = 'styled-dropdown-example',
-  title = 'Styled Dropdown',
+  title = false,
   label = 'styled-dropdown-label',
   value = '',
   onChange,
@@ -10,12 +10,12 @@ export default function StyledDropdown({
 }) {
   return (
     <FormControl fullWidth>
-      <InputLabel id={label}>{title}</InputLabel>
+      {title && <InputLabel id={label}>{title}</InputLabel>}
       <Select
         labelId={label}
         id={id}
         value={value}
-        label={title}
+        label={title ? title : null}
         onChange={onChange}
       >
         {data &&

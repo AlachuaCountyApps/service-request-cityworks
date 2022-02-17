@@ -4,12 +4,12 @@ import {
   Paper,
   TextField,
   Typography,
-} from "@mui/material";
-import { useEffect, useState } from "react";
+} from '@mui/material';
+import { useEffect, useState } from 'react';
 
-import location from "../data/location.json";
-import issuesList from "../data/issue.json";
-import CallerQuestionsAnswers from "./CallerQuestionsAnswers";
+import location from '../data/location.json';
+import issuesList from '../data/issue.json';
+import CallerQuestionsAnswers from './CallerQuestionsAnswers';
 
 export default function IncidentInformation({
   issue,
@@ -25,7 +25,9 @@ export default function IncidentInformation({
 
     for (const [key, value] of Object.entries(issuesList))
       if (value.length)
-        value.map((element) => tempIssues.push({ label: element, area: key }));
+        value.map((element) =>
+          tempIssues.push({ label: element.issue, area: key })
+        );
 
     setIssues(tempIssues);
   }, []);
@@ -43,11 +45,11 @@ export default function IncidentInformation({
         }}
         spacing={3}
       >
-        <Grid item xs={12} sx={{ textAlign: "center", mb: 2 }}>
+        <Grid item xs={12} sx={{ textAlign: 'center', mb: 2 }}>
           <Typography variant='h4'>Incident Information</Typography>
         </Grid>
 
-        <Grid item xs={4} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Department:
         </Grid>
         <Grid item xs={8} sm={4}>
@@ -60,7 +62,7 @@ export default function IncidentInformation({
           />
         </Grid>
 
-        <Grid item xs={4} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Building:
         </Grid>
         <Grid item xs={8} sm={4}>
@@ -73,7 +75,7 @@ export default function IncidentInformation({
           />
         </Grid>
 
-        <Grid item xs={4} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Additional Location Information:
         </Grid>
         <Grid item xs={8} sm={10}>
@@ -99,7 +101,7 @@ export default function IncidentInformation({
           </Typography>
         </Grid>
 
-        <Grid item xs={4} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Issue:
         </Grid>
         <Grid item xs={8} sm={4}>
@@ -113,7 +115,7 @@ export default function IncidentInformation({
           />
         </Grid>
 
-        {issue !== "" && questionAnswers.length > 0 && (
+        {issue !== '' && questionAnswers.length > 0 && (
           <>
             <Grid item xs={12}>
               <CallerQuestionsAnswers
@@ -127,7 +129,7 @@ export default function IncidentInformation({
               item
               xs={4}
               sm={2}
-              sx={{ textAlign: "end", alignSelf: "center" }}
+              sx={{ textAlign: 'end', alignSelf: 'center' }}
             >
               Description of the Issue:
             </Grid>

@@ -1,31 +1,112 @@
 {
   "General Facilities": [
-    "Carpet/Flooring Issue",
-    "Door/Wall/Window Request",
-    "Electrical Issue",
-    "Elevator Issue",
-    "HVAC Issue",
-    "Janitorial Issue",
-    "Landscaping Issue",
-    "Misc/Other Fac Request",
-    "Painting Request",
-    "Parking Lot Issue",
-    "Pest Issue",
-    "Plumbing Issue",
-    "Roof Issue"
+    {
+      "issue": "Carpet/Flooring Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Door/Wall/Window Request",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Electrical Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Elevator Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "HVAC Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Janitorial Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Landscaping Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Misc/Other Fac Request",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Painting Request",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Parking Lot Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Pest Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": "Billingsley, Ray J"
+    },
+    {
+      "issue": "Plumbing Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    },
+    { "issue": "Roof Issue", "submitTo": "Hayes, Dmetrice B", "dispatchTo": "" }
   ],
-  "Critical Facilities": ["Facilities"],
+
+  "Critical Facilities": [
+    { "issue": "Facilities", "submitTo": "", "dispatchTo": "" }
+  ],
   "Engineering": [],
   "Road and Bridge": [
-    "Dead Animal",
-    "Drainage",
-    "Overgrown Vegetation",
-    "Road Repair",
-    "Sidewalk / Multi-Use Path",
-    "Sink Hole",
-    "Trash/Debris",
-    "Trees and Limbs"
+    {
+      "issue": "Dead Animal",
+      "submitTo": "Wood, Christopher A",
+      "dispatchTo": ""
+    },
+    { "issue": "Drainage", "submitTo": "Myers, Douglas L", "dispatchTo": "" },
+    {
+      "issue": "Overgrown Vegetation",
+      "submitTo": "Greishaw, Niel C",
+      "dispatchTo": ""
+    },
+    { "issue": "Road Repair", "submitTo": "", "dispatchTo": "" },
+    {
+      "issue": "Sidewalk / Multi-Use Path",
+      "submitTo": "Wood, Christopher A",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Sink Hole",
+      "submitTo": "Wood, Christopher A",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Trash/Debris",
+      "submitTo": "Wood, Christopher A",
+      "dispatchTo": ""
+    },
+    {
+      "issue": "Trees and Limbs",
+      "submitTo": "Greishaw, Niel C",
+      "dispatchTo": ""
+    }
   ],
-  "Traffic Maintenance": ["Sign and Marking Issue"],
+  "Traffic Maintenance": [
+    {
+      "issue": "Sign and Marking Issue",
+      "submitTo": "Nazal, John",
+      "dispatchTo": ""
+    }
+  ],
   "LID": []
 }

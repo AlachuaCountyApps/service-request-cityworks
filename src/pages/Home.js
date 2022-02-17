@@ -5,6 +5,8 @@ import problemAreaData from "../data/problemArea.json";
 import questionsandAnswers from "../data/callerQuestions&Answers.json";
 import CallerInformation from "../components/CallerInformation";
 import IncidentInformation from "../components/IncidentInformation";
+import OtherContact from "../components/OtherContact";
+import EmergencyContact from "../components/EmergencyContact";
 
 export default function Home() {
   const [domain, setDomain] = useState("");
@@ -63,6 +65,8 @@ export default function Home() {
           selectedAnswers={selectedAnswers}
           updateSelectedAnswers={updateSelectedAnswers}
         />
+        <OtherContact />
+        <EmergencyContact />
       </Grid>
     </Grid>
   );

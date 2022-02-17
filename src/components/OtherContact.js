@@ -1,12 +1,6 @@
 import { Paper, Grid, Typography, TextField } from "@mui/material";
 
-export default function CallerInformation({
-  handleFormDataChange,
-  secondaryfirstName,
-  secondaryLastName,
-  secondaryWorkPhone,
-  secondaryEmail,
-}) {
+export default function CallerInformation() {
   return (
     <Paper elevation={2} sx={{ padding: 3, mb: 2 }}>
       <Grid container spacing={3}>

@@ -16,7 +16,7 @@ export default function CallerInformation() {
         spacing={3}
       >
         <Grid item xs={12} sx={{ textAlign: "center", mb: 2 }}>
-          <Typography variant='h4'>Your Information</Typography>
+          <Typography variant='h4'>Contact Information</Typography>
         </Grid>
         <Grid
           item

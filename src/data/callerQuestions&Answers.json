@@ -3,7 +3,7 @@
     "Carpet/Flooring Issue": [
       { "question": "Location Detail", "answers": ["Interior", "Exterior"] },
       {
-        "question": "Carpet Issue Detail",
+        "question": "Carpet/Floor Issue Detail",
         "answers": ["Broken", "Loose Floor", "Ripped", "Trip Hazard", "Torn"]
       }
     ],

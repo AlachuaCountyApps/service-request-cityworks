@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Box, Grid, Tab } from '@mui/material';
-import { TabContext, TabList, TabPanel } from '@mui/lab';
+import { Grid, Typography } from '@mui/material';
 
 import Problem from '../components/Problem';
 import StyledDropdown from '../components/StyledDropdown';
@@ -21,7 +20,6 @@ export default function Home() {
   const [issue, setIssue] = useState('');
   const [questionAnswers, setQuestionAnswers] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [tabValue, setTabValue] = useState('1');
 
   const handleDomainChange = (e) => {
     setDomain(e.target.value);
@@ -35,15 +33,33 @@ export default function Home() {
     setIssues(issuesData[e.target.value]);
   };
 
-  const handleIssueChange = (e) => {
-    setIssue(e.target.value);
+  const handleIssueChange = (e, newVal) => {
+    setSelectedAnswers({});
+    if (newVal) {
+      setIssue(newVal.label);
+      setProblemArea(newVal.area);
+      if (
+        questionsandAnswers[newVal.area] &&
+        questionsandAnswers[newVal.area][[newVal.label]]
+      )
+        setQuestionAnswers(questionsandAnswers[newVal.area][newVal.label]);
+    } else {
+      setIssue('');
+      setProblemArea('');
+      setQuestionAnswers([]);
+    }
+  };
+
+  /*   const handleIssueChange = (e, newVal) => {
+    console.log(newVal);
+    setIssue(newVal.label);
     setSelectedAnswers({});
     if (
       questionsandAnswers[problemArea] &&
       questionsandAnswers[problemArea][[e.target.value]]
     )
       setQuestionAnswers(questionsandAnswers[problemArea][e.target.value]);
-  };
+  }; */
 
   const updateSelectedAnswers = (index, e) => {
     setSelectedAnswers((prevVal) => ({
@@ -52,13 +68,25 @@ export default function Home() {
     }));
   };
 
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
-
   return (
     <Grid container spacing={3}>
+      <Grid item xs={12} style={{ textAlign: 'center' }}>
+        <Typography variant='h3'>New Service Request</Typography>
+        <Typography variant='caption' display='block' color='red' gutterBottom>
+          (See below for Emergency Contact Information)
+        </Typography>
+      </Grid>
       <Grid item xs={12}>
+        <CallerInformation />
+        <IncidentInformation
+          issue={issue}
+          handleIssueChange={handleIssueChange}
+          questionAnswers={questionAnswers}
+          selectedAnswers={selectedAnswers}
+          updateSelectedAnswers={updateSelectedAnswers}
+        />
+      </Grid>
+      <Grid item xs={12} sx={{ display: 'none' }}>
         <StyledDropdown
           id='domain'
           title='Domain'
@@ -69,7 +97,7 @@ export default function Home() {
         />
       </Grid>
       {domain && (
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ display: 'none' }}>
           <Problem
             problemAreas={problemAreas}
             problemArea={problemArea}
@@ -77,57 +105,6 @@ export default function Home() {
           />
         </Grid>
       )}
-      {problemArea && issues.length > 0 && (
-        <>
-          <Grid item xs={12}>
-            <Issue
-              issues={issues}
-              issue={issue}
-              handleIssueChange={handleIssueChange}
-            />
-          </Grid>
-          {issue && questionAnswers.length > 0 && (
-            <Grid item xs={12}>
-              <CallerQuestionsAnswers
-                questionAnswers={questionAnswers}
-                selectedAnswers={selectedAnswers}
-                updateSelectedAnswers={updateSelectedAnswers}
-              />
-            </Grid>
-          )}
-        </>
-      )}
-
-      <Grid item xs={12}>
-        <Box sx={{ width: '100%' }}>
-          <TabContext value={tabValue}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-              <TabList
-                onChange={handleTabChange}
-                textColor='primary'
-                indicatorColor='primary'
-              >
-                <Tab
-                  label='Incident Information'
-                  value='1'
-                  sx={{ fontWeight: 'bold' }}
-                />
-                <Tab
-                  label='Caller Information'
-                  value='2'
-                  sx={{ fontWeight: 'bold' }}
-                />
-              </TabList>
-            </Box>
-            <TabPanel value='1'>
-              <IncidentInformation issue={issue} />
-            </TabPanel>
-            <TabPanel value='2'>
-              <CallerInformation />
-            </TabPanel>
-          </TabContext>
-        </Box>
-      </Grid>
     </Grid>
   );
 }

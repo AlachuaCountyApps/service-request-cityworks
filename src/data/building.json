@@ -1,0 +1,208 @@
+{
+  "data": [
+    {
+      "label": "'Administration Annex - Bldg. Total' ows_Address='120 S. Main Street' ows_City='Gainesville' ows_State='FL' ows_Zip_x0020_Code='32601' ows_Latitude='29.6504320000000' ows_Longitude='-82.3249940000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='1' ows_UniqueId='1;#{1511E1D4-51BA-4244-8ED8-BDFD7947FB25}' ows_owshiddenversion='4' ows_FSObjType='1;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='1;#Lists/CountyBuildings/1_.000' ows_MetaInfo='1;#' /"
+    },
+    {
+      "label": "'Agriculture Extension Office' ows_Address='2800 NE 39th Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6852100000000' ows_Longitude='-82.2878970000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='2' ows_UniqueId='2;#{70F836CD-4126-4092-A968-6B07F32FD100}' ows_owshiddenversion='4' ows_FSObjType='2;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-09-29 13:14:47' ows_FileRef='2;#Lists/CountyBuildings/2_.000' ows_MetaInfo='2;#' /"
+    },
+    {
+      "label": "'Agriculture Extension Garage & Storage Bldg.' ows_Address='2800 NE 39th Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6852100000000' ows_Longitude='-82.2878970000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='3' ows_UniqueId='3;#{A2102646-F2E1-420F-B481-5E41C438A8FE}' ows_owshiddenversion='3' ows_FSObjType='3;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='3;#Lists/CountyBuildings/3_.000' ows_MetaInfo='3;#' /"
+    },
+    {
+      "label": "'Animal Services' ows_Address='3400 NE 53rd Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7041695000000' ows_Longitude='-82.2816944000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='4' ows_UniqueId='4;#{264CA2B4-48A7-4991-A500-4CEA46607B90}' ows_owshiddenversion='3' ows_FSObjType='4;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='4;#Lists/CountyBuildings/4_.000' ows_MetaInfo='4;#' /"
+    },
+    {
+      "label": "'Archer Landfill' ows_Address='19401 SW Archer Rd' ows_City='Archer' ows_State='FL' ows_Latitude='29.5129180000000' ows_Longitude='-82.5472140000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='5' ows_UniqueId='5;#{CA556C12-2B0C-4A7F-9A6C-AF06D042444B}' ows_owshiddenversion='3' ows_FSObjType='5;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='5;#Lists/CountyBuildings/5_.000' ows_MetaInfo='5;#' /"
+    },
+    {
+      "label": "'EPD Water Quality Field Office' ows_Address='516 SE 9th Place' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6423725000000' ows_Longitude='-82.3189010000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='6' ows_UniqueId='6;#{D9DB2ADD-C2AF-42D1-A00D-FCA3D6B79D40}' ows_owshiddenversion='3' ows_FSObjType='6;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='6;#Lists/CountyBuildings/6_.000' ows_MetaInfo='6;#' /"
+    },
+    {
+      "label": "'Facilities Shop Building' ows_Address='915 SE 5th Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6425342000000' ows_Longitude='-82.3192259000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='7' ows_UniqueId='7;#{F557299A-6B6D-4442-AC9C-BCD5C602CE96}' ows_owshiddenversion='3' ows_FSObjType='7;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='7;#Lists/CountyBuildings/7_.000' ows_MetaInfo='7;#' /"
+    },
+    {
+      "label": "'Fairbanks Rural Collection Center' ows_Address=' 9920 NE Waldo Road' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7460710000000' ows_Longitude='-82.2288230000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='8' ows_UniqueId='8;#{364AF5CA-BE3B-4CE6-9A99-704D1BA9E4B4}' ows_owshiddenversion='3' ows_FSObjType='8;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='8;#Lists/CountyBuildings/8_.000' ows_MetaInfo='8;#' /"
+    },
+    {
+      "label": "'LandFill' ows_Address='19401 SW Archer Rd' ows_City='Archer' ows_State='FL' ows_Latitude='29.5129180000000' ows_Longitude='-82.5472140000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='9' ows_UniqueId='9;#{823B6A41-ABC7-4F39-9523-557B5D4F16D8}' ows_owshiddenversion='3' ows_FSObjType='9;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='9;#Lists/CountyBuildings/9_.000' ows_MetaInfo='9;#' /"
+    },
+    {
+      "label": "'Fairgrounds - Complex Total' ows_Address='2900 NE 39th Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6835820000000' ows_Longitude='-82.2863087000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='10' ows_UniqueId='10;#{EFCCC2C3-2718-42B0-813E-C0AEDD188F47}' ows_owshiddenversion='3' ows_FSObjType='10;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='10;#Lists/CountyBuildings/10_.000' ows_MetaInfo='10;#' /"
+    },
+    {
+      "label": "'Farmer&#39;s Market' ows_Address='Highway 441 North' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='11' ows_UniqueId='11;#{AB5E358D-A8B0-4502-98E4-9ADF000FBB45}' ows_owshiddenversion='3' ows_FSObjType='11;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:22' ows_FileRef='11;#Lists/CountyBuildings/11_.000' ows_MetaInfo='11;#' /"
+    },
+    {
+      "label": "'Fire Rescue Headquarters - Bldg. Total' ows_Address='913 SE 5th Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6432410000000' ows_Longitude='-82.3188640000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='12' ows_UniqueId='12;#{C336D995-6564-44F8-ACA4-4E00670927B8}' ows_owshiddenversion='3' ows_FSObjType='12;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='12;#Lists/CountyBuildings/12_.000' ows_MetaInfo='12;#' /"
+    },
+    {
+      "label": "'Health Department Modular - Alachua' ows_Address='15530 U.S. 441 #10010' ows_City='Alachua' ows_State='FL' ows_Zip_x0020_Code='32615' ows_Latitude='29.7961300000000' ows_Longitude='-82.5009191000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='13' ows_UniqueId='13;#{32D8D270-EF0D-47C3-A179-C66AAC47C0A2}' ows_owshiddenversion='3' ows_FSObjType='13;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='13;#Lists/CountyBuildings/13_.000' ows_MetaInfo='13;#' /"
+    },
+    {
+      "label": "'Health Department Modular - Hawthorne' ows_Address='22000 SE 65th Avenue' ows_City='Hawthorne' ows_State='FL' ows_Zip_x0020_Code='32640' ows_Latitude='29.5873510000000' ows_Longitude='-82.0761640000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='14' ows_UniqueId='14;#{A1BE76BA-919F-4105-9689-30C0EE08EBD1}' ows_owshiddenversion='3' ows_FSObjType='14;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='14;#Lists/CountyBuildings/14_.000' ows_MetaInfo='14;#' /"
+    },
+    {
+      "label": "'Health Department Modular - High Springs' ows_Address='245 NW 2nd St' ows_City='High Springs' ows_State='FL' ows_Zip_x0020_Code='32643' ows_Latitude='29.8292990000000' ows_Longitude='-82.5970430000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='15' ows_UniqueId='15;#{8C68572F-41DA-43D6-9ACD-BBF3D8720B96}' ows_owshiddenversion='3' ows_FSObjType='15;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='15;#Lists/CountyBuildings/15_.000' ows_MetaInfo='15;#' /"
+    },
+    {
+      "label": "'High Springs Rural Collection Center' ows_Address='16929 NW HWY 441' ows_City='High Springs' ows_State='FL' ows_Latitude='29.7979407000000' ows_Longitude='-82.5008003000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='16' ows_UniqueId='16;#{23E2E00F-FE48-4D6B-B9C3-D237D467FB45}' ows_owshiddenversion='3' ows_FSObjType='16;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='16;#Lists/CountyBuildings/16_.000' ows_MetaInfo='16;#' /"
+    },
+    {
+      "label": "'Home Economics Building (now Facilities Support Bldg)' ows_Address='935 SE 5th Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6423376000000' ows_Longitude='-82.3191337000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='17' ows_UniqueId='17;#{5E7B2D58-E676-4532-8251-4910247983D0}' ows_owshiddenversion='3' ows_FSObjType='17;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='17;#Lists/CountyBuildings/17_.000' ows_MetaInfo='17;#' /"
+    },
+    {
+      "label": "'Household Hazardous Waste Collection Center' ows_Address='5125 NE 63rd Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7123537000000' ows_Longitude='-82.2634815000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='18' ows_UniqueId='18;#{94B446DE-3C43-4D8E-8B4F-7DEC19AA7631}' ows_owshiddenversion='3' ows_FSObjType='18;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='18;#Lists/CountyBuildings/18_.000' ows_MetaInfo='18;#' /"
+    },
+    {
+      "label": "'Jail' ows_Address='3333 NE 39th Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6779560000000' ows_Longitude='-82.2791620000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='19' ows_UniqueId='19;#{91594511-D341-414A-8DE2-0431E3303689}' ows_owshiddenversion='3' ows_FSObjType='19;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='19;#Lists/CountyBuildings/19_.000' ows_MetaInfo='19;#' /"
+    },
+    {
+      "label": "'Jail Dormitory/Barracks Expansion' ows_Address='3333 NE 39th Avenue' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='20' ows_UniqueId='20;#{DAE67542-C601-4F06-904D-E8633E1FE863}' ows_owshiddenversion='3' ows_FSObjType='20;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='20;#Lists/CountyBuildings/20_.000' ows_MetaInfo='20;#' /"
+    },
+    {
+      "label": "'Jail - Two (2) Modular Storage Buildings' ows_Address='3333 NE 39th Avenue' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='21' ows_UniqueId='21;#{6841D2A2-8EF9-4654-BE9B-1CA03C032087}' ows_owshiddenversion='3' ows_FSObjType='21;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='21;#Lists/CountyBuildings/21_.000' ows_MetaInfo='21;#' /"
+    },
+    {
+      "label": "'Leveda Brown Environmental Park - Complex Total' ows_Address='5115 NE 63rd Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7102920000000' ows_Longitude='-82.2633880000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='22' ows_UniqueId='22;#{C1626A2A-232A-4C59-8540-6361BDBAA11C}' ows_owshiddenversion='3' ows_FSObjType='22;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='22;#Lists/CountyBuildings/22_.000' ows_MetaInfo='22;#' /"
+    },
+    {
+      "label": "'Metamorphosis' ows_Address='4201 SW 21th Place' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6326240000000' ows_Longitude='-82.3875000000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='23' ows_UniqueId='23;#{D436A33F-13D7-4B94-B996-43E04069A8AA}' ows_owshiddenversion='3' ows_FSObjType='23;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='23;#Lists/CountyBuildings/23_.000' ows_MetaInfo='23;#' /"
+    },
+    {
+      "label": "'North Central Rural Collection Center (LaCrosse)' ows_Address='10714 N. SR 121' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7521600000000' ows_Longitude='-82.3560350000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='24' ows_UniqueId='24;#{148B32C7-3268-4B41-A253-3394819AE08F}' ows_owshiddenversion='3' ows_FSObjType='24;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='24;#Lists/CountyBuildings/24_.000' ows_MetaInfo='24;#' /"
+    },
+    {
+      "label": "'Pfeifer Rural Collection Center' ows_Address='11700 SE Hawthorne Road' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6006080000000' ows_Longitude='-82.1952810000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='25' ows_UniqueId='25;#{A82C8FB5-11E2-4F13-B6D1-4618B115B581}' ows_owshiddenversion='3' ows_FSObjType='25;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='25;#Lists/CountyBuildings/25_.000' ows_MetaInfo='25;#' /"
+    },
+    {
+      "label": "'Public Works Hague Campus - Complex Total' ows_Address='5620 NW 120th Lane' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7627170000000' ows_Longitude='-82.4054090000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='26' ows_UniqueId='26;#{67551FD3-75C9-48F2-AC3A-58C2A0D67BF7}' ows_owshiddenversion='3' ows_FSObjType='26;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='26;#Lists/CountyBuildings/26_.000' ows_MetaInfo='26;#' /"
+    },
+    {
+      "label": "'Records Retention Building' ows_Address='919 SE 5th Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6424958000000' ows_Longitude='-82.3192055000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='27' ows_UniqueId='27;#{D00672EE-B0C8-4E1E-8D26-A09FECE6F9D9}' ows_owshiddenversion='3' ows_FSObjType='27;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='27;#Lists/CountyBuildings/27_.000' ows_MetaInfo='27;#' /"
+    },
+    {
+      "label": "'Records Storage Annex' ows_Address='917 SE 5th Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6425590000000' ows_Longitude='-82.3192600000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='28' ows_UniqueId='28;#{93D69CFE-FA7B-43C7-B444-F040C4096C97}' ows_owshiddenversion='3' ows_FSObjType='28;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='28;#Lists/CountyBuildings/28_.000' ows_MetaInfo='28;#' /"
+    },
+    {
+      "label": "'Recovered Materials Processing Facility' ows_Address='5115 NE 63rd Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7102330000000' ows_Longitude='-82.2636320000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='29' ows_UniqueId='29;#{BCE28785-9A83-4770-A107-5BC68BA82331}' ows_owshiddenversion='3' ows_FSObjType='29;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='29;#Lists/CountyBuildings/29_.000' ows_MetaInfo='29;#' /"
+    },
+    {
+      "label": "'Sheriff&#39;s Headquarters' ows_Address='2621 SE 27th Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6276940000000' ows_Longitude='-82.2891880000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='30' ows_UniqueId='30;#{FC4256DA-91D1-40F0-8066-A1A8FA418EEE}' ows_owshiddenversion='3' ows_FSObjType='30;#0' ows_Created='2014-06-19 12:03:46' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='30;#Lists/CountyBuildings/30_.000' ows_MetaInfo='30;#' /"
+    },
+    {
+      "label": "'Sheriff&#39;s Vehicle Maintenance' ows_Address='1000 SE 27th Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6427720000000' ows_Longitude='-82.2892280000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='31' ows_UniqueId='31;#{822E08C2-C773-4000-AB63-D7835779D5F1}' ows_owshiddenversion='3' ows_FSObjType='31;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='31;#Lists/CountyBuildings/31_.000' ows_MetaInfo='31;#' /"
+    },
+    {
+      "label": "'State Attorney&#39;s Building' ows_Address='120 W. University Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6522128000000' ows_Longitude='-82.3263891000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='32' ows_UniqueId='32;#{F33829BB-049B-49C5-9033-0AB276B6376A}' ows_owshiddenversion='3' ows_FSObjType='32;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='32;#Lists/CountyBuildings/32_.000' ows_MetaInfo='32;#' /"
+    },
+    {
+      "label": "'Sta 8/Res 8' ows_Address='5715 NE HWY 301' ows_City='Hawthorne' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='33' ows_UniqueId='33;#{E4FBFDCC-9367-4DAE-B855-26BBB93CC063}' ows_owshiddenversion='3' ows_FSObjType='33;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='33;#Lists/CountyBuildings/33_.000' ows_MetaInfo='33;#' /"
+    },
+    {
+      "label": "'Sta 9/Res 9' ows_Address='5901 NW 34th Street' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='34' ows_UniqueId='34;#{324AA369-215D-4059-8F41-D67BE36855FB}' ows_owshiddenversion='3' ows_FSObjType='34;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='34;#Lists/CountyBuildings/34_.000' ows_MetaInfo='34;#' /"
+    },
+    {
+      "label": "'Sta 12/Res 12' ows_Address='1200 SE 43rd Street' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='35' ows_UniqueId='35;#{34E74923-9950-40DE-8FCE-F34859A221AF}' ows_owshiddenversion='3' ows_FSObjType='35;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='35;#Lists/CountyBuildings/35_.000' ows_MetaInfo='35;#' /"
+    },
+    {
+      "label": "'Sta 15/Res 15' ows_Address='8815 SW Archer Road' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='36' ows_UniqueId='36;#{3F3513A2-ABA0-45EB-99AD-FE9411558254}' ows_owshiddenversion='3' ows_FSObjType='36;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='36;#Lists/CountyBuildings/36_.000' ows_MetaInfo='36;#' /"
+    },
+    {
+      "label": "'Sta 16' ows_Address='1600 Ft. Clarke Blvd.' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='37' ows_UniqueId='37;#{2819800B-1E81-419F-8421-DB7189494F91}' ows_owshiddenversion='3' ows_FSObjType='37;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='37;#Lists/CountyBuildings/37_.000' ows_MetaInfo='37;#' /"
+    },
+    {
+      "label": "'Downtown' ows_Address='930 SE 5th Street' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='38' ows_UniqueId='38;#{2592ED80-6012-4047-B2F4-B75C625C3A34}' ows_owshiddenversion='3' ows_FSObjType='38;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='38;#Lists/CountyBuildings/38_.000' ows_MetaInfo='38;#' /"
+    },
+    {
+      "label": "'New Construction - Jonesville Park Complex ' ows_Address='3509 NW 143rd Street' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='39' ows_UniqueId='39;#{DCAEA16A-17E2-455B-9E10-8656A5CFA6AB}' ows_owshiddenversion='3' ows_FSObjType='39;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='39;#Lists/CountyBuildings/39_.000' ows_MetaInfo='39;#' /"
+    },
+    {
+      "label": "'Sta 17/Res17' ows_Address='109 NW 143rd Street' ows_City='Newberry' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='40' ows_UniqueId='40;#{7F3B1B0B-E576-45A8-8E0C-9C338875DF0E}' ows_owshiddenversion='3' ows_FSObjType='40;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='40;#Lists/CountyBuildings/40_.000' ows_MetaInfo='40;#' /"
+    },
+    {
+      "label": "'Sta 19/Res 19' ows_Address='1800 SW 43rd Street' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='41' ows_UniqueId='41;#{7E220EBB-9FEE-418D-93AB-7B32DE48D121}' ows_owshiddenversion='3' ows_FSObjType='41;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='41;#Lists/CountyBuildings/41_.000' ows_MetaInfo='41;#' /"
+    },
+    {
+      "label": "'Sta 20/Res 20' ows_Address='16929 NW US Hwy 441' ows_City='Hig Springs' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='42' ows_UniqueId='42;#{2A04A319-F8D8-4F4B-B93E-AEFB8AE08628}' ows_owshiddenversion='3' ows_FSObjType='42;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='42;#Lists/CountyBuildings/42_.000' ows_MetaInfo='42;#' /"
+    },
+    {
+      "label": "'Hawthorne Rd' ows_Address='5606 SE 159th Street' ows_City='Hawthorne' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='43' ows_UniqueId='43;#{6D658230-DF19-4AE1-93FE-368B169BA07A}' ows_owshiddenversion='3' ows_FSObjType='43;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='43;#Lists/CountyBuildings/43_.000' ows_MetaInfo='43;#' /"
+    },
+    {
+      "label": "'Fire Station' ows_Address='263 SW 2nd Way' ows_City='Waldo' ows_State='FL' ows_Latitude='29.6502495000000' ows_Longitude='-82.3278227000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='44' ows_UniqueId='44;#{E41179C0-A396-460A-921D-F4337609DB49}' ows_owshiddenversion='3' ows_FSObjType='44;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='44;#Lists/CountyBuildings/44_.000' ows_MetaInfo='44;#' /"
+    },
+    {
+      "label": "'Fire Station' ows_Address='17128 SW Archer Road' ows_City='Archer' ows_State='FL' ows_Latitude='29.6088176000000' ows_Longitude='-82.4077527000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='45' ows_UniqueId='45;#{2FC43256-5AEF-4E34-AF87-10BD19722AB1}' ows_owshiddenversion='3' ows_FSObjType='45;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='45;#Lists/CountyBuildings/45_.000' ows_MetaInfo='45;#' /"
+    },
+    {
+      "label": "'Supervisor of Elections Warehouse' ows_Address='602 SE 9th Place' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='46' ows_UniqueId='46;#{00FB0824-9CB0-4AD6-8231-DFD24B904506}' ows_owshiddenversion='3' ows_FSObjType='46;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='46;#Lists/CountyBuildings/46_.000' ows_MetaInfo='46;#' /"
+    },
+    {
+      "label": "'Tax Collector Tag Agency 34th Street' ows_Address='5801 NW 34th Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7090050000000' ows_Longitude='-82.3544480000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='47' ows_UniqueId='47;#{69A3DB8B-9BF5-40C8-BEAC-4F812AE83017}' ows_owshiddenversion='3' ows_FSObjType='47;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='47;#Lists/CountyBuildings/47_.000' ows_MetaInfo='47;#' /"
+    },
+    {
+      "label": "'Work Release' ows_Address='3371 NE 39th Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6815390000000' ows_Longitude='-82.2826740000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='48' ows_UniqueId='48;#{EE26E652-F85B-4FC1-9F3A-D85C8FA9CE6D}' ows_owshiddenversion='3' ows_FSObjType='48;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='48;#Lists/CountyBuildings/48_.000' ows_MetaInfo='48;#' /"
+    },
+    {
+      "label": "'Administration Building - Bldg. Total' ows_Address='12 SE 1st Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6514860000000' ows_Longitude='-82.3239620000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='49' ows_UniqueId='49;#{53E829FB-5287-4148-9BCD-C1084EFCA088}' ows_owshiddenversion='3' ows_FSObjType='49;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='49;#Lists/CountyBuildings/49_.000' ows_MetaInfo='49;#' /"
+    },
+    {
+      "label": "'Community Support/Health Dept. Bldg. - Bldg. Total' ows_Address='218 SE 24th Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6500260000000' ows_Longitude='-82.2948880000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='50' ows_UniqueId='50;#{8DBB2983-C7E3-4510-B938-85BE5384BA14}' ows_owshiddenversion='3' ows_FSObjType='50;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='50;#Lists/CountyBuildings/50_.000' ows_MetaInfo='50;#' /"
+    },
+    {
+      "label": "'Consolidated Communications Center - Bldg. Total' ows_Address='2620 Hawthorne Road' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6431952000000' ows_Longitude='-82.2898005000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='51' ows_UniqueId='51;#{414AD2C7-E4FB-400C-9FAE-D75E0233511D}' ows_owshiddenversion='3' ows_FSObjType='51;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='51;#Lists/CountyBuildings/51_.000' ows_MetaInfo='51;#' /"
+    },
+    {
+      "label": "'Civil Courthouse - Bldg. Total' ows_Address='201 E. University Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6515060000000' ows_Longitude='-82.3228450000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='52' ows_UniqueId='52;#{8382902D-9000-4518-9C2F-5B41FA87DB47}' ows_owshiddenversion='3' ows_FSObjType='52;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='52;#Lists/CountyBuildings/52_.000' ows_MetaInfo='52;#' /"
+    },
+    {
+      "label": "'Criminal Courthouse - Bldg Total' ows_Address='220 S. Main Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6486790000000' ows_Longitude='-82.3254420000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='53' ows_UniqueId='53;#{3289FD6F-38C3-4C35-A53E-128212E23FF2}' ows_owshiddenversion='3' ows_FSObjType='53;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='53;#Lists/CountyBuildings/53_.000' ows_MetaInfo='53;#' /"
+    },
+    {
+      "label": "'Public Defender&#39;s Building - Bldg. Total' ows_Address='33 N. Main Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6524950000000' ows_Longitude='-82.3246690000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='54' ows_UniqueId='54;#{9B1F57C3-D028-41C2-B53B-16EC31BF6FF9}' ows_owshiddenversion='3' ows_FSObjType='54;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='54;#Lists/CountyBuildings/54_.000' ows_MetaInfo='54;#' /"
+    },
+    {
+      "label": "'Motor Vehicle Inspection Bldg. - Bldg. Total' ows_Address='Highway 441 North' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7151304000000' ows_Longitude='-82.3586758000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='55' ows_UniqueId='55;#{52F18AA4-3A55-4411-B7D2-1A22F2386E1A}' ows_owshiddenversion='3' ows_FSObjType='55;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='55;#Lists/CountyBuildings/55_.000' ows_MetaInfo='55;#' /"
+    },
+    {
+      "label": "'Wilson Building - Bldg. Total' ows_Address='26 N. First Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6523420000000' ows_Longitude='-82.3242060000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='56' ows_UniqueId='56;#{FCDC1CEF-5DB3-4C98-84DB-69797CE77A81}' ows_owshiddenversion='3' ows_FSObjType='56;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:24' ows_FileRef='56;#Lists/CountyBuildings/56_.000' ows_MetaInfo='56;#' /"
+    },
+    {
+      "label": "'Rescue 2 - Gatorplace Apt., 3600 SW 23rd St.' ows_Address='3600 SW 23rd Street' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6199970000000' ows_Longitude='-82.3563520000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='57' ows_UniqueId='57;#{AE380CD9-1C86-4A9F-8BE9-F7683F165617}' ows_owshiddenversion='3' ows_FSObjType='57;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:24' ows_FileRef='57;#Lists/CountyBuildings/57_.000' ows_MetaInfo='57;#' /"
+    },
+    {
+      "label": "'Seagle Building  Annex- Bldg. Total' ows_Address='408 W. University Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6523250000000' ows_Longitude='-82.3288305000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='58' ows_UniqueId='58;#{D61319B6-7C80-4AC3-A986-D11E1862092A}' ows_owshiddenversion='3' ows_FSObjType='58;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:24' ows_FileRef='58;#Lists/CountyBuildings/58_.000' ows_MetaInfo='58;#' /"
+    },
+    {
+      "label": "'Star Garage - Bldg. Total' ows_Address='111 SE 1st Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6523250000000' ows_Longitude='-82.3288305000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='59' ows_UniqueId='59;#{1E093F1F-C7F1-411B-85E6-D138267AB26A}' ows_owshiddenversion='3' ows_FSObjType='59;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:24' ows_FileRef='59;#Lists/CountyBuildings/59_.000' ows_MetaInfo='59;#' /"
+    },
+    {
+      "label": "'Community Health Building' ows_Address='218 SE 24th Street' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='60' ows_UniqueId='60;#{68427CF3-81E1-4170-9A61-7C5FDB16F1C0}' ows_owshiddenversion='3' ows_FSObjType='60;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:24' ows_FileRef='60;#Lists/CountyBuildings/60_.000' ows_MetaInfo='60;#' /"
+    },
+    {
+      "label": "'SWAG Building' ows_Address='807 SW 64th Terrace' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6448600000000' ows_Longitude='-82.4112380000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='61' ows_UniqueId='61;#{40170936-6650-43BA-859D-556FA5E790BB}' ows_owshiddenversion='3' ows_FSObjType='61;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:24' ows_FileRef='61;#Lists/CountyBuildings/61_.000' ows_MetaInfo='61;#' /"
+    },
+    {
+      "label": "'Emergency Disaster Building - ' ows_Address='6520 NW 18th Drive' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.7154691000000' ows_Longitude='-82.3500696000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='62' ows_UniqueId='62;#{D054DB31-46F7-4C54-9B41-A9BD7692FBEA}' ows_owshiddenversion='3' ows_FSObjType='62;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='62;#Lists/CountyBuildings/62_.000' ows_MetaInfo='62;#' /"
+    },
+    {
+      "label": "'EMPIRE - Day Reporting & Drug Court' ows_Address='249 West University Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6517160000000' ows_Longitude='-82.3277035000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='63' ows_UniqueId='63;#{1635DD49-D1AB-42DA-A293-9C2FB26EDD8D}' ows_owshiddenversion='3' ows_FSObjType='63;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='63;#Lists/CountyBuildings/63_.000' ows_MetaInfo='63;#' /"
+    },
+    {
+      "label": "'Guardian Ad Litem' ows_Address='14 S. Main Street' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='64' ows_UniqueId='64;#{62CE482A-3A00-425F-8857-D4DDA10CAC9F}' ows_owshiddenversion='3' ows_FSObjType='64;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='64;#Lists/CountyBuildings/64_.000' ows_MetaInfo='64;#' /"
+    },
+    {
+      "label": "'Clock Tower' ows_Address='15 N. Main St.' ows_City='Gainesville' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='65' ows_UniqueId='65;#{4CDA05DB-FD3A-477F-9300-67642C4AB9E3}' ows_owshiddenversion='3' ows_FSObjType='65;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='65;#Lists/CountyBuildings/65_.000' ows_MetaInfo='65;#' /"
+    },
+    {
+      "label": "'Main Street Parking Lot' ows_Address='59 Northeast 1st Avenue' ows_City='Gainesville' ows_State='FL' ows_Latitude='29.6526693000000' ows_Longitude='-82.3244180000000' ows__ModerationStatus='0' ows__Level='1' ows_ID='66' ows_UniqueId='66;#{130DB810-BA18-4C67-B9B4-9C5BF5E5D6A2}' ows_owshiddenversion='3' ows_FSObjType='66;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='66;#Lists/CountyBuildings/66_.000' ows_MetaInfo='66;#' /"
+    },
+    {
+      "label": "'Sta. 21' ows_Address='13815 Hwy. 441' ows_City='Alachua' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='67' ows_UniqueId='67;#{0C883C12-1B06-443E-8F52-A3B865D90572}' ows_owshiddenversion='3' ows_FSObjType='67;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='67;#Lists/CountyBuildings/67_.000' ows_MetaInfo='67;#' /"
+    },
+    {
+      "label": "'Sta. 28' ows_Address='310 NW 250th St.' ows_City='Newberry' ows_State='FL' ows__ModerationStatus='0' ows__Level='1' ows_ID='68' ows_UniqueId='68;#{64468B11-3640-45CF-AB93-89724186850E}' ows_owshiddenversion='3' ows_FSObjType='68;#0' ows_Created='2014-06-19 12:03:47' ows_PermMask='0x1000030041' ows_Modified='2014-08-18 14:18:23' ows_FileRef='68;#Lists/CountyBuildings/68_.000' ows_MetaInfo='68;#' /"
+    }
+  ]
+}

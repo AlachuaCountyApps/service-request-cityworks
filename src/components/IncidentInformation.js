@@ -1,5 +1,6 @@
 import {
   Autocomplete,
+  Button,
   Grid,
   Paper,
   TextField,
@@ -10,6 +11,7 @@ import { useEffect, useState } from 'react';
 import location from '../data/location.json';
 import issuesList from '../data/issue.json';
 import CallerQuestionsAnswers from './CallerQuestionsAnswers';
+import UserLocation from './UserLocation';
 
 export default function IncidentInformation({
   issue,
@@ -19,8 +21,14 @@ export default function IncidentInformation({
   updateSelectedAnswers,
 }) {
   const [issues, setIssues] = useState([]);
+  const [userLocation, setUserLocation] = useState(false);
+
+  const getLocation = () => {
+    setUserLocation(!userLocation);
+  };
 
   useEffect(() => {
+    console.log(location.building.length);
     const tempIssues = [];
 
     for (const [key, value] of Object.entries(issuesList))
@@ -48,6 +56,14 @@ export default function IncidentInformation({
         <Grid item xs={12} sx={{ textAlign: 'center', mb: 2 }}>
           <Typography variant='h4'>Incident Information</Typography>
         </Grid>
+
+        <Grid item xs={12} sx={{ textAlign: 'center' }}>
+          <Button variant='contained' onClick={getLocation}>
+            Get Location
+          </Button>
+        </Grid>
+
+        {userLocation && <UserLocation />}
 
         <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Department:

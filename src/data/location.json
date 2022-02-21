@@ -43,48 +43,308 @@
     "Other (Explain under Description of Issue)"
   ],
   "building": [
-    { "label": "Administration Building", "address": "" },
-    { "label": "Administration-Annex", "address": "" },
-    { "label": "Agricultural Center", "address": "" },
-    { "label": "Animal Shelter", "address": "" },
-    { "label": "Civil Courthouse", "address": "" },
-    { "label": "Collection Center-Archer", "address": "" },
-    { "label": "Collection Center-Fairbanks", "address": "" },
-    { "label": "Collection Center-High Springs", "address": "" },
-    { "label": "Collection Center-LaCrosse", "address": "" },
-    { "label": "Collection Center-Phifer", "address": "" },
-    { "label": "Community Support/Health Dept.", "address": "" },
-    { "label": "CPC Tax Collector Driver's License", "address": "" },
-    { "label": "Criminal Courthouse", "address": "" },
-    { "label": "Day Reporting/Drug Court", "address": "" },
-    { "label": "Environ. Field Support Bldg.", "address": "" },
-    { "label": "Facilities Shop", "address": "" },
-    { "label": "Facilities Training/Clerk Surplus Bldg.", "address": "" },
-    { "label": "Fairgrounds-Exhibit Hall", "address": "" },
-    { "label": "Fairgrounds-Front Gate", "address": "" },
-    { "label": "Fairgrounds-Pole Barn", "address": "" },
-    { "label": "Farmer's Market", "address": "" },
-    { "label": "Guardian Ad Litem", "address": "" },
-    { "label": "Josiah T. Walls Bldg.", "address": "" },
-    { "label": "Leveda-Administration", "address": "" },
-    { "label": "Leveda-Fleet Bldg.", "address": "" },
-    { "label": "Leveda-Hazardous Waste Storage", "address": "" },
-    { "label": "Leveda-Recovery Materials", "address": "" },
-    { "label": "Leveda-Scale House", "address": "" },
-    { "label": "Leveda-Transfer Station", "address": "" },
-    { "label": "Main St. Center Bldg.", "address": "" },
-    { "label": "Metamorphosis", "address": "" },
-    { "label": "Public Defender Building", "address": "" },
-    { "label": "Record Storage", "address": "" },
-    { "label": "Seagle Building-EPD", "address": "" },
-    { "label": "State Attorney", "address": "" },
-    { "label": "SWAG-Health Clinic", "address": "" },
-    { "label": "SWAG-Resource Center", "address": "" },
-    { "label": "Tag Agency-34th St.", "address": "" },
-    { "label": "Tag Agency-Butler Plaza", "address": "" },
-    { "label": "Vet. Memorial Park-Freedom Center", "address": "" },
-    { "label": "Wilson Building", "address": "" },
-    { "label": "Work Release", "address": "" },
-    { "label": "Other (Explain in Add'l Location Information)", "address": "" }
+    {
+      "label": "Administration Building",
+      "address": "12 SE 1st Street",
+      "city": "Gainesville",
+      "zipcode": "32601",
+      "latitude": "29.6514860000000",
+      "longitude": "-82.3239620000000"
+    },
+    {
+      "label": "Administration-Annex",
+      "address": "120 S Main St ",
+      "city": "Gainesville",
+      "zipcode": "32602",
+      "latitude": "29.6504320000000",
+      "longitude": "-82.3249940000000"
+    },
+    {
+      "check": true,
+      "label": "Agricultural Center",
+      "address": "22712 W Newberry Road",
+      "city": "Newberry",
+      "zipcode": "32669",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Animal Shelter",
+      "address": "3400 NE 53rd Ave ",
+      "city": "Gainesville",
+      "zipcode": "32601",
+      "latitude": "29.7041695000000",
+      "longitude": "-82.2816944000000"
+    },
+    {
+      "label": "Civil Courthouse",
+      "address": "201 E. University Avenue",
+      "city": "Gainesville",
+      "zipcode": "32602",
+      "latitude": "29.6515060000000",
+      "longitude": "-82.3228450000000"
+    },
+    {
+      "label": "Collection Center-Archer",
+      "address": "19401 SW Archer Rd",
+      "city": "Archer",
+      "zipcode": "32618",
+      "latitude": "29.5129180000000",
+      "longitude": "-82.5472140000000"
+    },
+    {
+      "label": "Collection Center-Fairbanks",
+      "address": "9920 NE Waldo Rd",
+      "city": "Gainesville",
+      "zipcode": "32615",
+      "latitude": "29.7456092500000",
+      "longitude": "-82.2284280320000"
+    },
+    {
+      "label": "Collection Center-High Springs",
+      "address": "16929 NW Hwy 441",
+      "city": "High Springs",
+      "zipcode": "32643",
+      "latitude": "29.8104233890001",
+      "longitude": "-82.5562309109999"
+    },
+    {
+      "label": "Collection Center-LaCrosse",
+      "address": "10714 State Road 121",
+      "city": "LaCrosse",
+      "zipcode": "32615",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Collection Center-Phifer",
+      "address": "11700 SE Hawthorne Rd",
+      "city": "Gainesville",
+      "zipcode": "32641",
+      "latitude": "29.6006295460001",
+      "longitude": "-82.1952340550000"
+    },
+    {
+      "label": "Community Support/Health Dept.",
+      "address": "218 SE 24th Street",
+      "city": "Gainesville",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "CPC Tax Collector Driver's License",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Criminal Courthouse",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Day Reporting/Drug Court",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Environ. Field Support Bldg.",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    { "label": "Facilities Shop", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "Facilities Training/Clerk Surplus Bldg.",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Fairgrounds-Exhibit Hall",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Fairgrounds-Front Gate",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Fairgrounds-Pole Barn",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Farmer's Market",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Guardian Ad Litem",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Josiah T. Walls Bldg.",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Leveda-Administration",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Leveda-Fleet Bldg.",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Leveda-Hazardous Waste Storage",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Leveda-Recovery Materials",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    { "label": "Leveda-Scale House", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "Leveda-Transfer Station",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Main St. Center Bldg.",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    { "label": "Metamorphosis", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "Public Defender Building",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    { "label": "Record Storage", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "Seagle Building-EPD",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    { "label": "State Attorney", "address": "", "city": "", "zipcode": "" },
+    { "label": "SWAG-Health Clinic", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "SWAG-Resource Center",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Tag Agency-34th St.",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Tag Agency-Butler Plaza",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Vet. Memorial Park-Freedom Center",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Wilson Building",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Work Release",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "Other (Explain in Add'l Location Information)",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    }
   ]
 }

@@ -62,11 +62,11 @@
     {
       "check": true,
       "label": "Agricultural Center",
-      "address": "22712 W Newberry Road",
+      "address": "23100 W Newberry Rd",
       "city": "Newberry",
       "zipcode": "32669",
-      "latitude": "",
-      "longitude": ""
+      "latitude": "29.656530",
+      "longitude": "-82.586130"
     },
     {
       "label": "Animal Shelter",
@@ -128,56 +128,63 @@
       "label": "Community Support/Health Dept.",
       "address": "218 SE 24th Street",
       "city": "Gainesville",
-      "zipcode": "",
-      "latitude": "",
-      "longitude": ""
+      "zipcode": "32641",
+      "latitude": "29.649100",
+      "longitude": "-82.294970"
     },
     {
       "label": "CPC Tax Collector Driver's License",
-      "address": "",
-      "city": "",
-      "zipcode": "",
-      "latitude": "",
-      "longitude": ""
+      "address": "5830 NW 34th Blvd",
+      "city": "Gainesville",
+      "zipcode": "32653",
+      "latitude": "29.710270",
+      "longitude": "-82.354910"
     },
     {
       "label": "Criminal Courthouse",
-      "address": "",
-      "city": "",
-      "zipcode": "",
-      "latitude": "",
-      "longitude": ""
+      "address": "220 S Main St",
+      "city": "Gainesville",
+      "zipcode": "32601",
+      "latitude": "29.6486790000000",
+      "longitude": "-82.3254420000000"
     },
     {
       "label": "Day Reporting/Drug Court",
-      "address": "",
-      "city": "",
-      "zipcode": "",
-      "latitude": "",
-      "longitude": ""
+      "address": "249 West University Avenue",
+      "city": "Gainesville",
+      "zipcode": "32601",
+      "latitude": "29.6517160000000",
+      "longitude": "-82.3277035000000"
     },
     {
       "label": "Environ. Field Support Bldg.",
-      "address": "",
-      "city": "",
-      "zipcode": "",
-      "latitude": "",
-      "longitude": ""
+      "address": "602 SE 9th Place",
+      "city": "Gainesville",
+      "zipcode": "32601",
+      "latitude": "29.642600",
+      "longitude": "-82.318200"
     },
-    { "label": "Facilities Shop", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "Facilities Shop",
+      "address": "915 SE 5th Street",
+      "city": "Gainesville",
+      "zipcode": "32601",
+      "latitude": "29.6425342000000",
+      "longitude": "-82.3192259000000"
+    },
     {
       "label": "Facilities Training/Clerk Surplus Bldg.",
-      "address": "",
-      "city": "",
+      "address": "935 SE 5th Street",
+      "city": "Gainesville",
       "zipcode": "",
-      "latitude": "",
-      "longitude": ""
+      "latitude": "29.6423376000000",
+      "longitude": "-82.3191337000000"
     },
     {
       "label": "Fairgrounds-Exhibit Hall",
-      "address": "",
-      "city": "",
-      "zipcode": "",
+      "address": "3100 NE 39th Ave",
+      "city": "Gainesville",
+      "zipcode": "32609",
       "latitude": "",
       "longitude": ""
     },
@@ -199,19 +206,19 @@
     },
     {
       "label": "Farmer's Market",
-      "address": "",
-      "city": "",
-      "zipcode": "",
-      "latitude": "",
-      "longitude": ""
+      "address": "5920 NW 13th St",
+      "city": "Gainesville",
+      "zipcode": "32653",
+      "latitude": "29.7099321",
+      "longitude": "-82.3532951"
     },
     {
       "label": "Guardian Ad Litem",
-      "address": "",
-      "city": "",
-      "zipcode": "",
-      "latitude": "",
-      "longitude": ""
+      "address": "14 S. Main Street",
+      "city": "Gainesville",
+      "zipcode": "32601",
+      "latitude": "29.651418",
+      "longitude": "-82.325462"
     },
     {
       "label": "Josiah T. Walls Bldg.",
@@ -253,7 +260,14 @@
       "latitude": "",
       "longitude": ""
     },
-    { "label": "Leveda-Scale House", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "Leveda-Scale House",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
     {
       "label": "Leveda-Transfer Station",
       "address": "",
@@ -270,7 +284,14 @@
       "latitude": "",
       "longitude": ""
     },
-    { "label": "Metamorphosis", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "Metamorphosis",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
     {
       "label": "Public Defender Building",
       "address": "",
@@ -279,7 +300,14 @@
       "latitude": "",
       "longitude": ""
     },
-    { "label": "Record Storage", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "Record Storage",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
     {
       "label": "Seagle Building-EPD",
       "address": "",
@@ -288,8 +316,22 @@
       "latitude": "",
       "longitude": ""
     },
-    { "label": "State Attorney", "address": "", "city": "", "zipcode": "" },
-    { "label": "SWAG-Health Clinic", "address": "", "city": "", "zipcode": "" },
+    {
+      "label": "State Attorney",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "label": "SWAG-Health Clinic",
+      "address": "",
+      "city": "",
+      "zipcode": "",
+      "latitude": "",
+      "longitude": ""
+    },
     {
       "label": "SWAG-Resource Center",
       "address": "",

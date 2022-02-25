@@ -1,0 +1,767 @@
+[
+  {
+    "BuildingId": "GEN01_CAB",
+    "BuildingName_short": "County Administration Building",
+    "Address": "12 SE 1st Street",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "JUD06_RES",
+    "BuildingName_short": "Record Retention Building",
+    "Address": "919 SE 5th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac-Judicial"
+  },
+  {
+    "BuildingId": "CON01_JTW",
+    "BuildingName_short": "Josiah T. Walls Building",
+    "Address": "515 North Main Street",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "CON01_TAG",
+    "BuildingName_short": "Tag Agency - Butler",
+    "Address": "3837 SW Windmeadow Blvd",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32608,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "CON02_TAG",
+    "BuildingName_short": "Tag Agency - 34th street",
+    "Address": "5801 NW 34th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32653,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN02_ADA",
+    "BuildingName_short": "Administration - Annex",
+    "Address": "120 S Main St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32602,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN03_WIB",
+    "BuildingName_short": "Wilson Building",
+    "Address": "26 NE 1st St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN04_MSC",
+    "BuildingName_short": "Main Street Center Building",
+    "Address": "33 N Main St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN05_CHD",
+    "BuildingName_short": "Community Services/Health Dept",
+    "Address": "224 SE 24th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32641,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN07_ANS",
+    "BuildingName_short": "Animal Shelter",
+    "Address": "3400 NE 53rd Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN08_FAC",
+    "BuildingName_short": "Facilities Shop",
+    "Address": "915 SE 5th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN13_EFS",
+    "BuildingName_short": "Environmental Field Support Building",
+    "Address": "602 SE 9th Place",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN10_AGC",
+    "BuildingName_short": "Agricultural Center",
+    "Address": "2800 NE 39th Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN11_MET",
+    "BuildingName_short": "Metamorphosis",
+    "Address": "4201 SW 21st Pl",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32607,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN12_FAM",
+    "BuildingName_short": "Farmers Market",
+    "Address": "5900 NW 13th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN09_CSB",
+    "BuildingName_short": "Fire Rescue Headquarters",
+    "Address": "915 SE 5th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN14_SRC",
+    "BuildingName_short": "SWAG Resource Center",
+    "Address": "807 SW 64th Terrace",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32653,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN15_SHC",
+    "BuildingName_short": "SWAG  Health Clinic",
+    "Address": "816 SW 64th Terrace",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32653,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN16_CLT",
+    "BuildingName_short": "Clock Tower",
+    "Address": "200 E University Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN17_PDS",
+    "BuildingName_short": "Police Substation",
+    "Address": "University Avenue & SW 2nd Street",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN18_DDC",
+    "BuildingName_short": "Empire Building/Drug Court",
+    "Address": "249 W University Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN19_EPD",
+    "BuildingName_short": "Seagle Bldg EPD",
+    "Address": "410 W University Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32641,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "JUD01_CIV",
+    "BuildingName_short": "Civil Courthouse",
+    "Address": "201 E University Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32602,
+    "Dept": "GenFac-Judicial"
+  },
+  {
+    "BuildingId": "JUD02_CJC",
+    "BuildingName_short": "Criminal Courthouse",
+    "Address": "220 S Main St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac-Judicial"
+  },
+  {
+    "BuildingId": "JUD03_STA",
+    "BuildingName_short": "State Attorney",
+    "Address": "120 W University Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac-Judicial"
+  },
+  {
+    "BuildingId": "JUD04_GAL",
+    "BuildingName_short": "Guardian Ad Litem",
+    "Address": "14 S Main Street",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac-Judicial"
+  },
+  {
+    "BuildingId": "JUD05_PDB",
+    "BuildingName_short": "Public Defenders Building",
+    "Address": "151 SW 2nd Avenue",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac-Judicial"
+  },
+  {
+    "BuildingId": "PRK01_FRC",
+    "BuildingName_short": "Freedom Center",
+    "Address": "7340 SW 41st Place",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "PRK02_FEH",
+    "BuildingName_short": "Fairgrounds - Exhibit Hall",
+    "Address": "3100 NE 39th Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "PRK04_FPB",
+    "BuildingName_short": "Fairgrounds - Pole Barn",
+    "Address": "3100 NE 39th Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "PRK03_FFG",
+    "BuildingName_short": "Fairgrounds - Front Gate",
+    "Address": "3100 NE 39th Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW01_LAD",
+    "BuildingName_short": "Leveda - Administration",
+    "Address": "5115 NE 63rd Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW02_LTS",
+    "BuildingName_short": "Leveda - Transfer Station",
+    "Address": "5115 NE 63rd Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW03_LSH",
+    "BuildingName_short": "Leveda - Scale House",
+    "Address": "5115 NE 63rd Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW05_LHW",
+    "BuildingName_short": "Leveda - Hazard Waste Storage",
+    "Address": "5115 NE 63rd Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW04_LRM",
+    "BuildingName_short": "Leveda - Recovery Materials",
+    "Address": "5115 NE 63rd Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW06_LFB",
+    "BuildingName_short": "Leveda - Fleet Building",
+    "Address": "5115 NE 63rd Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW08_CCF",
+    "BuildingName_short": "Collection Center - Fairbanks",
+    "Address": "9920 NE Waldo Rd",
+    "City": "Fairbanks",
+    "State": "FL",
+    "Zip": 32615,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW12_CCP",
+    "BuildingName_short": "Collection Center - Pfifer",
+    "Address": "11700 SE Hawthorne Rd",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32641,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW07_CCA",
+    "BuildingName_short": "Collection Center - Archer",
+    "Address": "S/S SR 24",
+    "City": "Archer",
+    "State": "FL",
+    "Zip": 32618,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "SLW11_CCL",
+    "BuildingName_short": "Collection Center - LaCrosse",
+    "Address": "10714 State Road 121",
+    "City": "LaCrosse",
+    "State": "FL",
+    "Zip": 32615,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "ASO-HQ",
+    "BuildingName_short": "Sheriff HQ",
+    "Address": "2621 SE Hawthorne Rd",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ASO-CCC",
+    "BuildingName_short": "Combined Communications Center",
+    "Address": "1100 SE 27th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ASO-STORAGE",
+    "BuildingName_short": "Sheriff Storage Building",
+    "Address": "2621 SE Hawthorne Rd",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ASO-FLEET",
+    "BuildingName_short": "Sheriff Fleet",
+    "Address": "1000 SE 27th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ASO-JAIL",
+    "BuildingName_short": "County Jail",
+    "Address": "3333 NE 39th Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACPW-FLEET",
+    "BuildingName_short": "Public Works Fleet Building",
+    "Address": "5620 NW 120th Ln",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACPW-ADMIN",
+    "BuildingName_short": "Public Works Main building",
+    "Address": "5620 NW 120th Ln",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32653,
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACPW-WAREHOUSE",
+    "BuildingName_short": "Public Works Ready Room",
+    "Address": "5620 NW 120th Ln",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32653,
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACPW-CSW",
+    "BuildingName_short": "Motor Vehicle Inspections",
+    "Address": "5900 NW 13th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-41",
+    "BuildingName_short": "Station 41",
+    "Address": "5715 NE US HWY 301",
+    "City": "Hawthorne",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-40",
+    "BuildingName_short": "Station 40",
+    "Address": "14377 NE US HWY 301",
+    "City": "Waldo",
+    "State": "FL",
+    "Zip": 32694,
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-21",
+    "BuildingName_short": "Station 21",
+    "Address": "15040 NW HWY 441",
+    "City": "Alachua",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-20",
+    "BuildingName_short": "Station 20",
+    "Address": "16935 NW HWY 441",
+    "City": "High Springs",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "SLW10_CCH",
+    "BuildingName_short": "Collection Center - High Springs",
+    "Address": "16929 NW Hwy 441",
+    "City": "High Springs",
+    "State": "FL",
+    "Zip": 32643,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "ACFR-23",
+    "BuildingName_short": "Station 23",
+    "Address": "1600 Fort Clarke Blvd",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-80",
+    "BuildingName_short": "Station 80",
+    "Address": "2000 SW 43rd St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-60",
+    "BuildingName_short": "Station 60",
+    "Address": "1320 SE 43rd St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-81",
+    "BuildingName_short": "Station 81",
+    "Address": "8815 SW Archer Rd",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-82",
+    "BuildingName_short": "Station 82",
+    "Address": "17128 SW Archer Rd",
+    "City": "Archer",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-33",
+    "BuildingName_short": "Station 33",
+    "Address": "5901 NW 34th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-62",
+    "BuildingName_short": "Station 62",
+    "Address": "7405 SE 221st St",
+    "City": "Hawthorne",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-25",
+    "BuildingName_short": "Station 25",
+    "Address": "12825 NW US Hwy 441",
+    "City": "Alachua",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ASO-AUSTIN CAREY",
+    "BuildingName_short": "Austin Carey Fire Tower",
+    "Address": "12160 NE Waldo Rd",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACPW-RADIO ROOM",
+    "BuildingName_short": "Public Works Fire Tower and Utlity Building",
+    "Address": "5620 NW 120th Ln",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-30",
+    "BuildingName_short": "Station 30",
+    "Address": "930 SE 5th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-24",
+    "BuildingName_short": "Station 24",
+    "Address": "3509 NW 143rd St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACPW-TRAFFIC MAINT.",
+    "BuildingName_short": "Public Works Traffic Maintenance",
+    "Address": "5620 NW 120th Ln",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACPW-ANNEX",
+    "BuildingName_short": "Public Works Annex Building",
+    "Address": "5620 NW 120th Ln",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "ACFR-SW24",
+    "BuildingName_short": "Relocation of 80",
+    "Address": "10404 SW 24th Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "CritFac"
+  },
+  {
+    "BuildingId": "NULL",
+    "BuildingName_short": "Facilities Training & Clerk Surplus Building",
+    "Address": "NULL",
+    "City": "NULL",
+    "State": "FL",
+    "Zip": "NULL",
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "ACFR-ABDN-01",
+    "BuildingName_short": "Abandoned Fire Station - Hawethorne/Grove Park",
+    "Address": "5606 159th Terrace",
+    "City": "Hawthorne",
+    "State": "FL",
+    "Zip": 32640,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "ACFR-ABDN-02",
+    "BuildingName_short": "Jonesville Fire Station (Abandoned)",
+    "Address": "NW 2nd Ln and NW 143rd St",
+    "City": "Newberry",
+    "State": "FL",
+    "Zip": 32669,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN06_WRF",
+    "BuildingName_short": "Work Release Facility",
+    "Address": "3333 NE 39th Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "TEMP1_AG",
+    "BuildingName_short": "Temp Ag Center",
+    "Address": "106 SW 140th Ter, Ste 3",
+    "City": "Newberry",
+    "State": "FL",
+    "Zip": 32669,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN12_FAM",
+    "BuildingName_short": "Farmers Market",
+    "Address": "5900 NW 13th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "PRK02_CAMP",
+    "BuildingName_short": "Camp Cuscowilla",
+    "Address": "210 SE 134th Avenue",
+    "City": "Mincanopy",
+    "State": "FL",
+    "Zip": 32667,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN20_HAP",
+    "BuildingName_short": "Housing Authority Project",
+    "Address": "4401 SW 13th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32608,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN21_FLH",
+    "BuildingName_short": "Facilities - Little House",
+    "Address": "935 SE 5th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN22_CRS",
+    "BuildingName_short": "Careersource",
+    "Address": "1112 N Main Street",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32601,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "CON03_CPC",
+    "BuildingName_short": "CPC Tax Collector Driver's License",
+    "Address": "NULL",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32653,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN23_AGO",
+    "BuildingName_short": "Ag Center Office",
+    "Address": "22712 W Newberry Road",
+    "City": "Newberry",
+    "State": "FL",
+    "Zip": 32669,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN24_AGA",
+    "BuildingName_short": "Ag Center Auditorium",
+    "Address": "22712 W Newberry Road",
+    "City": "Newberry",
+    "State": "FL",
+    "Zip": 32669,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "GEN25_CFW",
+    "BuildingName_short": "Camp-Fillmer Warehouse",
+    "Address": "2559 NE 18th Terrace Suite A",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32609,
+    "Dept": "GenFac"
+  },
+  {
+    "BuildingId": "CON04_TAG",
+    "BuildingName_short": "New Tag 34th",
+    "Address": "5830 NW 34th St",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": 32653,
+    "Dept": "GenFac"
+  }
+]

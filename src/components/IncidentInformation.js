@@ -9,9 +9,29 @@ import {
 import { useEffect, useState } from 'react';
 
 import location from '../data/location.json';
+import buildings from '../data/buildings.json';
 import issuesList from '../data/issue.json';
 import CallerQuestionsAnswers from './CallerQuestionsAnswers';
 import UserLocation from './UserLocation';
+
+function closestLocation(targetLocation, locationData) {
+  function vectorDistance(dx, dy) {
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  function locationDistance(location1, location2) {
+    var dx = location1.lat - location2.lat,
+      dy = location1.lng - location2.lng;
+
+    return vectorDistance(dx, dy);
+  }
+
+  return locationData.reduce(function (prev, curr) {
+    var prevDistance = locationDistance(targetLocation, prev),
+      currDistance = locationDistance(targetLocation, curr);
+    return prevDistance < currDistance ? prev : curr;
+  });
+}
 
 export default function IncidentInformation({
   issue,
@@ -22,9 +42,31 @@ export default function IncidentInformation({
 }) {
   const [issues, setIssues] = useState([]);
   const [userLocation, setUserLocation] = useState(false);
+  const [value, setValue] = useState('');
 
   const getLocation = () => {
     setUserLocation(!userLocation);
+  };
+
+  const getUserLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const buildingToSelect = closestLocation(
+        {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        },
+        buildings
+      );
+      console.log('Latitude is : ', position.coords.latitude);
+      console.log('Longitude is : ', position.coords.longitude);
+      setValue(
+        buildings[
+          buildings.findIndex(
+            (build) => build.BuildingId === buildingToSelect.BuildingId
+          )
+        ]
+      );
+    });
   };
 
   useEffect(() => {
@@ -63,7 +105,7 @@ export default function IncidentInformation({
           </Button>
         </Grid>
 
-        {userLocation && <UserLocation />}
+        {userLocation && <UserLocation getUserLocation={getUserLocation} />}
 
         <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Department:
@@ -85,8 +127,12 @@ export default function IncidentInformation({
           <Autocomplete
             id='building'
             name='building'
-            options={location.building}
+            options={buildings}
             renderInput={(params) => <TextField {...params} />}
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
             fullWidth
           />
         </Grid>

@@ -1,15 +1,8 @@
 import { Link } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
-export default function UserLocation() {
+export default function UserLocation({ getUserLocation }) {
   const [showLink, setShowLink] = useState(false);
-
-  const getUserLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log('Latitude is : ', position.coords.latitude);
-      console.log('Longitude is : ', position.coords.longitude);
-    });
-  };
 
   useEffect(() => {
     if ('geolocation' in navigator) {

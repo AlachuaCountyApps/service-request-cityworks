@@ -13,6 +13,8 @@ import buildings from '../data/buildings.json';
 import issuesList from '../data/issue.json';
 import CallerQuestionsAnswers from './CallerQuestionsAnswers';
 import UserLocation from './UserLocation';
+import IssueQuestionAnswers from './IssueQuestionAnswers';
+import { Link } from 'react-router-dom';
 
 function closestLocation(targetLocation, locationData) {
   function vectorDistance(dx, dy) {
@@ -43,6 +45,8 @@ export default function IncidentInformation({
   const [issues, setIssues] = useState([]);
   const [userLocation, setUserLocation] = useState(false);
   const [value, setValue] = useState('');
+  const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
+  const [issueDescription, setIssueDescription] = useState('');
 
   const getLocation = () => {
     setUserLocation(!userLocation);
@@ -99,125 +103,118 @@ export default function IncidentInformation({
           <Typography variant='h4'>Incident Information</Typography>
         </Grid>
 
-        <Grid item xs={12} sx={{ textAlign: 'center' }}>
-          <Button variant='contained' onClick={getLocation}>
-            Get Location
-          </Button>
-        </Grid>
-
         {userLocation && <UserLocation getUserLocation={getUserLocation} />}
 
-        <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
-          Department:
-        </Grid>
-        <Grid item xs={8} sm={4}>
-          <Autocomplete
-            id='deparment'
-            name='department'
-            options={location.department}
-            renderInput={(params) => <TextField {...params} />}
-            fullWidth
-          />
-        </Grid>
+        <Grid item sm={2} sx={{ display: { xs: 'none', sm: 'flex' } }}></Grid>
 
-        <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
-          Building:
-        </Grid>
-        <Grid item xs={8} sm={4}>
-          <Autocomplete
-            id='building'
-            name='building'
-            options={buildings}
-            renderInput={(params) => <TextField {...params} />}
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-            fullWidth
-          />
-        </Grid>
-
-        <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
-          Additional Location Information:
-        </Grid>
-        <Grid item xs={8} sm={10}>
-          <TextField
-            id='location-info'
-            name='location-info'
-            required={true}
-            rows={3}
-            multiline
-            fullWidth
-          />
-        </Grid>
-
-        <Grid item xs={4} sm={2}></Grid>
-        <Grid item xs={8} sm={10} style={{ paddingTop: 0 }}>
-          <Typography
-            variant='caption'
-            display='block'
-            color='red'
-            gutterBottom
-          >
-            (Example - 1<sup>st</sup> Floor Women's Restroom)
-          </Typography>
-        </Grid>
-
-        <Grid item xs={4} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
+        <Grid item xs={2} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Issue:
         </Grid>
-        <Grid item xs={8} sm={4}>
+        <Grid item xs={10} sm={4}>
           <Autocomplete
-            id='building'
-            name='building'
+            id='issue'
+            name='issue'
             options={issues}
             renderInput={(params) => <TextField {...params} />}
             onChange={(e, newVal) => handleIssueChange(e, newVal)}
             fullWidth
           />
         </Grid>
+        <Grid item sm={4} sx={{ display: { xs: 'none', sm: 'flex' } }}></Grid>
 
-        {issue !== '' && questionAnswers.length > 0 && (
+        {issue !== '' && (
           <>
-            <Grid item xs={12}>
-              <CallerQuestionsAnswers
-                questionAnswers={questionAnswers}
-                selectedAnswers={selectedAnswers}
-                updateSelectedAnswers={updateSelectedAnswers}
-              />
-            </Grid>
-
-            <Grid
+            {/* <Grid
               item
               xs={4}
               sm={2}
               sx={{ textAlign: 'end', alignSelf: 'center' }}
             >
-              Description of the Issue:
+              Department:
             </Grid>
-            <Grid item xs={8} sm={10}>
-              <TextField
-                id='issue-description'
-                name='issue-description'
-                required={true}
-                rows={3}
-                multiline
+            <Grid item xs={8} sm={4}>
+              <Autocomplete
+                id='deparment'
+                name='department'
+                options={location.department}
+                renderInput={(params) => <TextField {...params} />}
                 fullWidth
+              />
+            </Grid> */}
+          </>
+        )}
+
+        {issue !== '' && (
+          <Grid container sx={{ my: 5 }}>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                bgcolor: '#2e78ac',
+                borderTopLeftRadius: 8,
+                borderTopRightRadius: 8,
+                color: 'white',
+                p: 2,
+                fontWeight: 'bold',
+                textAlign: 'center',
+              }}
+            >
+              Please answer the following questions
+            </Grid>
+
+            <Grid item xs={12}>
+              <IssueQuestionAnswers
+                id={'building'}
+                index={0}
+                question={'Building:'}
+                value={value}
+                updateSelection={(newValue) => setValue(newValue)}
+                options={buildings}
+                getLocation={getLocation}
+                AdditionalComponent={true}
               />
             </Grid>
 
-            <Grid item xs={4} sm={2}></Grid>
-            <Grid item xs={8} sm={10} style={{ paddingTop: 0 }}>
-              <Typography
-                variant='caption'
-                display='block'
-                color='red'
-                gutterBottom
-              >
-                (Be as detailed and specific as possible)
-              </Typography>
+            <Grid item xs={12}>
+              <IssueQuestionAnswers
+                index={1}
+                id={'location-info'}
+                question={'Additional Location Information:'}
+                value={additonalLocationInfo}
+                updateSelection={(newValue) =>
+                  setAdditonalLocationInfo(newValue)
+                }
+                placeholder={`(Example - First Floor Women's Restroom)`}
+              />
             </Grid>
-          </>
+
+            {questionAnswers.length > 0 && (
+              <Grid item xs={12}>
+                <CallerQuestionsAnswers
+                  count={2}
+                  questionAnswers={questionAnswers}
+                  selectedAnswers={selectedAnswers}
+                  updateSelectedAnswers={updateSelectedAnswers}
+                />
+              </Grid>
+            )}
+
+            <Grid item xs={12}>
+              <IssueQuestionAnswers
+                index={2 + questionAnswers.length}
+                id={'issue-description'}
+                question={'Description of the Issue:'}
+                value={issueDescription}
+                updateSelection={(newValue) => setIssueDescription(newValue)}
+                placeholder={'(Be as detailed and specific as possible)'}
+              />
+            </Grid>
+            <Grid item xs={12} sx={{ my: 5, textAlign: 'center' }}>
+              <Link to='/step2' style={{ textDecoration: 'none' }}>
+                <Button variant='contained'>Next</Button>
+              </Link>
+            </Grid>
+          </Grid>
         )}
       </Grid>
     </Paper>

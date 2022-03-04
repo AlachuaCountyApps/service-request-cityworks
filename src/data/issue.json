@@ -1,101 +1,249 @@
 {
   "General Facilities": [
     {
+      "ProblemSid": 21,
+      "DomainId": 3,
+      "ProblemCode": "CarpetFlooring",
+      "ProbCategory": "GEN FAC",
+      "Description": "Carpet/Flooring Issue",
+      "SubmitTo": "268",
       "issue": "Carpet/Flooring Issue",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 18,
+      "DomainId": 3,
+      "ProblemCode": "DoorWall",
+      "ProbCategory": "GEN FAC",
+      "Description": "Door/Wall/Window Request",
+      "SubmitTo": "268",
       "issue": "Door/Wall/Window Request",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 19,
+      "DomainId": 3,
+      "ProblemCode": "Electrical",
+      "ProbCategory": "GEN FAC",
+      "Description": "Electrical Issue",
+      "SubmitTo": "268",
       "issue": "Electrical Issue",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 20,
+      "DomainId": 3,
+      "ProblemCode": "Elevator",
+      "ProbCategory": "GEN FAC",
+      "Description": "Elevator Issue",
+      "SubmitTo": "268",
       "issue": "Elevator Issue",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 22,
+      "DomainId": 3,
+      "ProblemCode": "HVAC",
+      "ProbCategory": "GEN FAC",
+      "Description": "HVAC Issue",
+      "SubmitTo": "268",
       "issue": "HVAC Issue",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 23,
+      "DomainId": 3,
+      "ProblemCode": "Janitorial",
+      "ProbCategory": "GEN FAC",
+      "Description": "Janitorial Issue",
+      "SubmitTo": "268",
       "issue": "Janitorial Issue",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 24,
+      "DomainId": 3,
+      "ProblemCode": "Landscaping",
+      "ProbCategory": "GEN FAC",
+      "Description": "Landscaping Issue",
+      "SubmitTo": "",
       "issue": "Landscaping Issue",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 25,
+      "DomainId": 3,
+      "ProblemCode": "MiscOther",
+      "ProbCategory": "GEN FAC",
+      "Description": "Misc/Other Fac Request",
+      "SubmitTo": "268",
       "issue": "Misc/Other Fac Request",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 26,
+      "DomainId": 3,
+      "ProblemCode": "Painting",
+      "ProbCategory": "GEN FAC",
+      "Description": "Painting Request",
+      "SubmitTo": "268",
       "issue": "Painting Request",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 31,
+      "DomainId": 3,
+      "ProblemCode": "ParkingLot",
+      "ProbCategory": "GEN FAC",
+      "Description": "Parking Lot Issue",
+      "SubmitTo": "268",
       "issue": "Parking Lot Issue",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 27,
+      "DomainId": 3,
+      "ProblemCode": "Pests",
+      "ProbCategory": "GEN FAC",
+      "Description": "Pest Issue",
+      "SubmitTo": "268",
       "issue": "Pest Issue",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": "Billingsley, Ray J"
     },
     {
+      "ProblemSid": 28,
+      "DomainId": 3,
+      "ProblemCode": "Plumbing",
+      "ProbCategory": "GEN FAC",
+      "Description": "Plumbing Issue",
+      "SubmitTo": "268",
       "issue": "Plumbing Issue",
       "submitTo": "Hayes, Dmetrice B",
       "dispatchTo": ""
     },
-    { "issue": "Roof Issue", "submitTo": "Hayes, Dmetrice B", "dispatchTo": "" }
+    {
+      "ProblemSid": 29,
+      "DomainId": 3,
+      "ProblemCode": "Roof",
+      "ProbCategory": "GEN FAC",
+      "Description": "Roof Issue",
+      "SubmitTo": "268",
+      "issue": "Roof Issue",
+      "submitTo": "Hayes, Dmetrice B",
+      "dispatchTo": ""
+    }
   ],
 
   "Critical Facilities": [
-    { "issue": "Facilities", "submitTo": "", "dispatchTo": "" }
+    {
+      "ProblemSid": 10,
+      "DomainId": 1,
+      "ProblemCode": "FACILITIES",
+      "ProbCategory": "CRITICAL FACILITIES",
+      "Description": "Facilities",
+      "SubmitTo": "",
+      "issue": "Facilities",
+      "submitTo": "",
+      "dispatchTo": ""
+    }
   ],
   "Engineering": [],
   "Road and Bridge": [
     {
+      "ProblemSid": 1,
+      "DomainId": 1,
+      "ProblemCode": "Dead Animal",
+      "ProbCategory": "ROAD AND BRIDGE",
+      "Description": "Dead Animal",
+      "SubmitTo": "101",
       "issue": "Dead Animal",
       "submitTo": "Wood, Christopher A",
       "dispatchTo": ""
     },
-    { "issue": "Drainage", "submitTo": "Myers, Douglas L", "dispatchTo": "" },
     {
+      "ProblemSid": 7,
+      "DomainId": 1,
+      "ProblemCode": "Drainage",
+      "ProbCategory": "ROAD AND BRIDGE",
+      "Description": "Drainage",
+      "SubmitTo": "60",
+      "issue": "Drainage",
+      "submitTo": "Myers, Douglas L",
+      "dispatchTo": ""
+    },
+    {
+      "ProblemSid": 13,
+      "DomainId": 1,
+      "ProblemCode": "OVERGROWN_VEGETATION",
+      "ProbCategory": "ROAD AND BRIDGE",
+      "Description": "Overgrown Vegetation",
+      "SubmitTo": "34",
       "issue": "Overgrown Vegetation",
       "submitTo": "Greishaw, Niel C",
       "dispatchTo": ""
     },
-    { "issue": "Road Repair", "submitTo": "", "dispatchTo": "" },
     {
+      "ProblemSid": 4,
+      "DomainId": 1,
+      "ProblemCode": "Road Repair",
+      "ProbCategory": "ROAD AND BRIDGE",
+      "Description": "Road Repair",
+      "SubmitTo": "-9999",
+      "issue": "Road Repair",
+      "submitTo": "",
+      "dispatchTo": ""
+    },
+    {
+      "ProblemSid": 5,
+      "DomainId": 1,
+      "ProblemCode": "Sidewalk/Multi-Use",
+      "ProbCategory": "ROAD AND BRIDGE",
+      "Description": "Sidewalk / Multi-Use Path",
+      "SubmitTo": "101",
       "issue": "Sidewalk / Multi-Use Path",
       "submitTo": "Wood, Christopher A",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 12,
+      "DomainId": 1,
+      "ProblemCode": "SINK_HOLE",
+      "ProbCategory": "ROAD AND BRIDGE",
+      "Description": "Sink Hole",
+      "SubmitTo": "101",
       "issue": "Sink Hole",
       "submitTo": "Wood, Christopher A",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 6,
+      "DomainId": 1,
+      "ProblemCode": "Trash/Debris",
+      "ProbCategory": "ROAD AND BRIDGE",
+      "Description": "Trash/Debris",
+      "SubmitTo": "101",
       "issue": "Trash/Debris",
       "submitTo": "Wood, Christopher A",
       "dispatchTo": ""
     },
     {
+      "ProblemSid": 3,
+      "DomainId": 1,
+      "ProblemCode": "Trees and Limbs",
+      "ProbCategory": "ROAD AND BRIDGE",
+      "Description": "Trees and Limbs",
+      "SubmitTo": "34",
       "issue": "Trees and Limbs",
       "submitTo": "Greishaw, Niel C",
       "dispatchTo": ""
@@ -103,6 +251,12 @@
   ],
   "Traffic Maintenance": [
     {
+      "ProblemSid": 9,
+      "DomainId": 1,
+      "ProblemCode": "SIGN_MARKING",
+      "ProbCategory": "TRAFFIC",
+      "Description": "Sign  and Marking Issue",
+      "SubmitTo": "61",
       "issue": "Sign and Marking Issue",
       "submitTo": "Nazal, John",
       "dispatchTo": ""

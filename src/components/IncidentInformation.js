@@ -41,12 +41,15 @@ export default function IncidentInformation({
   questionAnswers,
   selectedAnswers,
   updateSelectedAnswers,
+  building,
+  setBuilding,
+  additonalLocationInfo,
+  setAdditonalLocationInfo,
+  issueDescription,
+  setIssueDescription,
 }) {
   const [issues, setIssues] = useState([]);
   const [userLocation, setUserLocation] = useState(false);
-  const [value, setValue] = useState('');
-  const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
-  const [issueDescription, setIssueDescription] = useState('');
 
   const getLocation = () => {
     setUserLocation(!userLocation);
@@ -63,7 +66,7 @@ export default function IncidentInformation({
       );
       console.log('Latitude is : ', position.coords.latitude);
       console.log('Longitude is : ', position.coords.longitude);
-      setValue(
+      setBuilding(
         buildings[
           buildings.findIndex(
             (build) => build.BuildingId === buildingToSelect.BuildingId
@@ -167,8 +170,8 @@ export default function IncidentInformation({
                 id={'building'}
                 index={0}
                 question={'Building:'}
-                value={value}
-                updateSelection={(newValue) => setValue(newValue)}
+                value={building}
+                updateSelection={(newValue) => setBuilding(newValue)}
                 options={buildings}
                 getLocation={getLocation}
                 AdditionalComponent={true}

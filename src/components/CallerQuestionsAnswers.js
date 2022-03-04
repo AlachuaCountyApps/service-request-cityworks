@@ -19,18 +19,22 @@ export default function CallerQuestionsAnswers({
             sm={4}
             sx={{ alignSelf: 'center', fontWeight: 'bold', my: { xs: 2 } }}
           >
-            {question.question}
+            {question.question.text}
           </Grid>
           <Grid item xs={12} sm={8}>
             <Select
-              value={selectedAnswers[index] ? selectedAnswers[index] : ''}
-              onChange={(e) => updateSelectedAnswers(index, e)}
+              value={
+                selectedAnswers[question.question.id]
+                  ? selectedAnswers[question.question.id]
+                  : ''
+              }
+              onChange={(e) => updateSelectedAnswers(question.question.id, e)}
               style={{ fontWeight: 'bold' }}
               fullWidth
             >
               {question.answers.map((answer, ind) => (
-                <MenuItem key={ind} value={answer}>
-                  {answer}
+                <MenuItem key={ind} value={answer.id}>
+                  {answer.text}
                 </MenuItem>
               ))}
             </Select>

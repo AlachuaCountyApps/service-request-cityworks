@@ -62,7 +62,9 @@ export default function IssueQuestionAnswers({
             id={id}
             name={id}
             value={value}
-            onChange={(e) => updateSelection(e.target.val)}
+            onChange={(e) => {
+              updateSelection(e.target.value);
+            }}
             required={true}
             rows={3}
             multiline

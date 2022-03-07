@@ -83,7 +83,11 @@ export default function IncidentInformation({
     for (const [key, value] of Object.entries(issuesList))
       if (value.length)
         value.map((element) =>
-          tempIssues.push({ label: element.issue, area: key })
+          tempIssues.push({
+            label: element.issue,
+            area: key,
+            ProblemSid: element.ProblemSid,
+          })
         );
 
     setIssues(tempIssues);

@@ -7,6 +7,7 @@ import Step2 from './pages/Step2';
 
 import problemAreaData from './data/problemArea.json';
 import questionsandAnswers from './data/callerQuestions&Answers.json';
+import Success from './pages/Success';
 
 function App() {
   const [domain, setDomain] = useState('');
@@ -93,6 +94,7 @@ function App() {
               }
             />
             <Route path='/step2' element={<Step2 />} />
+            <Route path='/success' element={<Success />} />
           </Routes>
         </BrowserRouter>
       </Grid>

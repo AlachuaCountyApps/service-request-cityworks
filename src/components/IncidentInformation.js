@@ -122,6 +122,7 @@ export default function IncidentInformation({
             id='issue'
             name='issue'
             options={issues}
+            value={issues.length > 0 ? issue : ''}
             renderInput={(params) => <TextField {...params} />}
             onChange={(e, newVal) => handleIssueChange(e, newVal)}
             fullWidth

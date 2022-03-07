@@ -80,7 +80,7 @@ export default function IncidentInformation({
 
   const submitPage1 = (e) => {
     e.preventDefault();
-    navigate('/step2');
+    navigate('/servicerequest/step2');
   };
 
   useEffect(() => {

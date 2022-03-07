@@ -28,7 +28,9 @@ export default function CallerQuestionsAnswers({
                   ? selectedAnswers[question.question.id]
                   : ''
               }
-              onChange={(e) => updateSelectedAnswers(question.question.id, e)}
+              onChange={(e) =>
+                updateSelectedAnswers(question.question.id, e, question.answers)
+              }
               style={{ fontWeight: 'bold' }}
               fullWidth
               required

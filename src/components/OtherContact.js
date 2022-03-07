@@ -1,4 +1,4 @@
-import { Paper, Grid, Typography, TextField } from "@mui/material";
+import { Paper, Grid, Typography, TextField } from '@mui/material';
 
 export default function CallerInformation() {
   return (
@@ -10,21 +10,21 @@ export default function CallerInformation() {
             provide name and contact information:
           </Typography>
         </Grid>
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           First Name:
         </Grid>
         <Grid item xs={9} sm={4}>
           <TextField id='otherFirstName' name='otherFirstName' fullWidth />
         </Grid>
 
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Last Name:
         </Grid>
         <Grid item xs={9} sm={4}>
           <TextField id='otherLastName' name='otherLastName' fullWidth />
         </Grid>
 
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Phone Number:
         </Grid>
         <Grid item xs={9} sm={4}>
@@ -36,11 +36,11 @@ export default function CallerInformation() {
           />
         </Grid>
 
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Email:
         </Grid>
         <Grid item xs={9} sm={4}>
-          <TextField id='otherEmail' name='otherEmail' type='email' fullWidth />
+          <TextField id='otherEmail' name='otherEmail' fullWidth />
         </Grid>
       </Grid>
     </Paper>

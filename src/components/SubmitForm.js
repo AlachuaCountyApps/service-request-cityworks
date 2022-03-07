@@ -12,7 +12,7 @@ export default function SubmitForm() {
           sm={6}
           sx={{ textAlign: { xs: 'center', sm: 'end' } }}
         >
-          <Link to='/step1' style={{ textDecoration: 'none' }}>
+          <Link to='/servicerequest/step1' style={{ textDecoration: 'none' }}>
             <Button variant='outlined' startIcon={<ArrowBackIcon />}>
               Go Back
             </Button>

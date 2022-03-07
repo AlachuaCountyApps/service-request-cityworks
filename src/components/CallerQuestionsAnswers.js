@@ -31,6 +31,7 @@ export default function CallerQuestionsAnswers({
               onChange={(e) => updateSelectedAnswers(question.question.id, e)}
               style={{ fontWeight: 'bold' }}
               fullWidth
+              required
             >
               {question.answers.map((answer, ind) => (
                 <MenuItem key={ind} value={answer.id}>

@@ -22,7 +22,6 @@ function App() {
   const handleIssueChange = (e, newVal) => {
     setSelectedAnswers({});
     if (newVal) {
-      console.log(new Date());
       setIssue(newVal.label);
       setProblemArea(newVal.area);
       for (const [key, value] of Object.entries(problemAreaData))

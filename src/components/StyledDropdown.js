@@ -17,6 +17,7 @@ export default function StyledDropdown({
         value={value}
         label={title ? title : null}
         onChange={onChange}
+        required
       >
         {data &&
           data.map((val, index) => (

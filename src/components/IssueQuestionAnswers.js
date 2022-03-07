@@ -38,7 +38,7 @@ export default function IssueQuestionAnswers({
             id={id}
             name={id}
             options={options}
-            renderInput={(params) => <TextField {...params} />}
+            renderInput={(params) => <TextField {...params} required />}
             value={value}
             onChange={(event, newValue) => {
               updateSelection(newValue);

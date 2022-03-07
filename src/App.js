@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import Step1 from './pages/Step1';
@@ -19,6 +19,8 @@ function App() {
   const [building, setBuilding] = useState('');
   const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
   const [issueDescription, setIssueDescription] = useState('');
+
+  let navigate = useNavigate();
 
   const handleIssueChange = (e, newVal) => {
     setSelectedAnswers({});
@@ -49,6 +51,11 @@ function App() {
     }));
   };
 
+  const submitRequest = (e) => {
+    e.preventDefault();
+    navigate('/success', { state: { status: true, requestID: 123 } });
+  };
+
   useEffect(() => {
     console.log('domain:', domain);
     console.log('domain ID', domainID);
@@ -72,31 +79,32 @@ function App() {
   return (
     <Grid container spacing={3} sx={{ py: 6 }}>
       <Grid item xs={12} sx={{ mx: { xs: 1, md: 10, lg: 30 } }}>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path='/step1'
-              element={
-                <Step1
-                  domain={domain}
-                  issue={issue}
-                  handleIssueChange={handleIssueChange}
-                  questionAnswers={questionAnswers}
-                  selectedAnswers={selectedAnswers}
-                  updateSelectedAnswers={updateSelectedAnswers}
-                  building={building}
-                  setBuilding={setBuilding}
-                  additonalLocationInfo={additonalLocationInfo}
-                  setAdditonalLocationInfo={setAdditonalLocationInfo}
-                  issueDescription={issueDescription}
-                  setIssueDescription={setIssueDescription}
-                />
-              }
-            />
-            <Route path='/step2' element={<Step2 />} />
-            <Route path='/success' element={<Success />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route
+            path='/step1'
+            element={
+              <Step1
+                domain={domain}
+                issue={issue}
+                handleIssueChange={handleIssueChange}
+                questionAnswers={questionAnswers}
+                selectedAnswers={selectedAnswers}
+                updateSelectedAnswers={updateSelectedAnswers}
+                building={building}
+                setBuilding={setBuilding}
+                additonalLocationInfo={additonalLocationInfo}
+                setAdditonalLocationInfo={setAdditonalLocationInfo}
+                issueDescription={issueDescription}
+                setIssueDescription={setIssueDescription}
+              />
+            }
+          />
+          <Route
+            path='/step2'
+            element={<Step2 submitRequest={submitRequest} />}
+          />
+          <Route path='/success' element={<Success />} />
+        </Routes>
       </Grid>
     </Grid>
   );

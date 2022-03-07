@@ -1,15 +1,7 @@
 import { Grid, Paper, TextField, Typography } from '@mui/material';
 import moment from 'moment';
-import { useNavigate } from 'react-router-dom';
 
-export default function CallerInformation() {
-  let navigate = useNavigate();
-
-  const submitRequest = (e) => {
-    e.preventDefault();
-    navigate('/success', { state: { status: true, requestID: 123 } });
-  };
-
+export default function CallerInformation({ submitRequest }) {
   return (
     <Paper elevation={2} sx={{ padding: 3, mb: 2 }}>
       <form id='submitForm' onSubmit={submitRequest}>

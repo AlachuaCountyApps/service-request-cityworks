@@ -1,5 +1,6 @@
 import { Grid, Paper, TextField, Typography } from '@mui/material';
 import moment from 'moment';
+import ReactInputMask from 'react-input-mask';
 
 export default function CallerInformation() {
   return (
@@ -54,18 +55,28 @@ export default function CallerInformation() {
           Phone Number:
         </Grid>
         <Grid item xs={9} sm={4}>
-          <TextField
-            id='phoneNumber'
-            name='phoneNumber'
-            required={true}
-            fullWidth
-          />
+          <ReactInputMask mask='999 - 999 - 9999'>
+            {() => (
+              <TextField
+                id='phoneNumber'
+                name='phoneNumber'
+                required={true}
+                fullWidth
+              />
+            )}
+          </ReactInputMask>
         </Grid>
         <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Email:
         </Grid>
         <Grid item xs={9} sm={4}>
-          <TextField id='email' name='email' required={true} fullWidth />
+          <TextField
+            id='email'
+            name='email'
+            required={true}
+            type='email'
+            fullWidth
+          />
         </Grid>
         <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Address:

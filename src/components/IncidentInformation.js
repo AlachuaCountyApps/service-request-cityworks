@@ -97,7 +97,11 @@ export default function IncidentInformation({
           })
         );
 
-    setIssues(tempIssues);
+    setIssues(
+      tempIssues.sort((a, b) =>
+        a.label > b.label ? 1 : b.label > a.label ? -1 : 0
+      )
+    );
   }, []);
 
   return (
@@ -190,7 +194,9 @@ export default function IncidentInformation({
                   question={'Building:'}
                   value={building}
                   updateSelection={(newValue) => setBuilding(newValue)}
-                  options={buildings}
+                  options={buildings.sort((a, b) =>
+                    a.label > b.label ? 1 : b.label > a.label ? -1 : 0
+                  )}
                   getLocation={getLocation}
                   AdditionalComponent={true}
                 />

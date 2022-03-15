@@ -99,24 +99,26 @@ function App() {
       CallerCity: e.target.city.value,
       CallerState: e.target.state.value,
       CallerZip: e.target.zipcode.value,
-      CallerHomePhone: e.target.phoneNumber.value,
-      CallerWorkPhone: e.target.phoneNumber.value,
-      CallerCellPhone: e.target.phoneNumber.value,
-      CallerOtherPhone: e.target.phoneNumber.value,
-      CallerFax: e.target.phoneNumber.value,
+      CallerHomePhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
+      CallerWorkPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
+      CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
+      CallerOtherPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
+      CallerFax: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerEmail: e.target.email.value,
       CallerComments: `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Contact: ${e.target.otherWorkPhoneNumber.value}, Email: ${e.target.otherEmail.value}`,
-      CallerContact: e.target.phoneNumber.value,
+      CallerContact: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
       Answers: [selectedAnswersText],
     };
 
     axios
       .post('http://localhost:7010/submitRequest', data)
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        navigate('/servicerequest/success', {
+          state: { status: true, requestID: response.data },
+        });
+      })
       .catch((error) => console.log(error));
-    /*  navigate('/servicerequest/success', {
-      state: { status: true, requestID: 123 },
-    }); */
   };
 
   useEffect(() => {

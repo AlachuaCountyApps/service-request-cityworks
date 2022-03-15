@@ -149,23 +149,23 @@ export default function IncidentInformation({
 
           {issue !== '' && (
             <>
-              {/* <Grid
-              item
-              xs={4}
-              sm={2}
-              sx={{ textAlign: 'end', alignSelf: 'center' }}
-            >
-              Department:
-            </Grid>
-            <Grid item xs={8} sm={4}>
-              <Autocomplete
-                id='deparment'
-                name='department'
-                options={location.department}
-                renderInput={(params) => <TextField {...params} />}
-                fullWidth
-              />
-            </Grid> */}
+              <Grid
+                item
+                xs={4}
+                sm={2}
+                sx={{ textAlign: 'end', alignSelf: 'center' }}
+              >
+                Department:
+              </Grid>
+              <Grid item xs={8} sm={4}>
+                <Autocomplete
+                  id='deparment'
+                  name='department'
+                  options={location.department}
+                  renderInput={(params) => <TextField {...params} />}
+                  fullWidth
+                />
+              </Grid>
             </>
           )}
 

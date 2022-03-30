@@ -42,7 +42,9 @@ export default function IncidentInformation({
   selectedAnswers,
   updateSelectedAnswers,
   building,
-  setBuilding,
+  handleBuildingChange,
+  department,
+  handleDepartmentChange,
   additonalLocationInfo,
   setAdditonalLocationInfo,
   issueDescription,
@@ -68,7 +70,7 @@ export default function IncidentInformation({
       );
       console.log('Latitude is : ', position.coords.latitude);
       console.log('Longitude is : ', position.coords.longitude);
-      setBuilding(
+      handleBuildingChange(
         buildings[
           buildings.findIndex(
             (build) => build.BuildingId === buildingToSelect.BuildingId
@@ -148,28 +150,6 @@ export default function IncidentInformation({
           <Grid item sm={4} sx={{ display: { xs: 'none', sm: 'flex' } }}></Grid>
 
           {issue !== '' && (
-            <>
-              <Grid
-                item
-                xs={4}
-                sm={2}
-                sx={{ textAlign: 'end', alignSelf: 'center' }}
-              >
-                Department:
-              </Grid>
-              <Grid item xs={8} sm={4}>
-                <Autocomplete
-                  id='deparment'
-                  name='department'
-                  options={location.department}
-                  renderInput={(params) => <TextField {...params} />}
-                  fullWidth
-                />
-              </Grid>
-            </>
-          )}
-
-          {issue !== '' && (
             <Grid container sx={{ my: 5 }}>
               <Grid
                 item
@@ -193,7 +173,7 @@ export default function IncidentInformation({
                   index={0}
                   question={'Building:'}
                   value={building}
-                  updateSelection={(newValue) => setBuilding(newValue)}
+                  updateSelection={(newValue) => handleBuildingChange(newValue)}
                   options={buildings.sort((a, b) =>
                     a.label > b.label ? 1 : b.label > a.label ? -1 : 0
                   )}
@@ -204,7 +184,23 @@ export default function IncidentInformation({
 
               <Grid item xs={12}>
                 <IssueQuestionAnswers
+                  id={'department'}
                   index={1}
+                  question={'Department:'}
+                  value={department}
+                  updateSelection={(newValue) =>
+                    handleDepartmentChange(newValue)
+                  }
+                  options={location.department.sort((a, b) =>
+                    a > b ? 1 : b > a ? -1 : 0
+                  )}
+                  AdditionalComponent={true}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <IssueQuestionAnswers
+                  index={2}
                   id={'location-info'}
                   question={'Additional Location Information:'}
                   value={additonalLocationInfo}
@@ -228,7 +224,7 @@ export default function IncidentInformation({
 
               <Grid item xs={12}>
                 <IssueQuestionAnswers
-                  index={2 + questionAnswers.length}
+                  index={3 + questionAnswers.length}
                   id={'issue-description'}
                   question={'Description of the Issue:'}
                   value={issueDescription}

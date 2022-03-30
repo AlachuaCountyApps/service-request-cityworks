@@ -20,6 +20,7 @@ function App() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [selectedAnswersText, setSelectedAnswersText] = useState({});
   const [building, setBuilding] = useState('');
+  const [department, setDepartment] = useState('');
   const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
   const [issueDescription, setIssueDescription] = useState('');
 
@@ -60,6 +61,16 @@ function App() {
       [e.target.value]: answers.find((element) => element.id === e.target.value)
         .text,
     }));
+  };
+
+  const handleBuildingChange = (val) => {
+    console.log(val);
+    setBuilding(val);
+  };
+
+  const handleDepartmentChange = (val) => {
+    console.log(val);
+    setDepartment(val);
   };
 
   const submitRequest = (e) => {
@@ -130,6 +141,7 @@ function App() {
     console.log('selected answers', selectedAnswers);
     console.log('selected Answers text', selectedAnswersText);
     console.log('building', building);
+    console.log('department', department);
     console.log('additonalLocationInfo', additonalLocationInfo);
     console.log('issueDescription', issueDescription);
   }, [
@@ -140,6 +152,7 @@ function App() {
     selectedAnswers,
     selectedAnswersText,
     building,
+    department,
     additonalLocationInfo,
     issueDescription,
     issueID,
@@ -160,7 +173,9 @@ function App() {
                 selectedAnswers={selectedAnswers}
                 updateSelectedAnswers={updateSelectedAnswers}
                 building={building}
-                setBuilding={setBuilding}
+                handleBuildingChange={handleBuildingChange}
+                department={department}
+                handleDepartmentChange={handleDepartmentChange}
                 additonalLocationInfo={additonalLocationInfo}
                 setAdditonalLocationInfo={setAdditonalLocationInfo}
                 issueDescription={issueDescription}

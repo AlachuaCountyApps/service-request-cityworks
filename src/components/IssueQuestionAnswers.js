@@ -38,23 +38,22 @@ export default function IssueQuestionAnswers({
             id={id}
             name={id}
             options={options}
-            renderInput={(params) => <TextField {...params} required />}
             value={value}
-            onChange={(event, newValue) => {
-              updateSelection(newValue);
-            }}
+            onChange={(event, newValue) => updateSelection(newValue)}
+            renderInput={(params) => <TextField {...params} required />}
             fullWidth
           />
-
-          <IconButton
-            color='primary'
-            aria-label='get-my-location'
-            component='span'
-            sx={{ m: 'auto' }}
-            onClick={getLocation}
-          >
-            <MyLocation />
-          </IconButton>
+          {getLocation ? (
+            <IconButton
+              color='primary'
+              aria-label='get-my-location'
+              component='span'
+              sx={{ m: 'auto' }}
+              onClick={getLocation}
+            >
+              <MyLocation />
+            </IconButton>
+          ) : null}
         </Grid>
       ) : (
         <Grid item xs={12} sm={8}>

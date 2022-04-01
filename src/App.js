@@ -9,6 +9,7 @@ import Step2 from './pages/Step2';
 import problemAreaData from './data/problemArea.json';
 import questionsandAnswers from './data/callerQuestions&Answers.json';
 import Success from './pages/Success';
+import Map from './components/Map';
 
 function App() {
   const [domain, setDomain] = useState('');
@@ -23,6 +24,12 @@ function App() {
   const [department, setDepartment] = useState('');
   const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
   const [issueDescription, setIssueDescription] = useState('');
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = (e, reason) => {
+    if (reason !== 'backdropClick') setOpen(false);
+  };
 
   let navigate = useNavigate();
 
@@ -159,38 +166,42 @@ function App() {
   ]);
 
   return (
-    <Grid container spacing={3} sx={{ py: 6 }}>
-      <Grid item xs={12} sx={{ mx: { xs: 1 } }}>
-        <Routes>
-          <Route
-            path='servicerequest/step1'
-            element={
-              <Step1
-                domain={domain}
-                issue={issue}
-                handleIssueChange={handleIssueChange}
-                questionAnswers={questionAnswers}
-                selectedAnswers={selectedAnswers}
-                updateSelectedAnswers={updateSelectedAnswers}
-                building={building}
-                handleBuildingChange={handleBuildingChange}
-                department={department}
-                handleDepartmentChange={handleDepartmentChange}
-                additonalLocationInfo={additonalLocationInfo}
-                setAdditonalLocationInfo={setAdditonalLocationInfo}
-                issueDescription={issueDescription}
-                setIssueDescription={setIssueDescription}
-              />
-            }
-          />
-          <Route
-            path='servicerequest/step2'
-            element={<Step2 submitRequest={submitRequest} />}
-          />
-          <Route path='servicerequest/success' element={<Success />} />
-        </Routes>
+    <>
+      <Map open={open} handleClose={handleClose} />
+      <Grid container spacing={3} sx={{ py: 6 }}>
+        <Grid item xs={12} sx={{ mx: { xs: 1 } }}>
+          <Routes>
+            <Route
+              path='servicerequest/step1'
+              element={
+                <Step1
+                  domain={domain}
+                  issue={issue}
+                  handleIssueChange={handleIssueChange}
+                  questionAnswers={questionAnswers}
+                  selectedAnswers={selectedAnswers}
+                  updateSelectedAnswers={updateSelectedAnswers}
+                  building={building}
+                  handleBuildingChange={handleBuildingChange}
+                  department={department}
+                  handleDepartmentChange={handleDepartmentChange}
+                  additonalLocationInfo={additonalLocationInfo}
+                  setAdditonalLocationInfo={setAdditonalLocationInfo}
+                  issueDescription={issueDescription}
+                  setIssueDescription={setIssueDescription}
+                  handleOpen={handleOpen}
+                />
+              }
+            />
+            <Route
+              path='servicerequest/step2'
+              element={<Step2 submitRequest={submitRequest} />}
+            />
+            <Route path='servicerequest/success' element={<Success />} />
+          </Routes>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 }
 

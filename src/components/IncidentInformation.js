@@ -49,6 +49,7 @@ export default function IncidentInformation({
   setAdditonalLocationInfo,
   issueDescription,
   setIssueDescription,
+  handleOpen,
 }) {
   const [issues, setIssues] = useState([]);
   const [userLocation, setUserLocation] = useState(false);
@@ -165,6 +166,19 @@ export default function IncidentInformation({
                 }}
               >
                 Please answer the following questions
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sx={{ bgcolor: '#aec4e5', p: 2, textAlign: 'center' }}
+              >
+                <Button
+                  variant='contained'
+                  color='success'
+                  onClick={handleOpen}
+                >
+                  Set Issue Location on Map
+                </Button>
               </Grid>
 
               <Grid item xs={12}>

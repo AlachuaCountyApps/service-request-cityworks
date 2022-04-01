@@ -15,6 +15,7 @@ export default function Step1({
   setAdditonalLocationInfo,
   issueDescription,
   setIssueDescription,
+  handleOpen,
 }) {
   return (
     <Grid container spacing={3}>
@@ -37,6 +38,7 @@ export default function Step1({
           setAdditonalLocationInfo={setAdditonalLocationInfo}
           issueDescription={issueDescription}
           setIssueDescription={setIssueDescription}
+          handleOpen={handleOpen}
         />
 
         <EmergencyContact />

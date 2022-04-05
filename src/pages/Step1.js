@@ -4,13 +4,16 @@ import IncidentInformation from '../components/IncidentInformation';
 import EmergencyContact from '../components/EmergencyContact';
 
 export default function Step1({
+  domain,
   issue,
   handleIssueChange,
   questionAnswers,
   selectedAnswers,
   updateSelectedAnswers,
   building,
-  setBuilding,
+  handleBuildingChange,
+  department,
+  handleDepartmentChange,
   additonalLocationInfo,
   setAdditonalLocationInfo,
   issueDescription,
@@ -33,7 +36,9 @@ export default function Step1({
           selectedAnswers={selectedAnswers}
           updateSelectedAnswers={updateSelectedAnswers}
           building={building}
-          setBuilding={setBuilding}
+          handleBuildingChange={handleBuildingChange}
+          department={department}
+          handleDepartmentChange={handleDepartmentChange}
           additonalLocationInfo={additonalLocationInfo}
           setAdditonalLocationInfo={setAdditonalLocationInfo}
           issueDescription={issueDescription}

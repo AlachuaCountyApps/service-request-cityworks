@@ -24,7 +24,17 @@ function App() {
   const [department, setDepartment] = useState('');
   const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
   const [issueDescription, setIssueDescription] = useState('');
+  const [address, setAddress] = useState({
+    street: '',
+    city: '',
+    zip: '',
+    county: '',
+  });
   const [open, setOpen] = useState(false);
+
+  const handleAddressChange = (addressObj) => {
+    setAddress(addressObj);
+  };
 
   const handleOpen = () => setOpen(true);
   const handleClose = (e, reason) => {
@@ -167,7 +177,12 @@ function App() {
 
   return (
     <>
-      <Map open={open} handleClose={handleClose} />
+      <Map
+        open={open}
+        handleClose={handleClose}
+        address={address}
+        handleAddressChange={handleAddressChange}
+      />
       <Grid container spacing={3} sx={{ py: 6 }}>
         <Grid item xs={12} sx={{ mx: { xs: 1 } }}>
           <Routes>

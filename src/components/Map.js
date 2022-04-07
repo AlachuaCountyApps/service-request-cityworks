@@ -74,46 +74,7 @@ export default function Map({
     // Get address from latitude & longitude.
     Geocode.fromLatLng(markerPosition.lat, markerPosition.lng).then(
       (response) => {
-        const addressObj = {};
-        address.location = addressObj.street =
-          response.results[0].formatted_address;
-        for (
-          let i = 0;
-          i < response.results[0].address_components.length;
-          i++
-        ) {
-          for (
-            let j = 0;
-            j < response.results[0].address_components[i].types.length;
-            j++
-          ) {
-            switch (response.results[0].address_components[i].types[j]) {
-              case 'locality':
-                addressObj.city =
-                  response.results[0].address_components[i].long_name;
-                break;
-              case 'administrative_area_level_2':
-                addressObj.county =
-                  response.results[0].address_components[i].long_name;
-                break;
-              case 'postal_code':
-                addressObj.zip =
-                  response.results[0].address_components[i].long_name;
-                break;
-              case 'route':
-                addressObj.shortAddress =
-                  response.results[0].address_components[i].short_name;
-                break;
-              case 'street_number':
-                addressObj.streetNumber =
-                  response.results[0].address_components[i].long_name;
-                break;
-              default:
-                break;
-            }
-          }
-        }
-        handleAddressChange(addressObj);
+        updateSelectedAddress(response.results[0]);
       },
       (error) => {
         console.error(error);
@@ -121,15 +82,47 @@ export default function Map({
     );
   };
 
-  const onLoad = (autoc) => {
-    console.log('autocomplete: ', autoc);
+  const updateSelectedAddress = (data) => {
+    const addressObj = {};
+    address.location = addressObj.street = data.formatted_address;
+    for (let i = 0; i < data.address_components.length; i++) {
+      for (let j = 0; j < data.address_components[i].types.length; j++) {
+        switch (data.address_components[i].types[j]) {
+          case 'locality':
+            addressObj.city = data.address_components[i].long_name;
+            break;
+          case 'administrative_area_level_2':
+            addressObj.county = data.address_components[i].long_name;
+            break;
+          case 'postal_code':
+            addressObj.zip = data.address_components[i].long_name;
+            break;
+          case 'route':
+            addressObj.shortAddress = data.address_components[i].short_name;
+            break;
+          case 'street_number':
+            addressObj.streetNumber = data.address_components[i].long_name;
+            break;
+          default:
+            break;
+        }
+      }
+    }
+    handleAddressChange(addressObj);
+  };
 
+  const onLoad = (autoc) => {
     setAutocomplete(autoc);
   };
 
   const onPlaceChanged = () => {
     if (autocomplete !== null) {
-      console.log(autocomplete.getPlace());
+      const locationData = autocomplete.getPlace();
+      const lat = locationData.geometry.location.lat();
+      const lng = locationData.geometry.location.lng();
+      updateSelectedAddress(locationData);
+      setCenter({ lat, lng });
+      setMarkerPosition({ lat, lng });
     } else {
       console.log('Autocomplete is not loaded yet!');
     }
@@ -182,14 +175,29 @@ export default function Map({
                 onIdle={handleOnIdle}
               >
                 {getAddressManually && (
-                  <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+                  <Autocomplete
+                    onLoad={onLoad}
+                    onPlaceChanged={onPlaceChanged}
+                    bounds={
+                      new window.google.maps.LatLngBounds(
+                        new window.google.maps.LatLng(-82.657043, 29.726635),
+                        new window.google.maps.LatLng(-82.657035, 29.726937),
+                        new window.google.maps.LatLng(-82.657054, 29.727429),
+                        new window.google.maps.LatLng(-82.657043, 29.728345),
+                        new window.google.maps.LatLng(-82.657051, 29.728784),
+                        new window.google.maps.LatLng(-82.657055, 29.729708),
+                        new window.google.maps.LatLng(-82.657047, 29.730093),
+                        new window.google.maps.LatLng(-82.657048, 29.730583)
+                      )
+                    }
+                  >
                     <input
                       type='text'
                       placeholder='Enter Issue Address'
                       style={{
                         boxSizing: `border-box`,
                         border: `1px solid transparent`,
-                        width: `240px`,
+                        width: `340px`,
                         height: `32px`,
                         padding: `0 12px`,
                         borderRadius: `3px`,
@@ -198,12 +206,13 @@ export default function Map({
                         outline: `none`,
                         textOverflow: `ellipses`,
                         position: 'absolute',
-                        left: '50%',
+                        left: '40%',
                         marginLeft: '-120px',
                       }}
                     />
                   </Autocomplete>
                 )}
+
                 <Marker position={markerPosition} />
               </GoogleMap>
             </LoadScript>

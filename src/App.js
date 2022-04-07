@@ -12,6 +12,8 @@ import questionsandAnswers from './data/callerQuestions&Answers.json';
 import Success from './pages/Success';
 import Map from './components/Map';
 
+import './App.css';
+
 function App() {
   const [domain, setDomain] = useState('');
   const [domainID, setDomainID] = useState();

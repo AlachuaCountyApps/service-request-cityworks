@@ -45,7 +45,10 @@ export default function Map({
     height: '400px',
   });
   const [center, setCenter] = useState({ lat: 29.651634, lng: -82.324829 });
-  const [markerPosition, setMarkerPosition] = useState(containerStyle);
+  const [markerPosition, setMarkerPosition] = useState({
+    lat: 29.651634,
+    lng: -82.324829,
+  });
   const [getAddressManually, setGetAddressManually] = useState(false);
   const [autocomplete, setAutocomplete] = useState(null);
 
@@ -58,6 +61,7 @@ export default function Map({
 
   const handleMapLoad = (map) => {
     mapRef.current = map;
+    setCenter(markerPosition);
   };
 
   const handleBoundsChange = () => {
@@ -71,7 +75,8 @@ export default function Map({
     Geocode.fromLatLng(markerPosition.lat, markerPosition.lng).then(
       (response) => {
         const addressObj = {};
-        addressObj.street = response.results[0].formatted_address;
+        address.location = addressObj.street =
+          response.results[0].formatted_address;
         for (
           let i = 0;
           i < response.results[0].address_components.length;
@@ -93,6 +98,14 @@ export default function Map({
                 break;
               case 'postal_code':
                 addressObj.zip =
+                  response.results[0].address_components[i].long_name;
+                break;
+              case 'route':
+                addressObj.shortAddress =
+                  response.results[0].address_components[i].short_name;
+                break;
+              case 'street_number':
+                addressObj.streetNumber =
                   response.results[0].address_components[i].long_name;
                 break;
               default:
@@ -205,15 +218,17 @@ export default function Map({
               />
             </Grid>
           )}
-          <Grid item xs={12}>
-            <Button variant='contained' fullWidth>
-              Set Issue Location
-            </Button>
-          </Grid>
 
           <Grid item xs={12}>
-            <Button variant='outlined' onClick={handleClose} fullWidth>
-              Close
+            <Button
+              variant='contained'
+              onClick={() => {
+                handleOnIdle();
+                handleClose();
+              }}
+              fullWidth
+            >
+              Done
             </Button>
           </Grid>
         </Grid>

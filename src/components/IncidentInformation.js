@@ -50,6 +50,7 @@ export default function IncidentInformation({
   issueDescription,
   setIssueDescription,
   handleOpen,
+  address,
 }) {
   const [issues, setIssues] = useState([]);
   const [userLocation, setUserLocation] = useState(false);
@@ -167,18 +168,48 @@ export default function IncidentInformation({
               >
                 Please answer the following questions
               </Grid>
-              <Grid
-                item
-                xs={12}
-                sx={{ bgcolor: '#aec4e5', p: 2, textAlign: 'center' }}
-              >
-                <Button
-                  variant='contained'
-                  color='success'
-                  onClick={handleOpen}
-                >
-                  Set Issue Location on Map
-                </Button>
+              <Grid item xs={12} sx={{ bgcolor: '#aec4e5', p: 2 }}>
+                <Grid container>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={4}
+                    sx={{
+                      alignSelf: 'center',
+
+                      fontWeight: 'bold',
+                      my: { xs: 2 },
+                    }}
+                  >
+                    Issue Location Address:
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={8}
+                    sx={{ display: 'flex', alignItems: 'center' }}
+                  >
+                    <Grid container spacing={1}>
+                      <Grid
+                        item
+                        xs={12}
+                        sm={4}
+                        sx={{ alignSelf: 'center', textAlign: 'center' }}
+                      >
+                        <Button
+                          variant='contained'
+                          color='success'
+                          onClick={handleOpen}
+                        >
+                          Set Issue Location on Map
+                        </Button>
+                      </Grid>
+                      <Grid item xs={12} sm={8}>
+                        <TextField value={address.street} disabled fullWidth />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </Grid>
 
               <Grid item xs={12}>

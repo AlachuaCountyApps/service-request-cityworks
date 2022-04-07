@@ -6,6 +6,7 @@ import axios from 'axios';
 import Step1 from './pages/Step1';
 import Step2 from './pages/Step2';
 
+import buildings from './data/buildings.json';
 import problemAreaData from './data/problemArea.json';
 import questionsandAnswers from './data/callerQuestions&Answers.json';
 import Success from './pages/Success';
@@ -29,10 +30,33 @@ function App() {
     city: '',
     zip: '',
     county: '',
+    shortAddress: '',
+    streetNumber: '',
   });
   const [open, setOpen] = useState(false);
 
   const handleAddressChange = (addressObj) => {
+    const buildingToSelect =
+      buildings[
+        buildings.findIndex(
+          (build) =>
+            build.Address ===
+            addressObj.streetNumber + ' ' + addressObj.shortAddress
+        )
+      ];
+    if (buildingToSelect) handleBuildingChange(buildingToSelect);
+    else {
+      handleBuildingChange({
+        BuildingId: 'Other',
+        label: 'Other (Not a County Building)',
+        Address: 'Other',
+        City: 'Other',
+        State: 'Other',
+        Zip: 'Other',
+        Dept: 'Other',
+      });
+      handleDepartmentChange('Other (Explain under Description of Issue)');
+    }
     setAddress(addressObj);
   };
 
@@ -205,6 +229,7 @@ function App() {
                   issueDescription={issueDescription}
                   setIssueDescription={setIssueDescription}
                   handleOpen={handleOpen}
+                  address={address}
                 />
               }
             />

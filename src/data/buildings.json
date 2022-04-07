@@ -900,5 +900,14 @@
     "Dept": "GenFac",
     "lat": 29.70775609999999,
     "lng": -82.3721575
+  },
+  {
+    "BuildingId": "Other",
+    "label": "Other (Not a County Building)",
+    "Address": "Other",
+    "City": "Other",
+    "State": "Other",
+    "Zip": "Other",
+    "Dept": "Other"
   }
 ]

@@ -19,6 +19,7 @@ export default function Step1({
   issueDescription,
   setIssueDescription,
   handleOpen,
+  address,
 }) {
   return (
     <Grid container spacing={3}>
@@ -44,6 +45,7 @@ export default function Step1({
           issueDescription={issueDescription}
           setIssueDescription={setIssueDescription}
           handleOpen={handleOpen}
+          address={address}
         />
 
         <EmergencyContact />

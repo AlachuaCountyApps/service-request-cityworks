@@ -1,10 +1,5 @@
 import { Box, Button, Grid, Modal, TextField } from '@mui/material';
-import {
-  Autocomplete,
-  GoogleMap,
-  LoadScript,
-  Marker,
-} from '@react-google-maps/api';
+import { Autocomplete, GoogleMap, Marker } from '@react-google-maps/api';
 import React, { useEffect, useRef, useState } from 'react';
 import Geocode from 'react-geocode';
 
@@ -32,13 +27,11 @@ const containerStyle = {
 
 const mobileContainerStyle = { width: '300px', height: '400px' };
 
-const mapLibraries = ['places'];
-
 export default function Map({
   open,
   handleClose,
   address,
-  handleAddressChange,
+  updateSelectedAddress,
 }) {
   const [mapSize, setMapSize] = useState({
     width: '400px',
@@ -80,35 +73,6 @@ export default function Map({
         console.error(error);
       }
     );
-  };
-
-  const updateSelectedAddress = (data) => {
-    const addressObj = {};
-    address.location = addressObj.street = data.formatted_address;
-    for (let i = 0; i < data.address_components.length; i++) {
-      for (let j = 0; j < data.address_components[i].types.length; j++) {
-        switch (data.address_components[i].types[j]) {
-          case 'locality':
-            addressObj.city = data.address_components[i].long_name;
-            break;
-          case 'administrative_area_level_2':
-            addressObj.county = data.address_components[i].long_name;
-            break;
-          case 'postal_code':
-            addressObj.zip = data.address_components[i].long_name;
-            break;
-          case 'route':
-            addressObj.shortAddress = data.address_components[i].short_name;
-            break;
-          case 'street_number':
-            addressObj.streetNumber = data.address_components[i].long_name;
-            break;
-          default:
-            break;
-        }
-      }
-    }
-    handleAddressChange(addressObj);
   };
 
   const onLoad = (autoc) => {
@@ -165,20 +129,19 @@ export default function Map({
           </Grid>
 
           <Grid item xs={12}>
-            <LoadScript googleMapsApiKey={googleKey} libraries={mapLibraries}>
-              <GoogleMap
-                onLoad={handleMapLoad}
-                mapContainerStyle={mapSize}
-                center={center}
-                zoom={14}
-                onCenterChanged={handleBoundsChange}
-                onIdle={handleOnIdle}
-              >
-                {getAddressManually && (
-                  <Autocomplete
-                    onLoad={onLoad}
-                    onPlaceChanged={onPlaceChanged}
-                    bounds={
+            <GoogleMap
+              onLoad={handleMapLoad}
+              mapContainerStyle={mapSize}
+              center={center}
+              zoom={14}
+              onCenterChanged={handleBoundsChange}
+              onIdle={handleOnIdle}
+            >
+              {getAddressManually && (
+                <Autocomplete
+                  onLoad={onLoad}
+                  onPlaceChanged={onPlaceChanged}
+                  /* bounds={
                       new window.google.maps.LatLngBounds(
                         new window.google.maps.LatLng(-82.657043, 29.726635),
                         new window.google.maps.LatLng(-82.657035, 29.726937),
@@ -189,33 +152,32 @@ export default function Map({
                         new window.google.maps.LatLng(-82.657047, 29.730093),
                         new window.google.maps.LatLng(-82.657048, 29.730583)
                       )
-                    }
-                  >
-                    <input
-                      type='text'
-                      placeholder='Enter Issue Address'
-                      style={{
-                        boxSizing: `border-box`,
-                        border: `1px solid transparent`,
-                        width: `340px`,
-                        height: `32px`,
-                        padding: `0 12px`,
-                        borderRadius: `3px`,
-                        boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                        fontSize: `14px`,
-                        outline: `none`,
-                        textOverflow: `ellipses`,
-                        position: 'absolute',
-                        left: '40%',
-                        marginLeft: '-120px',
-                      }}
-                    />
-                  </Autocomplete>
-                )}
+                    } */
+                >
+                  <input
+                    type='text'
+                    placeholder='Enter Issue Address'
+                    style={{
+                      boxSizing: `border-box`,
+                      border: `1px solid transparent`,
+                      width: `340px`,
+                      height: `32px`,
+                      padding: `0 12px`,
+                      borderRadius: `3px`,
+                      boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                      fontSize: `14px`,
+                      outline: `none`,
+                      textOverflow: `ellipses`,
+                      position: 'absolute',
+                      left: '40%',
+                      marginLeft: '-120px',
+                    }}
+                  />
+                </Autocomplete>
+              )}
 
-                <Marker position={markerPosition} />
-              </GoogleMap>
-            </LoadScript>
+              <Marker position={markerPosition} />
+            </GoogleMap>
           </Grid>
           {!getAddressManually && (
             <Grid item xs={12}>

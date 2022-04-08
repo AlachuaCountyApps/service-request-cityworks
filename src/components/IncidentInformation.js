@@ -15,6 +15,9 @@ import issuesList from '../data/issue.json';
 import CallerQuestionsAnswers from './CallerQuestionsAnswers';
 import UserLocation from './UserLocation';
 import IssueQuestionAnswers from './IssueQuestionAnswers';
+import GooglePlacesAutocomplete, {
+  geocodeByPlaceId,
+} from 'react-google-places-autocomplete';
 
 function closestLocation(targetLocation, locationData) {
   function vectorDistance(dx, dy) {
@@ -51,9 +54,20 @@ export default function IncidentInformation({
   setIssueDescription,
   handleOpen,
   address,
+  updateSelectedAddress,
 }) {
   const [issues, setIssues] = useState([]);
   const [userLocation, setUserLocation] = useState(false);
+
+  const [autocompleteData, setAutocompleteData] = useState(null);
+
+  useEffect(() => {
+    console.log(autocompleteData);
+    if (autocompleteData)
+      geocodeByPlaceId(autocompleteData.value.place_id)
+        .then((results) => updateSelectedAddress(results[0]))
+        .catch((error) => console.log(error));
+  }, [autocompleteData]);
 
   let navigate = useNavigate();
 
@@ -190,6 +204,16 @@ export default function IncidentInformation({
                     sx={{ display: 'flex', alignItems: 'center' }}
                   >
                     <Grid container spacing={1}>
+                      <Grid item xs={12} sm={8}>
+                        {/* <TextField value={address.street} fullWidth /> */}
+                        <GooglePlacesAutocomplete
+                          apiKey={`AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`}
+                          selectProps={{
+                            autocompleteData,
+                            onChange: setAutocompleteData,
+                          }}
+                        />
+                      </Grid>
                       <Grid
                         item
                         xs={12}
@@ -203,9 +227,6 @@ export default function IncidentInformation({
                         >
                           Set Issue Location on Map
                         </Button>
-                      </Grid>
-                      <Grid item xs={12} sm={8}>
-                        <TextField value={address.street} disabled fullWidth />
                       </Grid>
                     </Grid>
                   </Grid>

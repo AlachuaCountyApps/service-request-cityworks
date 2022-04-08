@@ -116,6 +116,35 @@ function App() {
     setDepartment(val);
   };
 
+  const updateSelectedAddress = (data) => {
+    const addressObj = {};
+    address.location = addressObj.street = data.formatted_address;
+    for (let i = 0; i < data.address_components.length; i++) {
+      for (let j = 0; j < data.address_components[i].types.length; j++) {
+        switch (data.address_components[i].types[j]) {
+          case 'locality':
+            addressObj.city = data.address_components[i].long_name;
+            break;
+          case 'administrative_area_level_2':
+            addressObj.county = data.address_components[i].long_name;
+            break;
+          case 'postal_code':
+            addressObj.zip = data.address_components[i].long_name;
+            break;
+          case 'route':
+            addressObj.shortAddress = data.address_components[i].short_name;
+            break;
+          case 'street_number':
+            addressObj.streetNumber = data.address_components[i].long_name;
+            break;
+          default:
+            break;
+        }
+      }
+    }
+    handleAddressChange(addressObj);
+  };
+
   const submitRequest = (e) => {
     e.preventDefault();
     console.log(e.target.length);
@@ -207,7 +236,7 @@ function App() {
         open={open}
         handleClose={handleClose}
         address={address}
-        handleAddressChange={handleAddressChange}
+        updateSelectedAddress={updateSelectedAddress}
       />
       <Grid container spacing={3} sx={{ py: 6 }}>
         <Grid item xs={12} sx={{ mx: { xs: 1 } }}>
@@ -232,6 +261,7 @@ function App() {
                   setIssueDescription={setIssueDescription}
                   handleOpen={handleOpen}
                   address={address}
+                  updateSelectedAddress={updateSelectedAddress}
                 />
               }
             />

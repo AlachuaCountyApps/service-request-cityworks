@@ -2,6 +2,7 @@ import { Grid } from '@mui/material';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Geocode from 'react-geocode';
 
 import Step1 from './pages/Step1';
 import Step2 from './pages/Step2';
@@ -13,6 +14,11 @@ import Success from './pages/Success';
 import Map from './components/Map';
 
 import './App.css';
+
+const googleKey = `AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`;
+
+Geocode.setApiKey(googleKey);
+Geocode.setLocationType('ROOFTOP');
 
 function App() {
   const [domain, setDomain] = useState('');
@@ -107,18 +113,18 @@ function App() {
   };
 
   const handleBuildingChange = (val) => {
-    console.log(val);
     setBuilding(val);
   };
 
   const handleDepartmentChange = (val) => {
-    console.log(val);
     setDepartment(val);
   };
 
   const updateSelectedAddress = (data) => {
     const addressObj = {};
-    address.location = addressObj.street = data.formatted_address;
+    addressObj.lat = data.geometry.location.lat;
+    addressObj.lng = data.geometry.location.lng;
+    addressObj.street = data.formatted_address;
     for (let i = 0; i < data.address_components.length; i++) {
       for (let j = 0; j < data.address_components[i].types.length; j++) {
         switch (data.address_components[i].types[j]) {
@@ -237,6 +243,7 @@ function App() {
         handleClose={handleClose}
         address={address}
         updateSelectedAddress={updateSelectedAddress}
+        Geocode={Geocode}
       />
       <Grid container spacing={3} sx={{ py: 6 }}>
         <Grid item xs={12} sx={{ mx: { xs: 1 } }}>

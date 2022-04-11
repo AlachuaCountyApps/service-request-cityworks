@@ -59,13 +59,18 @@ export default function IncidentInformation({
   const [issues, setIssues] = useState([]);
   const [userLocation, setUserLocation] = useState(false);
 
+  const [selectaddressonMap, setSelectAddressonMap] = useState(false);
   const [autocompleteData, setAutocompleteData] = useState(null);
 
   useEffect(() => {
-    console.log(autocompleteData);
     if (autocompleteData)
       geocodeByPlaceId(autocompleteData.value.place_id)
-        .then((results) => updateSelectedAddress(results[0]))
+        .then((results) => {
+          const data = results[0];
+          data.geometry.location.lat = results[0].geometry.location.lat();
+          data.geometry.location.lng = results[0].geometry.location.lng();
+          updateSelectedAddress(data);
+        })
         .catch((error) => console.log(error));
   }, [autocompleteData]);
 
@@ -205,14 +210,17 @@ export default function IncidentInformation({
                   >
                     <Grid container spacing={1}>
                       <Grid item xs={12} sm={8}>
-                        {/* <TextField value={address.street} fullWidth /> */}
-                        <GooglePlacesAutocomplete
-                          apiKey={`AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`}
-                          selectProps={{
-                            autocompleteData,
-                            onChange: setAutocompleteData,
-                          }}
-                        />
+                        {selectaddressonMap ? (
+                          <TextField value={address.street} fullWidth />
+                        ) : (
+                          <GooglePlacesAutocomplete
+                            apiKey={`AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`}
+                            selectProps={{
+                              autocompleteData,
+                              onChange: setAutocompleteData,
+                            }}
+                          />
+                        )}
                       </Grid>
                       <Grid
                         item
@@ -220,13 +228,28 @@ export default function IncidentInformation({
                         sm={4}
                         sx={{ alignSelf: 'center', textAlign: 'center' }}
                       >
-                        <Button
-                          variant='contained'
-                          color='success'
-                          onClick={handleOpen}
-                        >
-                          Set Issue Location on Map
-                        </Button>
+                        {!selectaddressonMap ? (
+                          <Button
+                            variant='contained'
+                            color='success'
+                            onClick={() => {
+                              setSelectAddressonMap(true);
+                              handleOpen();
+                            }}
+                          >
+                            Set Issue Location on Map
+                          </Button>
+                        ) : (
+                          <Button
+                            variant='contained'
+                            color='success'
+                            onClick={() => {
+                              setSelectAddressonMap(false);
+                            }}
+                          >
+                            Set Issue Location Manually
+                          </Button>
+                        )}
                       </Grid>
                     </Grid>
                   </Grid>

@@ -1,12 +1,6 @@
 import { Box, Button, Grid, Modal, TextField } from '@mui/material';
 import { Autocomplete, GoogleMap, Marker } from '@react-google-maps/api';
 import React, { useEffect, useRef, useState } from 'react';
-import Geocode from 'react-geocode';
-
-const googleKey = `AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`;
-
-Geocode.setApiKey(googleKey);
-Geocode.setLocationType('ROOFTOP');
 
 const style = {
   position: 'absolute',
@@ -32,6 +26,7 @@ export default function Map({
   handleClose,
   address,
   updateSelectedAddress,
+  Geocode,
 }) {
   const [mapSize, setMapSize] = useState({
     width: '400px',
@@ -138,22 +133,7 @@ export default function Map({
               onIdle={handleOnIdle}
             >
               {getAddressManually && (
-                <Autocomplete
-                  onLoad={onLoad}
-                  onPlaceChanged={onPlaceChanged}
-                  /* bounds={
-                      new window.google.maps.LatLngBounds(
-                        new window.google.maps.LatLng(-82.657043, 29.726635),
-                        new window.google.maps.LatLng(-82.657035, 29.726937),
-                        new window.google.maps.LatLng(-82.657054, 29.727429),
-                        new window.google.maps.LatLng(-82.657043, 29.728345),
-                        new window.google.maps.LatLng(-82.657051, 29.728784),
-                        new window.google.maps.LatLng(-82.657055, 29.729708),
-                        new window.google.maps.LatLng(-82.657047, 29.730093),
-                        new window.google.maps.LatLng(-82.657048, 29.730583)
-                      )
-                    } */
-                >
+                <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
                   <input
                     type='text'
                     placeholder='Enter Issue Address'

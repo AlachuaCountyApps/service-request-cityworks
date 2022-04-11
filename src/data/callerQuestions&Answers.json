@@ -4,18 +4,18 @@
       {
         "question": { "id": 43, "text": "Location Detail" },
         "answers": [
-          { "id": 154, "text": "Interior", "additionalQuestion": "" },
-          { "id": 155, "text": "Exterior", "additionalQuestion": "" }
+          { "id": 154, "text": "Interior", "additionalQuestion": null },
+          { "id": 155, "text": "Exterior", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 44, "text": "Carpet/Floor Issue Detail" },
         "answers": [
-          { "id": 156, "text": "Broken", "additionalQuestion": "" },
-          { "id": 157, "text": "Loose Floor", "additionalQuestion": "" },
-          { "id": 158, "text": "Ripped", "additionalQuestion": "" },
-          { "id": 159, "text": "Trip Hazard", "additionalQuestion": "" },
-          { "id": 160, "text": "Torn", "additionalQuestion": "" }
+          { "id": 156, "text": "Broken", "additionalQuestion": null },
+          { "id": 157, "text": "Loose Floor", "additionalQuestion": null },
+          { "id": 158, "text": "Ripped", "additionalQuestion": null },
+          { "id": 159, "text": "Trip Hazard", "additionalQuestion": null },
+          { "id": 160, "text": "Torn", "additionalQuestion": null }
         ]
       }
     ],
@@ -23,16 +23,20 @@
       {
         "question": { "id": 31, "text": "Location Detail" },
         "answers": [
-          { "id": 127, "text": "Interior", "additionalQuestion": "" },
-          { "id": 126, "text": "Exterior", "additionalQuestion": "" }
+          { "id": 127, "text": "Interior", "additionalQuestion": null },
+          { "id": 126, "text": "Exterior", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 45, "text": "Issue Detail" },
         "answers": [
-          { "id": 161, "text": "Damaged", "additionalQuestion": "" },
-          { "id": 162, "text": "Need Feature Added", "additionalQuestion": "" },
-          { "id": 163, "text": "Won't Close", "additionalQuestion": "" }
+          { "id": 161, "text": "Damaged", "additionalQuestion": null },
+          {
+            "id": 162,
+            "text": "Need Feature Added",
+            "additionalQuestion": null
+          },
+          { "id": 163, "text": "Won't Close", "additionalQuestion": null }
         ]
       }
     ],
@@ -40,16 +44,16 @@
       {
         "question": { "id": 46, "text": "Location Detail" },
         "answers": [
-          { "id": 164, "text": "Interior", "additionalQuestion": "" },
-          { "id": 165, "text": "Exterior", "additionalQuestion": "" }
+          { "id": 164, "text": "Interior", "additionalQuestion": null },
+          { "id": 165, "text": "Exterior", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 47, "text": "Electrical Issue Detail" },
         "answers": [
-          { "id": 166, "text": "Light Fixture", "additionalQuestion": "" },
-          { "id": 167, "text": "Outlet", "additionalQuestion": "" },
-          { "id": 168, "text": "Wall Switch", "additionalQuestion": "" }
+          { "id": 166, "text": "Light Fixture", "additionalQuestion": null },
+          { "id": 167, "text": "Outlet", "additionalQuestion": null },
+          { "id": 168, "text": "Wall Switch", "additionalQuestion": null }
         ]
       }
     ],
@@ -57,13 +61,13 @@
       {
         "question": { "id": 48, "text": "Elevator Issue Detail" },
         "answers": [
-          { "id": 169, "text": "Door Malfunction", "additionalQuestion": "" },
-          { "id": 170, "text": "Light Fixture", "additionalQuestion": "" },
-          { "id": 171, "text": "Panel Buttons", "additionalQuestion": "" },
+          { "id": 169, "text": "Door Malfunction", "additionalQuestion": null },
+          { "id": 170, "text": "Light Fixture", "additionalQuestion": null },
+          { "id": 171, "text": "Panel Buttons", "additionalQuestion": null },
           {
             "id": 172,
             "text": "Other Elevator Issue",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           }
         ]
       }
@@ -72,10 +76,10 @@
       {
         "question": { "id": 49, "text": "HVAC Issue Detail" },
         "answers": [
-          { "id": 173, "text": "Too Cold", "additionalQuestion": "" },
-          { "id": 174, "text": "Too Hot", "additionalQuestion": "" },
-          { "id": 175, "text": "Bad Smell", "additionalQuestion": "" },
-          { "id": 176, "text": "Very Noisy", "additionalQuestion": "" }
+          { "id": 173, "text": "Too Cold", "additionalQuestion": null },
+          { "id": 174, "text": "Too Hot", "additionalQuestion": null },
+          { "id": 175, "text": "Bad Smell", "additionalQuestion": null },
+          { "id": 176, "text": "Very Noisy", "additionalQuestion": null }
         ]
       }
     ],
@@ -83,26 +87,38 @@
       {
         "question": { "id": 50, "text": "Missing Supplies?" },
         "answers": [
-          { "id": 180, "text": "Need TP", "additionalQuestion": "" },
-          { "id": 177, "text": "Need Seat Covers", "additionalQuestion": "" },
-          { "id": 178, "text": "Need Soap Refilled", "additionalQuestion": "" },
-          { "id": 179, "text": "Need Towels", "additionalQuestion": "" },
-          { "id": 181, "text": "Need TO & PT", "additionalQuestion": "" },
+          { "id": 180, "text": "Need TP", "additionalQuestion": null },
+          { "id": 177, "text": "Need Seat Covers", "additionalQuestion": null },
+          {
+            "id": 178,
+            "text": "Need Soap Refilled",
+            "additionalQuestion": null
+          },
+          { "id": 179, "text": "Need Towels", "additionalQuestion": null },
+          { "id": 181, "text": "Need TO & PT", "additionalQuestion": null },
           {
             "id": 182,
             "text": "Need Soap and Towels",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           },
-          { "id": 183, "text": "No Supplies Needed", "additionalQuestion": "" }
+          {
+            "id": 183,
+            "text": "No Supplies Needed",
+            "additionalQuestion": null
+          }
         ]
       },
       {
         "question": { "id": 51, "text": "Cleaning Needs" },
         "answers": [
-          { "id": 184, "text": "Dirty Floors", "additionalQuestion": "" },
-          { "id": 185, "text": "Dirty Walls", "additionalQuestion": "" },
-          { "id": 186, "text": "Dirty Fixtures", "additionalQuestion": "" },
-          { "id": 208, "text": "No Cleaning Needed", "additionalQuestion": "" }
+          { "id": 184, "text": "Dirty Floors", "additionalQuestion": null },
+          { "id": 185, "text": "Dirty Walls", "additionalQuestion": null },
+          { "id": 186, "text": "Dirty Fixtures", "additionalQuestion": null },
+          {
+            "id": 208,
+            "text": "No Cleaning Needed",
+            "additionalQuestion": null
+          }
         ]
       }
     ],
@@ -110,28 +126,36 @@
       {
         "question": { "id": 52, "text": "Landscaping Detail" },
         "answers": [
-          { "id": 187, "text": "Need Grass Cut", "additionalQuestion": "" },
-          { "id": 188, "text": "Need Weeds Pulled", "additionalQuestion": "" },
-          { "id": 189, "text": "Need Flower/Pants", "additionalQuestion": "" },
+          { "id": 187, "text": "Need Grass Cut", "additionalQuestion": null },
+          {
+            "id": 188,
+            "text": "Need Weeds Pulled",
+            "additionalQuestion": null
+          },
+          {
+            "id": 189,
+            "text": "Need Flower/Pants",
+            "additionalQuestion": null
+          },
           {
             "id": 190,
             "text": "Need Grass Cut and Weeds Pulled",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           },
           {
             "id": 191,
             "text": "Need Weeds Pulled and Flowers/Plants",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           },
           {
             "id": 192,
             "text": "Need Grass Cut and Flowers/Plants",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           },
           {
             "id": 212,
             "text": "Other Landscape Issue",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           }
         ]
       }
@@ -141,19 +165,19 @@
       {
         "question": { "id": 39, "text": "Location Detail" },
         "answers": [
-          { "id": 147, "text": "Interior", "additionalQuestion": "" },
-          { "id": 146, "text": "Exterior", "additionalQuestion": "" }
+          { "id": 147, "text": "Interior", "additionalQuestion": null },
+          { "id": 146, "text": "Exterior", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 53, "text": "Paint Detail" },
         "answers": [
-          { "id": 194, "text": "Halway Wall(s)", "additionalQuestion": "" },
-          { "id": 193, "text": "Office Wall(s)", "additionalQuestion": "" },
-          { "id": 195, "text": "Building Wall(s)", "additionalQuestion": "" },
-          { "id": 196, "text": "Door(s)", "additionalQuestion": "" },
-          { "id": 197, "text": "Fixtures(s)", "additionalQuestion": "" },
-          { "id": 213, "text": "Other", "additionalQuestion": "" }
+          { "id": 194, "text": "Halway Wall(s)", "additionalQuestion": null },
+          { "id": 193, "text": "Office Wall(s)", "additionalQuestion": null },
+          { "id": 195, "text": "Building Wall(s)", "additionalQuestion": null },
+          { "id": 196, "text": "Door(s)", "additionalQuestion": null },
+          { "id": 197, "text": "Fixtures(s)", "additionalQuestion": null },
+          { "id": 213, "text": "Other", "additionalQuestion": null }
         ]
       }
     ],
@@ -162,19 +186,23 @@
       {
         "question": { "id": 56, "text": "Type of Pest" },
         "answers": [
-          { "id": 209, "text": "Vermin/Rodent", "additionalQuestion": "" },
-          { "id": 210, "text": "Insect", "additionalQuestion": "" },
-          { "id": 211, "text": "Other", "additionalQuestion": "" }
+          { "id": 209, "text": "Vermin/Rodent", "additionalQuestion": null },
+          { "id": 210, "text": "Insect", "additionalQuestion": null },
+          { "id": 211, "text": "Other", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 40, "text": "Location Detail" },
         "answers": [
-          { "id": 149, "text": "In Walls", "additionalQuestion": "" },
-          { "id": 198, "text": "Under Floor", "additionalQuestion": "" },
-          { "id": 199, "text": "In Celling", "additionalQuestion": "" },
-          { "id": 214, "text": "Inside Windowsill", "additionalQuestion": "" },
-          { "id": 215, "text": "Outside Window", "additionalQuestion": "" }
+          { "id": 149, "text": "In Walls", "additionalQuestion": null },
+          { "id": 198, "text": "Under Floor", "additionalQuestion": null },
+          { "id": 199, "text": "In Celling", "additionalQuestion": null },
+          {
+            "id": 214,
+            "text": "Inside Windowsill",
+            "additionalQuestion": null
+          },
+          { "id": 215, "text": "Outside Window", "additionalQuestion": null }
         ]
       }
     ],
@@ -188,9 +216,9 @@
           {
             "id": 150,
             "text": "Yes - Please call 213-4840 immediately.",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           },
-          { "id": 151, "text": "No", "additionalQuestion": "" }
+          { "id": 151, "text": "No", "additionalQuestion": null }
         ]
       }
     ],
@@ -204,9 +232,9 @@
           {
             "id": 152,
             "text": "Yes - Please call 213-4840 immediately.",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           },
-          { "id": 153, "text": "No", "additionalQuestion": "" }
+          { "id": 153, "text": "No", "additionalQuestion": null }
         ]
       }
     ]
@@ -216,25 +244,25 @@
       {
         "question": { "id": 20, "text": "What type of request?" },
         "answers": [
-          { "id": 75, "text": "Electrical", "additionalQuestion": "" },
-          { "id": 76, "text": "Fixture/Equipment", "additionalQuestion": "" },
-          { "id": 77, "text": "Floors", "additionalQuestion": "" },
-          { "id": 78, "text": "Grounds", "additionalQuestion": "" },
-          { "id": 79, "text": "HVAC", "additionalQuestion": "" },
-          { "id": 80, "text": "Indoor Structure", "additionalQuestion": "" },
-          { "id": 81, "text": "Outdoor Structure", "additionalQuestion": "" },
-          { "id": 82, "text": "Plumbing", "additionalQuestion": "" },
-          { "id": 83, "text": "Roof", "additionalQuestion": "" },
-          { "id": 84, "text": "Elevators", "additionalQuestion": "" },
-          { "id": 85, "text": "Fire", "additionalQuestion": "" },
-          { "id": 86, "text": "Security", "additionalQuestion": "" }
+          { "id": 75, "text": "Electrical", "additionalQuestion": null },
+          { "id": 76, "text": "Fixture/Equipment", "additionalQuestion": null },
+          { "id": 77, "text": "Floors", "additionalQuestion": null },
+          { "id": 78, "text": "Grounds", "additionalQuestion": null },
+          { "id": 79, "text": "HVAC", "additionalQuestion": null },
+          { "id": 80, "text": "Indoor Structure", "additionalQuestion": null },
+          { "id": 81, "text": "Outdoor Structure", "additionalQuestion": null },
+          { "id": 82, "text": "Plumbing", "additionalQuestion": null },
+          { "id": 83, "text": "Roof", "additionalQuestion": null },
+          { "id": 84, "text": "Elevators", "additionalQuestion": null },
+          { "id": 85, "text": "Fire", "additionalQuestion": null },
+          { "id": 86, "text": "Security", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 29, "text": "Is this repair for the jail?" },
         "answers": [
-          { "id": 121, "text": "Yes", "additionalQuestion": "" },
-          { "id": 122, "text": "No", "additionalQuestion": "" }
+          { "id": 121, "text": "Yes", "additionalQuestion": null },
+          { "id": 122, "text": "No", "additionalQuestion": null }
         ]
       }
     ]
@@ -341,18 +369,18 @@
       {
         "question": { "id": 25, "text": "Is this a mowing request?" },
         "answers": [
-          { "id": 103, "text": "Yes", "additionalQuestion": "" },
-          { "id": 102, "text": "No", "additionalQuestion": "" }
+          { "id": 103, "text": "Yes", "additionalQuestion": null },
+          { "id": 102, "text": "No", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 26, "text": "What feature is affected?" },
         "answers": [
-          { "id": 104, "text": "Ditch", "additionalQuestion": "" },
-          { "id": 105, "text": "Retention Basin", "additionalQuestion": "" },
-          { "id": 106, "text": "Roadsides", "additionalQuestion": "" },
-          { "id": 107, "text": "Sidewalk", "additionalQuestion": "" },
-          { "id": 109, "text": "Other", "additionalQuestion": "" }
+          { "id": 104, "text": "Ditch", "additionalQuestion": null },
+          { "id": 105, "text": "Retention Basin", "additionalQuestion": null },
+          { "id": 106, "text": "Roadsides", "additionalQuestion": null },
+          { "id": 107, "text": "Sidewalk", "additionalQuestion": null },
+          { "id": 109, "text": "Other", "additionalQuestion": null }
         ]
       }
     ],
@@ -385,8 +413,8 @@
             "text": "Depression / Hump in roadway",
             "additionalQuestion": "Noticeable depression or hump within the travel lane which often cause vehicular traffic to slow when transversing."
           },
-          { "id": 73, "text": "Driveway", "additionalQuestion": "" },
-          { "id": 74, "text": "Other", "additionalQuestion": "" }
+          { "id": 73, "text": "Driveway", "additionalQuestion": null },
+          { "id": 74, "text": "Other", "additionalQuestion": null }
         ]
       },
       {
@@ -410,9 +438,9 @@
           "text": "Please estimate the size of the issue"
         },
         "answers": [
-          { "id": 44, "text": "Small", "additionalQuestion": "" },
-          { "id": 45, "text": "Medium", "additionalQuestion": "" },
-          { "id": 46, "text": "Large", "additionalQuestion": "" }
+          { "id": 44, "text": "Small", "additionalQuestion": null },
+          { "id": 45, "text": "Medium", "additionalQuestion": null },
+          { "id": 46, "text": "Large", "additionalQuestion": null }
         ]
       }
     ],
@@ -420,15 +448,19 @@
       {
         "question": { "id": 9, "text": "What is the issue?" },
         "answers": [
-          { "id": 24, "text": "Trip hazard", "additionalQuestion": "" },
-          { "id": 27, "text": "Cracks", "additionalQuestion": "" },
-          { "id": 25, "text": "Missing area (Gaps)", "additionalQuestion": "" },
+          { "id": 24, "text": "Trip hazard", "additionalQuestion": null },
+          { "id": 27, "text": "Cracks", "additionalQuestion": null },
+          {
+            "id": 25,
+            "text": "Missing area (Gaps)",
+            "additionalQuestion": null
+          },
           {
             "id": 26,
             "text": "Obstruction / Debris on sidewalk",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           },
-          { "id": 28, "text": "Other", "additionalQuestion": "" }
+          { "id": 28, "text": "Other", "additionalQuestion": null }
         ]
       }
     ],
@@ -439,16 +471,16 @@
           "text": "Have you noticed the issue getting larger?"
         },
         "answers": [
-          { "id": 88, "text": "unknown", "additionalQuestion": "" },
-          { "id": 89, "text": "Yes", "additionalQuestion": "" },
-          { "id": 90, "text": "No", "additionalQuestion": "" }
+          { "id": 88, "text": "unknown", "additionalQuestion": null },
+          { "id": 89, "text": "Yes", "additionalQuestion": null },
+          { "id": 90, "text": "No", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 22, "text": "How does the sink hole appear?" },
         "answers": [
-          { "id": 92, "text": "Open Hole", "additionalQuestion": "" },
-          { "id": 93, "text": "Surface Depression", "additionalQuestion": "" }
+          { "id": 92, "text": "Open Hole", "additionalQuestion": null },
+          { "id": 93, "text": "Surface Depression", "additionalQuestion": null }
         ]
       },
       {
@@ -519,8 +551,8 @@
             "text": "Drainage",
             "additionalQuestion": "Debris found within a stormwater facility, such as, ditches and basins"
           },
-          { "id": 29, "text": "Roadside", "additionalQuestion": "" },
-          { "id": 31, "text": "Other", "additionalQuestion": "" }
+          { "id": 29, "text": "Roadside", "additionalQuestion": null },
+          { "id": 31, "text": "Other", "additionalQuestion": null }
         ]
       }
     ],
@@ -531,41 +563,41 @@
           "text": "What is the issue with the tree or limb?"
         },
         "answers": [
-          { "id": 6, "text": "Tree is fallen", "additionalQuestion": "" },
+          { "id": 6, "text": "Tree is fallen", "additionalQuestion": null },
           {
             "id": 7,
             "text": "Limbs Hanging / Detached",
-            "additionalQuestion": ""
+            "additionalQuestion": null
           },
-          { "id": 8, "text": "Tree or Limbs Dead", "additionalQuestion": "" }
+          { "id": 8, "text": "Tree or Limbs Dead", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 4, "text": "Is it near a power line?" },
         "answers": [
-          { "id": 9, "text": "Yes", "additionalQuestion": "" },
-          { "id": 10, "text": "No", "additionalQuestion": "" }
+          { "id": 9, "text": "Yes", "additionalQuestion": null },
+          { "id": 10, "text": "No", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 5, "text": "Are wires down?" },
         "answers": [
-          { "id": 11, "text": "Yes", "additionalQuestion": "" },
-          { "id": 12, "text": "No", "additionalQuestion": "" }
+          { "id": 11, "text": "Yes", "additionalQuestion": null },
+          { "id": 12, "text": "No", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 6, "text": "Is it blocking the road?" },
         "answers": [
-          { "id": 13, "text": "Yes", "additionalQuestion": "" },
-          { "id": 14, "text": "No", "additionalQuestion": "" }
+          { "id": 13, "text": "Yes", "additionalQuestion": null },
+          { "id": 14, "text": "No", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 7, "text": "Is it blocking the sidewalk?" },
         "answers": [
-          { "id": 15, "text": "Yes", "additionalQuestion": "" },
-          { "id": 16, "text": "No", "additionalQuestion": "" }
+          { "id": 15, "text": "Yes", "additionalQuestion": null },
+          { "id": 16, "text": "No", "additionalQuestion": null }
         ]
       }
     ]
@@ -575,37 +607,37 @@
       {
         "question": { "id": 14, "text": "What is the problem?" },
         "answers": [
-          { "id": 47, "text": "Sign", "additionalQuestion": "" },
-          { "id": 48, "text": "Marking", "additionalQuestion": "" }
+          { "id": 47, "text": "Sign", "additionalQuestion": null },
+          { "id": 48, "text": "Marking", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 15, "text": "Is it a Stop Sign?" },
         "answers": [
-          { "id": 50, "text": "Yes", "additionalQuestion": "" },
-          { "id": 51, "text": "No", "additionalQuestion": "" }
+          { "id": 50, "text": "Yes", "additionalQuestion": null },
+          { "id": 51, "text": "No", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 16, "text": "What type of sign?" },
         "answers": [
-          { "id": 52, "text": "Destination", "additionalQuestion": "" },
-          { "id": 53, "text": "Guide", "additionalQuestion": "" },
-          { "id": 54, "text": "Information", "additionalQuestion": "" },
-          { "id": 55, "text": "Object", "additionalQuestion": "" },
-          { "id": 56, "text": "Regulatory", "additionalQuestion": "" },
-          { "id": 57, "text": "Route", "additionalQuestion": "" },
-          { "id": 58, "text": "School", "additionalQuestion": "" },
-          { "id": 59, "text": "Warning", "additionalQuestion": "" }
+          { "id": 52, "text": "Destination", "additionalQuestion": null },
+          { "id": 53, "text": "Guide", "additionalQuestion": null },
+          { "id": 54, "text": "Information", "additionalQuestion": null },
+          { "id": 55, "text": "Object", "additionalQuestion": null },
+          { "id": 56, "text": "Regulatory", "additionalQuestion": null },
+          { "id": 57, "text": "Route", "additionalQuestion": null },
+          { "id": 58, "text": "School", "additionalQuestion": null },
+          { "id": 59, "text": "Warning", "additionalQuestion": null }
         ]
       },
       {
         "question": { "id": 17, "text": "What direction?" },
         "answers": [
-          { "id": 60, "text": "Northbound", "additionalQuestion": "" },
-          { "id": 61, "text": "Southbound", "additionalQuestion": "" },
-          { "id": 62, "text": "Westbound", "additionalQuestion": "" },
-          { "id": 63, "text": "Eastbound", "additionalQuestion": "" }
+          { "id": 60, "text": "Northbound", "additionalQuestion": null },
+          { "id": 61, "text": "Southbound", "additionalQuestion": null },
+          { "id": 62, "text": "Westbound", "additionalQuestion": null },
+          { "id": 63, "text": "Eastbound", "additionalQuestion": null }
         ]
       }
     ]

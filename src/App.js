@@ -78,7 +78,6 @@ function App() {
   const handleIssueChange = (e, newVal) => {
     setSelectedAnswers({});
     if (newVal) {
-      console.log(newVal);
       setIssue(newVal.label);
       setIssueID(newVal.ProblemSid);
       setProblemArea(newVal.area);
@@ -100,7 +99,6 @@ function App() {
   };
 
   const updateSelectedAnswers = (index, e, answers) => {
-    console.log(answers);
     setSelectedAnswers((prevVal) => ({
       ...prevVal,
       [index]: e.target.value,

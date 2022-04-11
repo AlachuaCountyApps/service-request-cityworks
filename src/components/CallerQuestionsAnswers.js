@@ -1,10 +1,13 @@
-import { Grid, MenuItem, Select } from '@mui/material';
+import { FormHelperText, Grid, MenuItem, Select } from '@mui/material';
+import { useState } from 'react';
 
 export default function CallerQuestionsAnswers({
   questionAnswers,
   selectedAnswers,
   updateSelectedAnswers,
 }) {
+  const [additionalText, setAdditionalText] = useState({});
+
   return (
     <>
       {questionAnswers.map((question, index) => (
@@ -28,19 +31,41 @@ export default function CallerQuestionsAnswers({
                   ? selectedAnswers[question.question.id]
                   : ''
               }
-              onChange={(e) =>
-                updateSelectedAnswers(question.question.id, e, question.answers)
-              }
+              onChange={(e) => {
+                const addQuestion = question.answers.find(
+                  (element) => element.id === e.target.value
+                ).additionalQuestion;
+                if (addQuestion)
+                  setAdditionalText((prevVal) => ({
+                    ...prevVal,
+                    [question.question.id]: addQuestion,
+                  }));
+
+                updateSelectedAnswers(
+                  question.question.id,
+                  e,
+                  question.answers
+                );
+              }}
               style={{ fontWeight: 'bold' }}
               fullWidth
               required
             >
               {question.answers.map((answer, ind) => (
-                <MenuItem key={ind} value={answer.id}>
+                <MenuItem
+                  key={ind}
+                  value={answer.id}
+                  title={answer.additionalQuestion}
+                >
                   {answer.text}
                 </MenuItem>
               ))}
             </Select>
+            <FormHelperText sx={{ color: 'green' }}>
+              {Object.keys(additionalText).find(
+                (key) => parseInt(key) === question.question.id
+              ) && additionalText[question.question.id]}
+            </FormHelperText>
           </Grid>
         </Grid>
       ))}

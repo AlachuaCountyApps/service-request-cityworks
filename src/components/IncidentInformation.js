@@ -1,6 +1,7 @@
 import {
   Autocomplete,
   Button,
+  FormHelperText,
   Grid,
   Paper,
   TextField,
@@ -103,7 +104,9 @@ export default function IncidentInformation({
 
   const submitPage1 = (e) => {
     e.preventDefault();
-    navigate('/servicerequest/step2');
+    if (!selectaddressonMap && autocompleteData)
+      navigate('/servicerequest/step2');
+    else alert('Issue Location Address is required');
   };
 
   useEffect(() => {
@@ -213,13 +216,18 @@ export default function IncidentInformation({
                         {selectaddressonMap ? (
                           <TextField value={address.street} fullWidth />
                         ) : (
-                          <GooglePlacesAutocomplete
-                            apiKey={`AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`}
-                            selectProps={{
-                              autocompleteData,
-                              onChange: setAutocompleteData,
-                            }}
-                          />
+                          <>
+                            <GooglePlacesAutocomplete
+                              apiKey={`AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`}
+                              selectProps={{
+                                autocompleteData,
+                                onChange: setAutocompleteData,
+                              }}
+                            />
+                            <FormHelperText sx={{ color: 'red' }}>
+                              {!autocompleteData && 'Required'}
+                            </FormHelperText>
+                          </>
                         )}
                       </Grid>
                       <Grid
@@ -234,6 +242,7 @@ export default function IncidentInformation({
                             color='success'
                             onClick={() => {
                               setSelectAddressonMap(true);
+                              setAutocompleteData(null);
                               handleOpen();
                             }}
                           >

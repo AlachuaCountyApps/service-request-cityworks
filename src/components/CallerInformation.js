@@ -52,7 +52,7 @@ export default function CallerInformation() {
           <TextField id='lastName' name='lastName' required={true} fullWidth />
         </Grid>
         <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
-          Phone Number:
+          Cell Phone Number:
         </Grid>
         <Grid item xs={9} sm={4}>
           <ReactInputMask mask='999 - 999 - 9999'>
@@ -60,6 +60,21 @@ export default function CallerInformation() {
               <TextField
                 id='phoneNumber'
                 name='phoneNumber'
+                required={true}
+                fullWidth
+              />
+            )}
+          </ReactInputMask>
+        </Grid>
+        <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
+          Work Phone Number:
+        </Grid>
+        <Grid item xs={9} sm={4}>
+          <ReactInputMask mask='999 - 999 - 9999'>
+            {() => (
+              <TextField
+                id='workPhoneNumber'
+                name='workPhoneNumber'
                 required={true}
                 fullWidth
               />
@@ -78,6 +93,13 @@ export default function CallerInformation() {
             fullWidth
           />
         </Grid>
+        <Grid
+          item
+          xs={3}
+          sm={2}
+          sx={{ textAlign: 'end', alignSelf: 'center' }}
+        ></Grid>
+        <Grid item xs={9} sm={4}></Grid>
         <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Address:
         </Grid>
@@ -106,7 +128,13 @@ export default function CallerInformation() {
           Zip Code:
         </Grid>
         <Grid item xs={9} sm={10}>
-          <TextField id='zipcode' name='zipcode' required={true} />
+          <TextField
+            id='zipcode'
+            name='zipcode'
+            type={'number'}
+            InputProps={{ inputProps: { min: 10000, max: 99999 } }}
+            required={true}
+          />
         </Grid>
       </Grid>
     </Paper>

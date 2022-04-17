@@ -118,6 +118,32 @@ function App() {
     setDepartment(val);
   };
 
+  const getStreetName = (street) => {
+    if (street)
+      if (
+        street.toUpperCase() === 'SW' ||
+        street.toUpperCase() === 'SOUTH WEST'
+      )
+        return 'South West';
+    if (street.toUpperCase() === 'SE' || street.toUpperCase() === 'SOUTH EAST')
+      return 'South East';
+    if (street.toUpperCase() === 'NW' || street.toUpperCase() === 'NORTH WEST')
+      return 'North West';
+    if (street.toUpperCase() === 'NE' || street.toUpperCase() === 'NORTH EAST')
+      return 'North East';
+    if (
+      street.toUpperCase() === 'NC' ||
+      street.toUpperCase() === 'NORTH CENTRAL'
+    )
+      return 'North Central';
+    if (
+      street.toUpperCase() === 'SC' ||
+      street.toUpperCase() === 'SOUTH CENTRAL'
+    )
+      return 'South Central';
+    return null;
+  };
+
   const updateSelectedAddress = (data) => {
     const addressObj = {};
     addressObj.lat = data.geometry.location.lat;
@@ -137,6 +163,12 @@ function App() {
             break;
           case 'route':
             addressObj.shortAddress = data.address_components[i].short_name;
+            addressObj.StreetName = getStreetName(
+              data.address_components[i].short_name.substring(
+                0,
+                data.address_components[i].short_name.indexOf(' ')
+              )
+            );
             break;
           case 'street_number':
             addressObj.streetNumber = data.address_components[i].long_name;
@@ -147,6 +179,7 @@ function App() {
       }
     }
     handleAddressChange(addressObj);
+    console.log(addressObj);
   };
 
   const submitRequest = (e) => {
@@ -196,6 +229,112 @@ function App() {
       CallerContact: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
       Answers: [selectedAnswersText],
     };
+
+    /*      http://test-cw-app1/Cityworks_Test/services/Ams/ServiceRequest/Create?data={
+    "ProblemSid": null,
+    "InitiatedBySid": null,
+    "DateTimeInit": null,
+    "Details": null,
+    "Priority": null,
+    "SubmitToSid": null,
+    "DispatchToSid": null,
+    "Comments": null,
+    "Address": null,
+    "StreetName": null,
+    "AptNum": null,
+    "City": null,
+    "State": null,
+    "Zip": null,
+    "Landmark": null,
+    "District": null,
+    "Location": null,
+    "Status": null,
+    "X": null,
+    "Y": null,
+    "Shop": null,
+    "MapPage": null,
+    "TileNo": null,
+    "OtherSystemId": null,
+    "InitiatedByApp": null,
+    "FieldInvtDone": null,
+    "DateInvtDone": null,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "Text5": null,
+    "Text6": null,
+    "Text7": null,
+    "Text8": null,
+    "Text9": null,
+    "Text10": null,
+    "Text11": null,
+    "Text12": null,
+    "Text13": null,
+    "Text14": null,
+    "Text15": null,
+    "Text16": null,
+    "Text17": null,
+    "Text18": null,
+    "Text19": null,
+    "Text20": null,
+    "Num1": null,
+    "Num2": null,
+    "Num3": null,
+    "Num4": null,
+    "Num5": null,
+    "Date1": null,
+    "Date2": null,
+    "Date3": null,
+    "Date4": null,
+    "Date5": null,
+    "CallerType": null,
+    "CallerCallTime": null,
+    "CallerAcctNum": null,
+    "CallerTitle": null,
+    "CallerFirstName": null,
+    "CallerMiddleInitial": null,
+    "CallerLastName": null,
+    "CallerAddress": null,
+    "CallerAptNum": null,
+    "CallerCity": null,
+    "CallerState": null,
+    "CallerZip": null,
+    "CallerDistrict": null,
+    "CallerHomePhone": null,
+    "CallerWorkPhone": null,
+    "CallerCellPhone": null,
+    "CallerOtherPhone": null,
+    "CallerFax": null,
+    "CallerEmail": null,
+    "CallerIsOwner": null,
+    "CallerIsFollowUpCall": null,
+    "CallerComments": null,
+    "CallerText1": null,
+    "CallerText2": null,
+    "CallerText3": null,
+    "CallerText4": null,
+    "CallerText5": null,
+    "CallerAddressType": null,
+    "CallerCallback": null,
+    "CallerContact": null,
+    "CallerCallbackTime": null,
+    "CallerContactTime": null,
+    "ReqCustFieldCatId": null,
+    "InspectionIds": null,
+    "WorkOrderIds": null,
+    "CaseIds": null,
+    "CustomFieldValues": null,
+    "Answers": null,
+    "SubmitTo": null,
+    "DispatchTo": null,
+    "Facility_Id": null,
+    "Level_Id": null,
+    "WKID": null,
+    "WKT": null,
+    "GeocodeAddress": null
+}
+ */
 
     axios
       .post('http://localhost:7010/submitRequest', data)

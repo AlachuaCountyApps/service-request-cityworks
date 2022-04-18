@@ -34,12 +34,15 @@ function App() {
   const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
   const [issueDescription, setIssueDescription] = useState('');
   const [address, setAddress] = useState({
+    StreetName: null,
     street: '',
+    streetNumber: '',
     city: '',
     zip: '',
     county: '',
     shortAddress: '',
-    streetNumber: '',
+    lat: '',
+    lng: '',
   });
   const [open, setOpen] = useState(false);
 
@@ -182,35 +185,53 @@ function App() {
     console.log(addressObj);
   };
 
+  const convertAnswersToAnswers = () => {
+    const answersArray = [];
+    Object.entries(selectedAnswersText).forEach(([key, value]) => {
+      answersArray.push({ [key]: value });
+    });
+    return answersArray;
+  };
+
+  const convertQuestionAnswerstoString = () => {
+    let result = '';
+    questionAnswers.forEach((element) => {
+      result +=
+        element.question.text +
+        ': ' +
+        selectedAnswersText[selectedAnswers[element.question.id]] +
+        '. ';
+    });
+    return result;
+  };
+
   const submitRequest = (e) => {
     e.preventDefault();
-    console.log(e.target.length);
-    console.log(e.target.firstName.value);
-    console.log(e.target.lastName.value);
-    console.log(e.target.phoneNumber.value);
-    console.log(e.target.email.value);
-    console.log(e.target.address.value);
-    console.log(e.target.unitnumber.value);
-    console.log(e.target.city.value);
-    console.log(e.target.state.value);
-    console.log(e.target.zipcode.value);
-    console.log(e.target.otherFirstName.value);
-    console.log(e.target.otherLastName.value);
-    console.log(e.target.otherWorkPhoneNumber.value);
-    console.log(e.target.otherEmail.value);
 
     const data = {
       ProblemSid: issueID,
-      Details: issueDescription,
-      Comments: additonalLocationInfo,
-      Address: building.Address,
-      City: building.City,
-      State: building.State,
-      Zip: building.Zip,
-      Landmark: building.label,
-      Location: building.Dept,
-      X: building.lat,
-      Y: building.lng,
+      Details: issueDescription + '. ' + convertQuestionAnswerstoString(),
+      Comments:
+        issue +
+        ': ' +
+        issueDescription +
+        '. ' +
+        convertQuestionAnswerstoString(),
+      Address: address.streetNumber + ' ' + address.shortAddress,
+      City: address.city,
+      State: 'Florida',
+      Zip: address.zip,
+      Landmark:
+        building.label && building.label.includes('Other')
+          ? null
+          : building.label,
+      District: address.StreetName,
+      Location:
+        department && department.includes('Other')
+          ? additonalLocationInfo
+          : department + ' ' + additonalLocationInfo,
+      X: address.lat,
+      Y: address.lng,
       CallerType: 'Visitor',
       CallerFirstName: e.target.firstName.value,
       CallerLastName: e.target.lastName.value,
@@ -219,124 +240,20 @@ function App() {
       CallerCity: e.target.city.value,
       CallerState: e.target.state.value,
       CallerZip: e.target.zipcode.value,
-      CallerHomePhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
-      CallerWorkPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
+      CallerWorkPhone: e.target.workPhoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
-      CallerOtherPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
-      CallerFax: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
+      CallerOtherPhone:
+        e.target.otherWorkPhoneNumber.value &&
+        e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerEmail: e.target.email.value,
-      CallerComments: `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Contact: ${e.target.otherWorkPhoneNumber.value}, Email: ${e.target.otherEmail.value}`,
-      CallerContact: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
-      Answers: [selectedAnswersText],
+      CallerComments: `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`,
+      Answers: convertAnswersToAnswers(),
+      GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
     };
 
-    /*      http://test-cw-app1/Cityworks_Test/services/Ams/ServiceRequest/Create?data={
-    "ProblemSid": null,
-    "InitiatedBySid": null,
-    "DateTimeInit": null,
-    "Details": null,
-    "Priority": null,
-    "SubmitToSid": null,
-    "DispatchToSid": null,
-    "Comments": null,
-    "Address": null,
-    "StreetName": null,
-    "AptNum": null,
-    "City": null,
-    "State": null,
-    "Zip": null,
-    "Landmark": null,
-    "District": null,
-    "Location": null,
-    "Status": null,
-    "X": null,
-    "Y": null,
-    "Shop": null,
-    "MapPage": null,
-    "TileNo": null,
-    "OtherSystemId": null,
-    "InitiatedByApp": null,
-    "FieldInvtDone": null,
-    "DateInvtDone": null,
-    "Text1": null,
-    "Text2": null,
-    "Text3": null,
-    "Text4": null,
-    "Text5": null,
-    "Text6": null,
-    "Text7": null,
-    "Text8": null,
-    "Text9": null,
-    "Text10": null,
-    "Text11": null,
-    "Text12": null,
-    "Text13": null,
-    "Text14": null,
-    "Text15": null,
-    "Text16": null,
-    "Text17": null,
-    "Text18": null,
-    "Text19": null,
-    "Text20": null,
-    "Num1": null,
-    "Num2": null,
-    "Num3": null,
-    "Num4": null,
-    "Num5": null,
-    "Date1": null,
-    "Date2": null,
-    "Date3": null,
-    "Date4": null,
-    "Date5": null,
-    "CallerType": null,
-    "CallerCallTime": null,
-    "CallerAcctNum": null,
-    "CallerTitle": null,
-    "CallerFirstName": null,
-    "CallerMiddleInitial": null,
-    "CallerLastName": null,
-    "CallerAddress": null,
-    "CallerAptNum": null,
-    "CallerCity": null,
-    "CallerState": null,
-    "CallerZip": null,
-    "CallerDistrict": null,
-    "CallerHomePhone": null,
-    "CallerWorkPhone": null,
-    "CallerCellPhone": null,
-    "CallerOtherPhone": null,
-    "CallerFax": null,
-    "CallerEmail": null,
-    "CallerIsOwner": null,
-    "CallerIsFollowUpCall": null,
-    "CallerComments": null,
-    "CallerText1": null,
-    "CallerText2": null,
-    "CallerText3": null,
-    "CallerText4": null,
-    "CallerText5": null,
-    "CallerAddressType": null,
-    "CallerCallback": null,
-    "CallerContact": null,
-    "CallerCallbackTime": null,
-    "CallerContactTime": null,
-    "ReqCustFieldCatId": null,
-    "InspectionIds": null,
-    "WorkOrderIds": null,
-    "CaseIds": null,
-    "CustomFieldValues": null,
-    "Answers": null,
-    "SubmitTo": null,
-    "DispatchTo": null,
-    "Facility_Id": null,
-    "Level_Id": null,
-    "WKID": null,
-    "WKT": null,
-    "GeocodeAddress": null
-}
- */
+    console.log(data);
 
-    axios
+    /* axios
       .post('http://localhost:7010/submitRequest', data)
       .then((response) => {
         console.log(response);
@@ -344,34 +261,8 @@ function App() {
           state: { status: true, requestID: response.data },
         });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error)); */
   };
-
-  useEffect(() => {
-    console.log('domain:', domain);
-    console.log('domain ID', domainID);
-    console.log('problem area:', problemArea);
-    console.log('issue:', issue);
-    console.log('issueID', issueID);
-    console.log('selected answers', selectedAnswers);
-    console.log('selected Answers text', selectedAnswersText);
-    console.log('building', building);
-    console.log('department', department);
-    console.log('additonalLocationInfo', additonalLocationInfo);
-    console.log('issueDescription', issueDescription);
-  }, [
-    domain,
-    problemArea,
-    issue,
-    domainID,
-    selectedAnswers,
-    selectedAnswersText,
-    building,
-    department,
-    additonalLocationInfo,
-    issueDescription,
-    issueID,
-  ]);
 
   return (
     <>

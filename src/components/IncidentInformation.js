@@ -305,7 +305,7 @@ export default function IncidentInformation({
                   updateSelection={(newValue) =>
                     setAdditonalLocationInfo(newValue)
                   }
-                  placeholder={`(Example - First Floor Women's Restroom)`}
+                  placeholder={`(Example - First Floor Women's Restroom) (Please include closest intersection or what direction from the intersection if unable to select correct address)`}
                 />
               </Grid>
 

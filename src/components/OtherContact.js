@@ -34,7 +34,6 @@ export default function CallerInformation() {
               <TextField
                 id='otherWorkPhoneNumber'
                 name='otherWorkPhoneNumber'
-                required={true}
                 fullWidth
               />
             )}

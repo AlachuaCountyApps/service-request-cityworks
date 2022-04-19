@@ -40,6 +40,8 @@ export default function Map({
   const [getAddressManually, setGetAddressManually] = useState(false);
   const [autocomplete, setAutocomplete] = useState(null);
 
+  const [addressLocationonMap, setAddressLocationonMap] = useState('');
+
   const mapRef = useRef(null);
 
   const handleResize = () => {
@@ -58,11 +60,22 @@ export default function Map({
     if (mapCenter) setMarkerPosition(mapCenter);
   };
 
-  const handleOnIdle = () => {
+  const handleOnClose = () => {
     // Get address from latitude & longitude.
     Geocode.fromLatLng(markerPosition.lat, markerPosition.lng).then(
       (response) => {
         updateSelectedAddress(response.results[0]);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  };
+
+  const handleOnIdle = () => {
+    Geocode.fromLatLng(markerPosition.lat, markerPosition.lng).then(
+      (response) => {
+        setAddressLocationonMap(response.results[0].formatted_address);
       },
       (error) => {
         console.error(error);
@@ -159,29 +172,42 @@ export default function Map({
               <Marker position={markerPosition} />
             </GoogleMap>
           </Grid>
-          {!getAddressManually && (
+          {!getAddressManually ? (
+            <>
+              <Grid item xs={12}>
+                <TextField
+                  label='Address'
+                  value={addressLocationonMap}
+                  disabled
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  variant='contained'
+                  onClick={() => {
+                    handleOnClose();
+                    handleClose();
+                  }}
+                  fullWidth
+                >
+                  Done
+                </Button>
+              </Grid>
+            </>
+          ) : (
             <Grid item xs={12}>
-              <TextField
-                label='Address'
-                value={address.street}
-                disabled
+              <Button
+                variant='contained'
+                onClick={() => {
+                  handleClose();
+                }}
                 fullWidth
-              />
+              >
+                Done
+              </Button>
             </Grid>
           )}
-
-          <Grid item xs={12}>
-            <Button
-              variant='contained'
-              onClick={() => {
-                handleOnIdle();
-                handleClose();
-              }}
-              fullWidth
-            >
-              Done
-            </Button>
-          </Grid>
         </Grid>
       </Box>
     </Modal>

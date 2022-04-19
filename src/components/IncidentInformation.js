@@ -109,7 +109,6 @@ export default function IncidentInformation({
   };
 
   useEffect(() => {
-    console.log(location.building.length);
     const tempIssues = [];
 
     for (const [key, value] of Object.entries(issuesList))

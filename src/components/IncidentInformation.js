@@ -104,7 +104,7 @@ export default function IncidentInformation({
 
   const submitPage1 = (e) => {
     e.preventDefault();
-    if (address) navigate('/servicerequest/step2');
+    if (address) navigate('/step2');
     else alert('Issue Location Address is required');
   };
 

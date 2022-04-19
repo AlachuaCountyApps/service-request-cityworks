@@ -110,7 +110,7 @@ export default function CallerInformation() {
           Unit #:
         </Grid>
         <Grid item xs={9} sm={10}>
-          <TextField id='unitnumber' name='unitnumber' required={true} />
+          <TextField id='unitnumber' name='unitnumber' />
         </Grid>
         <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           City:

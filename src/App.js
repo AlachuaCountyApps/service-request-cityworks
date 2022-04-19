@@ -253,7 +253,7 @@ function App() {
 
     console.log(data);
 
-    /* axios
+    axios
       .post('http://localhost:7010/submitRequest', data)
       .then((response) => {
         console.log(response);
@@ -261,7 +261,7 @@ function App() {
           state: { status: true, requestID: response.data },
         });
       })
-      .catch((error) => console.log(error)); */
+      .catch((error) => console.log(error));
   };
 
   return (

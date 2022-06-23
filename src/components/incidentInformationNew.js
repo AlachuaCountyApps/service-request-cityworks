@@ -7,9 +7,13 @@ import {
   Select,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
-export default function incidentInformationNew({
+import IssueQuestionAnswers from "./IssueQuestionAnswers";
+
+import buildings from "../data/buildings.json";
+
+export default function IncidentInformationNew({
   issue,
   handleIssueChange,
   questionAnswers,
@@ -29,6 +33,12 @@ export default function incidentInformationNew({
   isCountyBuildingIssue,
   handleIsCountyBuildingIssueChange,
 }) {
+  const [userLocation, setUserLocation] = useState(false);
+
+  const getLocation = () => {
+    setUserLocation(!userLocation);
+  };
+
   const submitPage1 = (e) => {
     e.preventDefault();
   };
@@ -68,6 +78,23 @@ export default function incidentInformationNew({
               </Select>
             </FormControl>
           </Grid>
+
+          {isCountyBuildingIssue === "Yes" && (
+            <Grid item xs={12}>
+              <IssueQuestionAnswers
+                id={"building"}
+                index={0}
+                question={"Building:"}
+                value={building}
+                updateSelection={(newValue) => handleBuildingChange(newValue)}
+                options={buildings.sort((a, b) =>
+                  a.label > b.label ? 1 : b.label > a.label ? -1 : 0
+                )}
+                getLocation={getLocation}
+                AdditionalComponent={true}
+              />
+            </Grid>
+          )}
         </Grid>
       </form>
     </Paper>

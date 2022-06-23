@@ -120,6 +120,7 @@ function App() {
   };
 
   const handleBuildingChange = (val) => {
+    console.log(val);
     setBuilding(val);
   };
 

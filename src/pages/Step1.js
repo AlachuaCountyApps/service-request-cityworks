@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 
 import IncidentInformation from "../components/IncidentInformation";
-import IncidentInformationNew from "../components/incidentInformationNew";
+import IncidentInformationNew from "../components/IncidentInformationNew";
 
 import EmergencyContact from "../components/EmergencyContact";
 

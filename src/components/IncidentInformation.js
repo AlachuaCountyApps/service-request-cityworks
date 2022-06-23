@@ -6,19 +6,19 @@ import {
   Paper,
   TextField,
   Typography,
-} from '@mui/material';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+} from "@mui/material";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import location from '../data/location.json';
-import buildings from '../data/buildings.json';
-import issuesList from '../data/issue.json';
-import CallerQuestionsAnswers from './CallerQuestionsAnswers';
-import UserLocation from './UserLocation';
-import IssueQuestionAnswers from './IssueQuestionAnswers';
+import location from "../data/departments.json";
+import buildings from "../data/buildings.json";
+import issuesList from "../data/issue.json";
+import CallerQuestionsAnswers from "./CallerQuestionsAnswers";
+import UserLocation from "./UserLocation";
+import IssueQuestionAnswers from "./IssueQuestionAnswers";
 import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
-} from 'react-google-places-autocomplete';
+} from "react-google-places-autocomplete";
 
 function closestLocation(targetLocation, locationData) {
   function vectorDistance(dx, dy) {
@@ -90,8 +90,8 @@ export default function IncidentInformation({
         },
         buildings
       );
-      console.log('Latitude is : ', position.coords.latitude);
-      console.log('Longitude is : ', position.coords.longitude);
+      console.log("Latitude is : ", position.coords.latitude);
+      console.log("Longitude is : ", position.coords.longitude);
       handleBuildingChange(
         buildings[
           buildings.findIndex(
@@ -104,8 +104,8 @@ export default function IncidentInformation({
 
   const submitPage1 = (e) => {
     e.preventDefault();
-    if (address) navigate('/servicerequest/step2');
-    else alert('Issue Location Address is required');
+    if (address) navigate("/servicerequest/step2");
+    else alert("Issue Location Address is required");
   };
 
   useEffect(() => {
@@ -142,62 +142,62 @@ export default function IncidentInformation({
           }}
           spacing={3}
         >
-          <Grid item xs={12} sx={{ textAlign: 'center', mb: 2 }}>
-            <Typography variant='h4'>Incident Information</Typography>
+          <Grid item xs={12} sx={{ textAlign: "center", mb: 2 }}>
+            <Typography variant="h4">Incident Information</Typography>
           </Grid>
 
           {userLocation && <UserLocation getUserLocation={getUserLocation} />}
 
-          <Grid item sm={2} sx={{ display: { xs: 'none', sm: 'flex' } }}></Grid>
+          <Grid item sm={2} sx={{ display: { xs: "none", sm: "flex" } }}></Grid>
 
           <Grid
             item
             xs={2}
             sm={2}
-            sx={{ textAlign: 'end', alignSelf: 'center' }}
+            sx={{ textAlign: "end", alignSelf: "center" }}
           >
             Issue:
           </Grid>
           <Grid item xs={10} sm={4}>
             <Autocomplete
-              id='issue'
-              name='issue'
+              id="issue"
+              name="issue"
               options={issues}
-              value={issues.length > 0 ? issue : ''}
+              value={issues.length > 0 ? issue : ""}
               renderInput={(params) => <TextField {...params} required />}
               onChange={(e, newVal) => handleIssueChange(e, newVal)}
               fullWidth
             />
           </Grid>
-          <Grid item sm={4} sx={{ display: { xs: 'none', sm: 'flex' } }}></Grid>
+          <Grid item sm={4} sx={{ display: { xs: "none", sm: "flex" } }}></Grid>
 
-          {issue !== '' && (
+          {issue !== "" && (
             <Grid container sx={{ my: 5 }}>
               <Grid
                 item
                 xs={12}
                 sx={{
-                  bgcolor: '#2e78ac',
+                  bgcolor: "#2e78ac",
                   borderTopLeftRadius: 8,
                   borderTopRightRadius: 8,
-                  color: 'white',
+                  color: "white",
                   p: 2,
-                  fontWeight: 'bold',
-                  textAlign: 'center',
+                  fontWeight: "bold",
+                  textAlign: "center",
                 }}
               >
                 Please answer the following questions
               </Grid>
-              <Grid item xs={12} sx={{ bgcolor: '#aec4e5', p: 2 }}>
+              <Grid item xs={12} sx={{ bgcolor: "#aec4e5", p: 2 }}>
                 <Grid container>
                   <Grid
                     item
                     xs={12}
                     sm={4}
                     sx={{
-                      alignSelf: 'center',
+                      alignSelf: "center",
 
-                      fontWeight: 'bold',
+                      fontWeight: "bold",
                       my: { xs: 2 },
                     }}
                   >
@@ -207,7 +207,7 @@ export default function IncidentInformation({
                     item
                     xs={12}
                     sm={8}
-                    sx={{ display: 'flex', alignItems: 'center' }}
+                    sx={{ display: "flex", alignItems: "center" }}
                   >
                     <Grid container spacing={1}>
                       <Grid item xs={12} sm={8}>
@@ -222,8 +222,8 @@ export default function IncidentInformation({
                                 onChange: setAutocompleteData,
                               }}
                             />
-                            <FormHelperText sx={{ color: 'red' }}>
-                              {!autocompleteData && 'Required'}
+                            <FormHelperText sx={{ color: "red" }}>
+                              {!autocompleteData && "Required"}
                             </FormHelperText>
                           </>
                         )}
@@ -232,12 +232,12 @@ export default function IncidentInformation({
                         item
                         xs={12}
                         sm={4}
-                        sx={{ alignSelf: 'center', textAlign: 'center' }}
+                        sx={{ alignSelf: "center", textAlign: "center" }}
                       >
                         {!selectaddressonMap ? (
                           <Button
-                            variant='contained'
-                            color='success'
+                            variant="contained"
+                            color="success"
                             onClick={() => {
                               setSelectAddressonMap(true);
                               setAutocompleteData(null);
@@ -248,8 +248,8 @@ export default function IncidentInformation({
                           </Button>
                         ) : (
                           <Button
-                            variant='contained'
-                            color='success'
+                            variant="contained"
+                            color="success"
                             onClick={() => {
                               setSelectAddressonMap(false);
                             }}
@@ -265,9 +265,9 @@ export default function IncidentInformation({
 
               <Grid item xs={12}>
                 <IssueQuestionAnswers
-                  id={'building'}
+                  id={"building"}
                   index={0}
-                  question={'Building:'}
+                  question={"Building:"}
                   value={building}
                   updateSelection={(newValue) => handleBuildingChange(newValue)}
                   options={buildings.sort((a, b) =>
@@ -280,9 +280,9 @@ export default function IncidentInformation({
 
               <Grid item xs={12}>
                 <IssueQuestionAnswers
-                  id={'department'}
+                  id={"department"}
                   index={1}
-                  question={'Department:'}
+                  question={"Department:"}
                   value={department}
                   updateSelection={(newValue) =>
                     handleDepartmentChange(newValue)
@@ -297,8 +297,8 @@ export default function IncidentInformation({
               <Grid item xs={12}>
                 <IssueQuestionAnswers
                   index={2}
-                  id={'location-info'}
-                  question={'Additional Location Information:'}
+                  id={"location-info"}
+                  question={"Additional Location Information:"}
                   value={additonalLocationInfo}
                   updateSelection={(newValue) =>
                     setAdditonalLocationInfo(newValue)
@@ -321,15 +321,15 @@ export default function IncidentInformation({
               <Grid item xs={12}>
                 <IssueQuestionAnswers
                   index={3 + questionAnswers.length}
-                  id={'issue-description'}
-                  question={'Description of the Issue:'}
+                  id={"issue-description"}
+                  question={"Description of the Issue:"}
                   value={issueDescription}
                   updateSelection={(newValue) => setIssueDescription(newValue)}
-                  placeholder={'(Be as detailed and specific as possible)'}
+                  placeholder={"(Be as detailed and specific as possible)"}
                 />
               </Grid>
-              <Grid item xs={12} sx={{ my: 5, textAlign: 'center' }}>
-                <Button type='submit' variant='contained'>
+              <Grid item xs={12} sx={{ my: 5, textAlign: "center" }}>
+                <Button type="submit" variant="contained">
                   Next
                 </Button>
               </Grid>

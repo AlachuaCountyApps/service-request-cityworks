@@ -1,0 +1,125 @@
+{
+  "ProblemSid": 21,
+  "BranchingModel": false,
+  "Questions": [
+    {
+      "QuestionId": 43,
+      "ProblemSid": 21,
+      "Question": "Location Detail",
+      "QuestionSequence": 1
+    },
+    {
+      "QuestionId": 44,
+      "ProblemSid": 21,
+      "Question": "Carpet Issue Detail",
+      "QuestionSequence": 2
+    }
+  ],
+  "Answers": [
+    {
+      "QuestionId": 43,
+      "NextQuestionId": 0,
+      "Priority": "",
+      "AnswerSequence": 1,
+      "Answer": "Interior",
+      "AnswerId": 154,
+      "TellCaller": "",
+      "AnswerFormat": "THISTEXT",
+      "SubmitTo": 0,
+      "DispatchTo": 0,
+      "SubmitToLayerName": "",
+      "SubmitToFieldName": "",
+      "DispatchToFieldName": ""
+    },
+    {
+      "QuestionId": 43,
+      "NextQuestionId": 0,
+      "Priority": "",
+      "AnswerSequence": 2,
+      "Answer": "Exterior",
+      "AnswerId": 155,
+      "TellCaller": "",
+      "AnswerFormat": "THISTEXT",
+      "SubmitTo": 0,
+      "DispatchTo": 0,
+      "SubmitToLayerName": "",
+      "SubmitToFieldName": "",
+      "DispatchToFieldName": ""
+    },
+    {
+      "QuestionId": 44,
+      "NextQuestionId": 0,
+      "Priority": "",
+      "AnswerSequence": 1,
+      "Answer": "Broken Floor",
+      "AnswerId": 156,
+      "TellCaller": "",
+      "AnswerFormat": "THISTEXT",
+      "SubmitTo": -9999,
+      "DispatchTo": -9999,
+      "SubmitToLayerName": "",
+      "SubmitToFieldName": "",
+      "DispatchToFieldName": ""
+    },
+    {
+      "QuestionId": 44,
+      "NextQuestionId": 0,
+      "Priority": "",
+      "AnswerSequence": 2,
+      "Answer": "Loose Floor",
+      "AnswerId": 157,
+      "TellCaller": "",
+      "AnswerFormat": "THISTEXT",
+      "SubmitTo": -9999,
+      "DispatchTo": -9999,
+      "SubmitToLayerName": "",
+      "SubmitToFieldName": "",
+      "DispatchToFieldName": ""
+    },
+    {
+      "QuestionId": 44,
+      "NextQuestionId": 0,
+      "Priority": "",
+      "AnswerSequence": 3,
+      "Answer": "Ripped",
+      "AnswerId": 158,
+      "TellCaller": "",
+      "AnswerFormat": "THISTEXT",
+      "SubmitTo": -9999,
+      "DispatchTo": -9999,
+      "SubmitToLayerName": "",
+      "SubmitToFieldName": "",
+      "DispatchToFieldName": ""
+    },
+    {
+      "QuestionId": 44,
+      "NextQuestionId": 0,
+      "Priority": "",
+      "AnswerSequence": 4,
+      "Answer": "Trip Hazard",
+      "AnswerId": 159,
+      "TellCaller": "",
+      "AnswerFormat": "THISTEXT",
+      "SubmitTo": 0,
+      "DispatchTo": 0,
+      "SubmitToLayerName": "",
+      "SubmitToFieldName": "",
+      "DispatchToFieldName": ""
+    },
+    {
+      "QuestionId": 44,
+      "NextQuestionId": 0,
+      "Priority": "",
+      "AnswerSequence": 5,
+      "Answer": "Torn",
+      "AnswerId": 160,
+      "TellCaller": "",
+      "AnswerFormat": "THISTEXT",
+      "SubmitTo": 0,
+      "DispatchTo": 0,
+      "SubmitToLayerName": "",
+      "SubmitToFieldName": "",
+      "DispatchToFieldName": ""
+    }
+  ]
+}

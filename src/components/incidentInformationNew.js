@@ -6,12 +6,13 @@ import {
   Paper,
   Select,
   Typography,
-} from '@mui/material';
-import React, { useState } from 'react';
+} from "@mui/material";
+import React, { useState } from "react";
 
-import IssueQuestionAnswers from './IssueQuestionAnswers';
+import IssueQuestionAnswers from "./IssueQuestionAnswers";
 
-import buildings from '../data/buildings.json';
+import buildings from "../data/buildings.json";
+import departments from "../data/departments.json";
 
 export default function IncidentInformationNew({
   issue,
@@ -32,6 +33,10 @@ export default function IncidentInformationNew({
   updateSelectedAddress,
   isCountyBuildingIssue,
   handleIsCountyBuildingIssueChange,
+  issues,
+  handleIssueSelection,
+  questions,
+  answers,
 }) {
   const [userLocation, setUserLocation] = useState(false);
 
@@ -56,44 +61,89 @@ export default function IncidentInformationNew({
             mt: 1,
           }}
           spacing={3}
-          display='flex'
+          display="flex"
         >
-          <Grid item xs={12} sx={{ textAlign: 'center', mb: 2 }}>
-            <Typography variant='h4'>Incident Information</Typography>
+          <Grid item xs={12} sx={{ textAlign: "center", mb: 2 }}>
+            <Typography variant="h4">Incident Information</Typography>
           </Grid>
+
           <Grid item xs={12}>
             <FormControl fullWidth>
-              <InputLabel id='issue-location-label'>
+              <InputLabel id="issue-location-label">
                 Is the issue related to a county building?
               </InputLabel>
               <Select
-                labelId='issue-location-label'
-                id='issue-location'
+                labelId="issue-location-label"
+                id="issue-location"
                 value={isCountyBuildingIssue}
-                label='Is the issue related to a county building?'
+                label="Is the issue related to a county building?"
                 onChange={handleIsCountyBuildingIssueChange}
               >
-                <MenuItem value={'Yes'}>Yes</MenuItem>
-                <MenuItem value={'No'}>No</MenuItem>
+                <MenuItem value={"Yes"}>Yes</MenuItem>
+                <MenuItem value={"No"}>No</MenuItem>
               </Select>
             </FormControl>
           </Grid>
 
-          {isCountyBuildingIssue === 'Yes' && (
-            <Grid item xs={12}>
-              <IssueQuestionAnswers
-                id={'building'}
-                index={0}
-                question={'Building:'}
-                value={building}
-                updateSelection={(newValue) => handleBuildingChange(newValue)}
-                options={buildings.sort((a, b) =>
-                  a.label > b.label ? 1 : b.label > a.label ? -1 : 0
-                )}
-                getLocation={getLocation}
-                AdditionalComponent={true}
-              />
-            </Grid>
+          {isCountyBuildingIssue === "Yes" && (
+            <>
+              <Grid item xs={12}>
+                <IssueQuestionAnswers
+                  id={"building"}
+                  index={0}
+                  question={"Building:"}
+                  value={building}
+                  updateSelection={(newValue) => handleBuildingChange(newValue)}
+                  options={buildings.sort((a, b) =>
+                    a.label > b.label ? 1 : b.label > a.label ? -1 : 0
+                  )}
+                  getLocation={getLocation}
+                  AdditionalComponent={true}
+                />
+              </Grid>
+
+              {building && (
+                <Grid item xs={12}>
+                  <FormControl fullWidth>
+                    <InputLabel id="issue-label">
+                      Please Select an Issue to Report
+                    </InputLabel>
+                    <Select
+                      labelId="issue-label"
+                      id="issue"
+                      value={issue}
+                      label="Please Select an Issue to Report"
+                      onChange={handleIssueSelection}
+                    >
+                      {issues.length > 0 &&
+                        issues.map((issueItem, index) => (
+                          <MenuItem key={index} value={issueItem}>
+                            {issueItem.Description}
+                          </MenuItem>
+                        ))}
+                    </Select>
+                  </FormControl>
+                </Grid>
+              )}
+
+              {issue && (
+                <Grid item xs={12}>
+                  <IssueQuestionAnswers
+                    id={"department"}
+                    index={1}
+                    question={"Department:"}
+                    value={department}
+                    updateSelection={(newValue) =>
+                      handleDepartmentChange(newValue)
+                    }
+                    options={departments.sort((a, b) =>
+                      a > b ? 1 : b > a ? -1 : 0
+                    )}
+                    AdditionalComponent={true}
+                  />
+                </Grid>
+              )}
+            </>
           )}
         </Grid>
       </form>

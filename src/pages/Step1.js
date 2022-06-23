@@ -25,6 +25,10 @@ export default function Step1({
   updateSelectedAddress,
   isCountyBuildingIssue,
   handleIsCountyBuildingIssueChange,
+  issues,
+  handleIssueSelection,
+  questions,
+  answers,
 }) {
   return (
     <Grid container spacing={3}>
@@ -73,6 +77,10 @@ export default function Step1({
           updateSelectedAddress={updateSelectedAddress}
           isCountyBuildingIssue={isCountyBuildingIssue}
           handleIsCountyBuildingIssueChange={handleIsCountyBuildingIssueChange}
+          issues={issues}
+          handleIssueSelection={handleIssueSelection}
+          questions={questions}
+          answers={answers}
         />
 
         <EmergencyContact />

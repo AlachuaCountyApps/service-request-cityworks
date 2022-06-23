@@ -1,0 +1,119 @@
+[
+  {
+    "ProblemSid": 18,
+    "DomainId": 3,
+    "ProblemCode": "DoorWall",
+    "Description": "Door/Wall/Window Request",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 19,
+    "DomainId": 3,
+    "ProblemCode": "Electrical",
+    "Description": "Electrical Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 20,
+    "DomainId": 3,
+    "ProblemCode": "Elevator",
+    "Description": "Elevator Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 21,
+    "DomainId": 3,
+    "ProblemCode": "CarpetFlooring",
+    "Description": "Carpet/Flooring Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 22,
+    "DomainId": 3,
+    "ProblemCode": "HVAC",
+    "Description": "HVAC Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 23,
+    "DomainId": 3,
+    "ProblemCode": "Janitorial",
+    "Description": "Janitorial Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 24,
+    "DomainId": 3,
+    "ProblemCode": "Landscaping",
+    "Description": "Landscaping Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 25,
+    "DomainId": 3,
+    "ProblemCode": "MiscOther",
+    "Description": "Misc/Other Fac Request",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 26,
+    "DomainId": 3,
+    "ProblemCode": "Painting",
+    "Description": "Painting Request",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 27,
+    "DomainId": 3,
+    "ProblemCode": "Pests",
+    "Description": "Pest Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 28,
+    "DomainId": 3,
+    "ProblemCode": "Plumbing",
+    "Description": "Plumbing Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 29,
+    "DomainId": 3,
+    "ProblemCode": "Roof",
+    "Description": "Roof Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  },
+  {
+    "ProblemSid": 31,
+    "DomainId": 3,
+    "ProblemCode": "ParkingLot",
+    "Description": "Parking Lot Issue",
+    "OtherSysCode": "",
+    "OtherSysDesc1": "",
+    "OtherSysDesc2": ""
+  }
+]

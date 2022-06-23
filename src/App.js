@@ -22,6 +22,7 @@ Geocode.setLocationType("ROOFTOP");
 
 function App() {
   const [isCountyBuildingIssue, setIsCountyBuildingIssue] = useState("");
+  const [issueType, setIssueType] = useState();
 
   const [domain, setDomain] = useState("");
   const [domainID, setDomainID] = useState();
@@ -120,8 +121,8 @@ function App() {
   };
 
   const handleBuildingChange = (val) => {
-    console.log(val);
     setBuilding(val);
+    setIssueType(val.Dept.includes())
   };
 
   const handleDepartmentChange = (val) => {

@@ -6,12 +6,12 @@ import {
   Paper,
   Select,
   Typography,
-} from "@mui/material";
-import React, { useState } from "react";
+} from '@mui/material';
+import React, { useState } from 'react';
 
-import IssueQuestionAnswers from "./IssueQuestionAnswers";
+import IssueQuestionAnswers from './IssueQuestionAnswers';
 
-import buildings from "../data/buildings.json";
+import buildings from '../data/buildings.json';
 
 export default function IncidentInformationNew({
   issue,
@@ -56,35 +56,35 @@ export default function IncidentInformationNew({
             mt: 1,
           }}
           spacing={3}
-          display="flex"
+          display='flex'
         >
-          <Grid item xs={12} sx={{ textAlign: "center", mb: 2 }}>
-            <Typography variant="h4">Incident Information</Typography>
+          <Grid item xs={12} sx={{ textAlign: 'center', mb: 2 }}>
+            <Typography variant='h4'>Incident Information</Typography>
           </Grid>
           <Grid item xs={12}>
             <FormControl fullWidth>
-              <InputLabel id="issue-location-label">
-                Is the issue realted to a county building?
+              <InputLabel id='issue-location-label'>
+                Is the issue related to a county building?
               </InputLabel>
               <Select
-                labelId="issue-location-label"
-                id="issue-location"
+                labelId='issue-location-label'
+                id='issue-location'
                 value={isCountyBuildingIssue}
-                label="Is the issue realted to a county building?"
+                label='Is the issue related to a county building?'
                 onChange={handleIsCountyBuildingIssueChange}
               >
-                <MenuItem value={"Yes"}>Yes</MenuItem>
-                <MenuItem value={"No"}>No</MenuItem>
+                <MenuItem value={'Yes'}>Yes</MenuItem>
+                <MenuItem value={'No'}>No</MenuItem>
               </Select>
             </FormControl>
           </Grid>
 
-          {isCountyBuildingIssue === "Yes" && (
+          {isCountyBuildingIssue === 'Yes' && (
             <Grid item xs={12}>
               <IssueQuestionAnswers
-                id={"building"}
+                id={'building'}
                 index={0}
-                question={"Building:"}
+                question={'Building:'}
                 value={building}
                 updateSelection={(newValue) => handleBuildingChange(newValue)}
                 options={buildings.sort((a, b) =>

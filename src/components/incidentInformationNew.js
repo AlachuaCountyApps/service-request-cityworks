@@ -20,6 +20,7 @@ import CallerQuestionAnswersNew from "./CallerQuestionAnswersNew";
 import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
 } from "react-google-places-autocomplete";
+import { useNavigate } from "react-router-dom";
 
 export default function IncidentInformationNew({
   issue,
@@ -45,6 +46,8 @@ export default function IncidentInformationNew({
   questions,
   answers,
 }) {
+  let navigate = useNavigate();
+
   const [userLocation, setUserLocation] = useState(false);
   const [selectaddressonMap, setSelectAddressonMap] = useState(false);
   const [autocompleteData, setAutocompleteData] = useState(null);
@@ -77,6 +80,8 @@ export default function IncidentInformationNew({
 
   const submitPage1 = (e) => {
     e.preventDefault();
+    if (address) navigate("/servicerequest/step2");
+    else alert("Issue Location Address/Building is required");
   };
 
   return (

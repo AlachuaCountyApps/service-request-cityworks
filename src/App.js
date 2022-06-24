@@ -9,9 +9,6 @@ import Step2 from "./pages/Step2";
 
 import problems from "./data/issuesListDomainSpecific.json";
 import questionandAnswers from "./data/questionanswersProblemSpecific.json";
-import buildings from "./data/buildings.json";
-import problemAreaData from "./data/problemArea.json";
-import questionsandAnswers from "./data/callerQuestions&Answers.json";
 import Success from "./pages/Success";
 import GoogleMap from "./components/Map";
 
@@ -93,10 +90,6 @@ function App() {
     refreshFormFields();
   }, [domainID]);
 
-  useEffect(() => {
-    console.log(address);
-  }, [address]);
-
   const handleBuildingChange = (val) => {
     setBuilding(val);
 
@@ -108,13 +101,25 @@ function App() {
       //Set Domain - Facilities
       setDomain("ACFD");
       setDomainID(3);
-      console.log("GenFac");
     } else {
       refreshFormFields();
       setDomain("");
       setDomainID();
       setIssues([]);
     }
+  };
+
+  useEffect(() => {
+    if (building) updateAddress();
+  }, [building]);
+
+  const updateAddress = () => {
+    Geocode.fromLatLng(building.lat, building.lng)
+      .then((response) => {
+        const data = response.results[0];
+        updateSelectedAddress(data);
+      })
+      .catch((error) => console.log(error));
   };
 
   const handleDepartmentChange = (val) => {
@@ -141,7 +146,6 @@ function App() {
 
     setQuestions(data.Questions);
     setAnswers(data.Answers);
-    console.log(data);
   };
 
   const updateSelectedAnswers = (val) => {
@@ -157,67 +161,7 @@ function App() {
     if (reason !== "backdropClick") setOpen(false);
   };
 
-  // const handleAddressChange = (addressObj) => {
-  //   const buildingToSelect =
-  //     buildings[
-  //       buildings.findIndex(
-  //         (build) =>
-  //           build.Address ===
-  //           addressObj.streetNumber + " " + addressObj.shortAddress
-  //       )
-  //     ];
-  //   if (buildingToSelect) handleBuildingChange(buildingToSelect);
-  //   else {
-  //     handleBuildingChange({
-  //       BuildingId: "Other",
-  //       label: "Other (Not a County Building)",
-  //       Address: "Other",
-  //       City: "Other",
-  //       State: "Other",
-  //       Zip: "Other",
-  //       Dept: "Other",
-  //     });
-  //     handleDepartmentChange("Other (Explain under Description of Issue)");
-  //   }
-  //   setAddress(addressObj);
-  // };
-
   let navigate = useNavigate();
-
-  /*   const handleIssueChange = (e, newVal) => {
-    setSelectedAnswers({});
-    if (newVal) {
-      setIssue(newVal.label);
-      setIssueID(newVal.ProblemSid);
-      setProblemArea(newVal.area);
-      for (const [key, value] of Object.entries(problemAreaData))
-        if (value.domainAreas.find((x) => x === newVal.area)) {
-          setDomain(key);
-          setDomainID(value.id);
-        }
-      if (
-        questionsandAnswers[newVal.area] &&
-        questionsandAnswers[newVal.area][[newVal.label]]
-      )
-        setQuestionAnswers(questionsandAnswers[newVal.area][newVal.label]);
-    } else {
-      setIssue("");
-      setProblemArea("");
-      setQuestionAnswers([]);
-    }
-  }; */
-
-  // const updateSelectedAnswers = (index, e, answers) => {
-  //   setSelectedAnswers((prevVal) => ({
-  //     ...prevVal,
-  //     [index]: e.target.value,
-  //   }));
-  //   setSelectedAnswersText((prevVal) => ({
-  //     ...prevVal,
-  //     [e.target.value]: answers.find((element) => element.id === e.target.value)
-  //       .text,
-  //   }));
-  // };
 
   const getStreetName = (street) => {
     if (street)

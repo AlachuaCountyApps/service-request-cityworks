@@ -13,7 +13,7 @@ import buildings from "./data/buildings.json";
 import problemAreaData from "./data/problemArea.json";
 import questionsandAnswers from "./data/callerQuestions&Answers.json";
 import Success from "./pages/Success";
-import Map from "./components/Map";
+import GoogleMap from "./components/Map";
 
 import "./App.css";
 
@@ -26,19 +26,15 @@ function App() {
   const [isCountyBuildingIssue, setIsCountyBuildingIssue] = useState("");
   const [domain, setDomain] = useState("");
   const [domainID, setDomainID] = useState();
+  const [building, setBuilding] = useState("");
   const [issues, setIssues] = useState([]);
   const [issue, setIssue] = useState("");
   const [issueID, setIssueID] = useState();
+  const [additonalLocationInfo, setAdditonalLocationInfo] = useState("");
+  const [department, setDepartment] = useState("");
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
-
-  const [problemArea, setProblemArea] = useState("");
-  const [questionAnswers, setQuestionAnswers] = useState([]);
-  const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [selectedAnswersText, setSelectedAnswersText] = useState({});
-  const [building, setBuilding] = useState("");
-  const [department, setDepartment] = useState("");
-  const [additonalLocationInfo, setAdditonalLocationInfo] = useState("");
+  const [selectedAnswers, setSelectedAnswers] = useState(new Map());
   const [issueDescription, setIssueDescription] = useState("");
   const [address, setAddress] = useState({
     StreetName: null,
@@ -53,8 +49,31 @@ function App() {
   });
   const [open, setOpen] = useState(false);
 
+  const [problemArea, setProblemArea] = useState("");
+  const [questionAnswers, setQuestionAnswers] = useState([]);
+  const [selectedAnswersText, setSelectedAnswersText] = useState({});
+
+  const refreshFormFields = () => {
+    // Clear all other selections
+    setIssue("");
+    setIssueID();
+    setDepartment("");
+    setSelectedAnswers(new Map());
+    setAnswers([]);
+    setQuestions([]);
+    setIssueDescription("");
+  };
+
   const handleIsCountyBuildingIssueChange = (e) => {
     setIsCountyBuildingIssue(e.target.value);
+    setIssue("");
+    setIssueID();
+
+    if (e.target.value === "No") {
+      setDomain("Default");
+      setDomainID(1);
+      setIssues([]);
+    }
   };
 
   const handleDomainIdChange = () => {
@@ -71,7 +90,36 @@ function App() {
 
   useEffect(() => {
     if (domainID) handleDomainIdChange();
+    refreshFormFields();
   }, [domainID]);
+
+  useEffect(() => {
+    console.log(address);
+  }, [address]);
+
+  const handleBuildingChange = (val) => {
+    setBuilding(val);
+
+    if (val && val.Dept.includes("CritFac")) {
+      //Set Domain - Public Works
+      setDomain("Default");
+      setDomainID(1);
+    } else if (val && val.Dept.includes("GenFac")) {
+      //Set Domain - Facilities
+      setDomain("ACFD");
+      setDomainID(3);
+      console.log("GenFac");
+    } else {
+      refreshFormFields();
+      setDomain("");
+      setDomainID();
+      setIssues([]);
+    }
+  };
+
+  const handleDepartmentChange = (val) => {
+    setDepartment(val);
+  };
 
   const handleIssueSelection = (e) => {
     setIssue(e.target.value);
@@ -96,29 +144,12 @@ function App() {
     console.log(data);
   };
 
-  const handleAddressChange = (addressObj) => {
-    const buildingToSelect =
-      buildings[
-        buildings.findIndex(
-          (build) =>
-            build.Address ===
-            addressObj.streetNumber + " " + addressObj.shortAddress
-        )
-      ];
-    if (buildingToSelect) handleBuildingChange(buildingToSelect);
-    else {
-      handleBuildingChange({
-        BuildingId: "Other",
-        label: "Other (Not a County Building)",
-        Address: "Other",
-        City: "Other",
-        State: "Other",
-        Zip: "Other",
-        Dept: "Other",
-      });
-      handleDepartmentChange("Other (Explain under Description of Issue)");
-    }
-    setAddress(addressObj);
+  const updateSelectedAnswers = (val) => {
+    const userSelectedAnswers = new Map(selectedAnswers);
+
+    userSelectedAnswers.set(val.QuestionId, val);
+
+    setSelectedAnswers(userSelectedAnswers);
   };
 
   const handleOpen = () => setOpen(true);
@@ -126,9 +157,34 @@ function App() {
     if (reason !== "backdropClick") setOpen(false);
   };
 
+  // const handleAddressChange = (addressObj) => {
+  //   const buildingToSelect =
+  //     buildings[
+  //       buildings.findIndex(
+  //         (build) =>
+  //           build.Address ===
+  //           addressObj.streetNumber + " " + addressObj.shortAddress
+  //       )
+  //     ];
+  //   if (buildingToSelect) handleBuildingChange(buildingToSelect);
+  //   else {
+  //     handleBuildingChange({
+  //       BuildingId: "Other",
+  //       label: "Other (Not a County Building)",
+  //       Address: "Other",
+  //       City: "Other",
+  //       State: "Other",
+  //       Zip: "Other",
+  //       Dept: "Other",
+  //     });
+  //     handleDepartmentChange("Other (Explain under Description of Issue)");
+  //   }
+  //   setAddress(addressObj);
+  // };
+
   let navigate = useNavigate();
 
-  const handleIssueChange = (e, newVal) => {
+  /*   const handleIssueChange = (e, newVal) => {
     setSelectedAnswers({});
     if (newVal) {
       setIssue(newVal.label);
@@ -149,37 +205,19 @@ function App() {
       setProblemArea("");
       setQuestionAnswers([]);
     }
-  };
+  }; */
 
-  const updateSelectedAnswers = (index, e, answers) => {
-    setSelectedAnswers((prevVal) => ({
-      ...prevVal,
-      [index]: e.target.value,
-    }));
-    setSelectedAnswersText((prevVal) => ({
-      ...prevVal,
-      [e.target.value]: answers.find((element) => element.id === e.target.value)
-        .text,
-    }));
-  };
-
-  const handleBuildingChange = (val) => {
-    setBuilding(val);
-
-    if (val.Dept.includes("CritFac")) {
-      //Set Domain - Public Works
-      setDomain("Default");
-      setDomainID(1);
-    } else {
-      //Set Domain - Facilities
-      setDomain("ACFD");
-      setDomainID(3);
-    }
-  };
-
-  const handleDepartmentChange = (val) => {
-    setDepartment(val);
-  };
+  // const updateSelectedAnswers = (index, e, answers) => {
+  //   setSelectedAnswers((prevVal) => ({
+  //     ...prevVal,
+  //     [index]: e.target.value,
+  //   }));
+  //   setSelectedAnswersText((prevVal) => ({
+  //     ...prevVal,
+  //     [e.target.value]: answers.find((element) => element.id === e.target.value)
+  //       .text,
+  //   }));
+  // };
 
   const getStreetName = (street) => {
     if (street)
@@ -241,8 +279,7 @@ function App() {
         }
       }
     }
-    handleAddressChange(addressObj);
-    console.log(addressObj);
+    setAddress(addressObj);
   };
 
   const convertAnswersToAnswers = () => {
@@ -326,7 +363,7 @@ function App() {
 
   return (
     <>
-      <Map
+      <GoogleMap
         open={open}
         handleClose={handleClose}
         address={address}
@@ -342,7 +379,6 @@ function App() {
                 <Step1
                   domain={domain}
                   issue={issue}
-                  handleIssueChange={handleIssueChange}
                   questionAnswers={questionAnswers}
                   selectedAnswers={selectedAnswers}
                   updateSelectedAnswers={updateSelectedAnswers}

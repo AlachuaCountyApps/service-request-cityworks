@@ -9,18 +9,18 @@ import {
   Select,
   TextField,
   Typography,
-} from "@mui/material";
-import React, { useEffect, useState } from "react";
+} from '@mui/material';
+import React, { useEffect, useState } from 'react';
 
-import IssueQuestionAnswers from "./IssueQuestionAnswers";
+import IssueQuestionAnswers from './IssueQuestionAnswers';
 
-import buildings from "../data/buildings.json";
-import departments from "../data/departments.json";
-import CallerQuestionAnswersNew from "./CallerQuestionAnswersNew";
+import buildings from '../data/buildings.json';
+import departments from '../data/departments.json';
+import CallerQuestionAnswersNew from './CallerQuestionAnswersNew';
 import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
-} from "react-google-places-autocomplete";
-import { useNavigate } from "react-router-dom";
+} from 'react-google-places-autocomplete';
+import { useNavigate } from 'react-router-dom';
 
 export default function IncidentInformationNew({
   issue,
@@ -56,12 +56,28 @@ export default function IncidentInformationNew({
     setUserLocation(!userLocation);
   };
 
+  /*
+    A change to autocompleteData occurs when a user manually
+    enters an address in the 'Issue Location Address' AutoComplete
+    text box.  xxxxxxxxxx.  When a change occurs, updateAddresswhenEnterManually
+    is called.
+   */
   useEffect(() => {
     updateAddresswhenEnterManually();
   }, [autocompleteData]);
 
   const updateAddresswhenEnterManually = () => {
-    if (autocompleteData)
+    /*
+      autocompleteData is by default null.  autocompleteData is set
+      when a user selects an address from the 'Google TypeAhead'
+    */
+    if (autocompleteData) {
+      /*
+        geocodeByPlaceId is a 3rd party import.  geocodeByPlaceId allows
+        us to get the latitude and longitude of a given address by
+        place_id.  place_id is a property on the object that is generated
+        by the Google Type ahead when a user selects an address
+      */
       geocodeByPlaceId(autocompleteData.value.place_id)
         .then((results) => {
           const data = results[0];
@@ -70,9 +86,15 @@ export default function IncidentInformationNew({
           updateSelectedAddress(data);
         })
         .catch((error) => console.log(error));
+    }
   };
 
+  /*when there is a change detected in the value of
+    selectaddressonMap, selectaddressonMap is evaluated
+    and if true, updateAddresswhenEnterManually() is called
+  */
   useEffect(() => {
+    //if
     if (!selectaddressonMap) {
       updateAddresswhenEnterManually();
     }
@@ -80,8 +102,8 @@ export default function IncidentInformationNew({
 
   const submitPage1 = (e) => {
     e.preventDefault();
-    if (address) navigate("/servicerequest/step2");
-    else alert("Issue Location Address/Building is required");
+    if (address) navigate('/servicerequest/step2');
+    else alert('Issue Location Address/Building is required');
   };
 
   return (
@@ -98,10 +120,17 @@ export default function IncidentInformationNew({
           }}
           display="flex"
         >
-          <Grid item xs={12} sx={{ textAlign: "center", mb: 2 }}>
+          <Grid item xs={12} sx={{ textAlign: 'center', mb: 2 }}>
             <Typography variant="h4">Incident Information</Typography>
           </Grid>
 
+          {/* If the answer to the below question is 'no' then the issue 
+              will be mapped to Domain 1 - Public Works.
+              
+              If the answer to the below question is 'yes' then the user
+              will be prompted to specify the building where the issue 
+              occurred 
+          */}
           <Grid item xs={12} mb={3}>
             <FormControl fullWidth>
               <InputLabel id="issue-location-label">
@@ -114,20 +143,34 @@ export default function IncidentInformationNew({
                 label="Is the issue related to a county building?"
                 onChange={handleIsCountyBuildingIssueChange}
               >
-                <MenuItem value={"Yes"}>Yes</MenuItem>
-                <MenuItem value={"No"}>No</MenuItem>
+                <MenuItem value={'Yes'}>Yes</MenuItem>
+                <MenuItem value={'No'}>No</MenuItem>
               </Select>
             </FormControl>
           </Grid>
 
+          {/*
+            isCountyBuildingIssue has a default value of "", and
+            therefore is truthy
+          */}
           {isCountyBuildingIssue && (
             <>
-              {isCountyBuildingIssue === "Yes" && (
+              {/*
+                  If the user specified that the issue occurred in a
+                  county building, the user will then specify which
+                  building the issue occurred.
+
+                  Each building object has a 'Dept' property.  If the
+                  value of 'Dept' is 'CritFac' then the issue will be
+                  mapped to Domain 1 - Public Works, otherwise the issue
+                  will be mapped to Domain 3 - Facilities
+                */}
+              {isCountyBuildingIssue === 'Yes' && (
                 <Grid item xs={12} mb={3}>
                   <IssueQuestionAnswers
-                    id={"building"}
+                    id={'building'}
                     index={0}
-                    question={"Building:"}
+                    question={'Building:'}
                     value={building}
                     updateSelection={(newValue) =>
                       handleBuildingChange(newValue)
@@ -141,9 +184,17 @@ export default function IncidentInformationNew({
                 </Grid>
               )}
 
+              {/*
+                  'issues' has a default value of an empty array and is
+                  therefore falsy.  Dependent on where the issue occurred,
+                  building vs. not building, and more specifically Domain 1
+                  (Public Works) vs. Domain 3 (Facilities), the issues prop 
+                  will be dynamically assigned a set of issus/problems for that
+                  Domain
+                */}
               {issues && issues.length > 0 && (
                 <Grid item xs={12} mb={3}>
-                  <Grid container sx={{ bgcolor: "#aec4e5", p: 2 }}>
+                  <Grid container sx={{ bgcolor: '#aec4e5', p: 2 }}>
                     <FormControl fullWidth>
                       <InputLabel id="issue-label">
                         Please Select an Issue to Report
@@ -167,17 +218,23 @@ export default function IncidentInformationNew({
                 </Grid>
               )}
 
-              {isCountyBuildingIssue === "No" && (
-                <Grid item xs={12} sx={{ bgcolor: "#aec4e5", p: 2 }}>
+              {/*
+                  If the user specified that the issue did not occur in a
+                  county building, then the issue will be mapped to Domain 1 - 
+                  Public Works.  For these issues, the user must also specify the
+                  address where the issue occurred.
+                */}
+              {isCountyBuildingIssue === 'No' && (
+                <Grid item xs={12} sx={{ bgcolor: '#aec4e5', p: 2 }}>
                   <Grid container>
                     <Grid
                       item
                       xs={12}
                       sm={4}
                       sx={{
-                        alignSelf: "center",
+                        alignSelf: 'center',
 
-                        fontWeight: "bold",
+                        fontWeight: 'bold',
                         my: { xs: 2 },
                       }}
                     >
@@ -187,18 +244,35 @@ export default function IncidentInformationNew({
                       item
                       xs={12}
                       sm={8}
-                      sx={{ display: "flex", alignItems: "center" }}
+                      sx={{ display: 'flex', alignItems: 'center' }}
                     >
                       <Grid container spacing={1}>
                         <Grid item xs={12} sm={8}>
+                          {/*
+                          selectaddressonMap is false by default.  When the user clicks
+                          the green button labeled 'SET ISSUE LOCATION 
+                          ON MAP', selectaddressonMap is set to true.
+                          */}
+
+                          {/*
+                            shown when selectaddressonMap is true
+                          */}
                           {selectaddressonMap && (
                             <TextField value={address.street} fullWidth />
                           )}
+                          {/*
+                            shown when selectedaddressonMap is false (Google Maps Type Ahead)
+                          */}
                           <span
                             style={{
-                              display: selectaddressonMap ? "none" : "block",
+                              display: selectaddressonMap ? 'none' : 'block',
                             }}
                           >
+                            {/*
+                              This is what creates changes in the state variable autoCompleteData.
+                              This is what causes the event hook, based on changes to autoCompleteData
+                              to fire.
+                            */}
                             <GooglePlacesAutocomplete
                               apiKey={`AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`}
                               selectProps={{
@@ -206,8 +280,8 @@ export default function IncidentInformationNew({
                                 onChange: setAutocompleteData,
                               }}
                             />
-                            <FormHelperText sx={{ color: "red" }}>
-                              {!autocompleteData && "Required"}
+                            <FormHelperText sx={{ color: 'red' }}>
+                              {!autocompleteData && 'Required'}
                             </FormHelperText>
                           </span>
                         </Grid>
@@ -215,8 +289,18 @@ export default function IncidentInformationNew({
                           item
                           xs={12}
                           sm={4}
-                          sx={{ alignSelf: "center", textAlign: "center" }}
+                          sx={{ alignSelf: 'center', textAlign: 'center' }}
                         >
+                          {/*
+                          When the user clicks the green button labeled 'SET ISSUE LOCATION 
+                          ON MAP', selectaddressonMap is set to true and handleOpen()
+                          is called.  handleOpen() is defined in App.js.  App.js defines
+                          an 'open' prop which is set to true.  When 'open' is true, a
+                          modal containing a custom map component is displayed.
+
+                          When the user clicks the green button labeled 'SET ISSUE LOCATION 
+                          MANUALLY', selectaddressonMap is set to false.
+                          */}
                           {!selectaddressonMap ? (
                             <Button
                               variant="contained"
@@ -247,12 +331,16 @@ export default function IncidentInformationNew({
               )}
 
               <Grid item container sx={{ my: 5 }}>
-                {isCountyBuildingIssue === "Yes" && issue && (
+                {/*
+                  Department Dropdown.  Displayed if the issue occurred in a building and an
+                  issue/problem has been selected
+                 */}
+                {isCountyBuildingIssue === 'Yes' && issue && (
                   <Grid item xs={12}>
                     <IssueQuestionAnswers
-                      id={"department"}
+                      id={'department'}
                       index={2}
-                      question={"Department:"}
+                      question={'Department:'}
                       value={department}
                       updateSelection={(newValue) =>
                         handleDepartmentChange(newValue)
@@ -265,17 +353,24 @@ export default function IncidentInformationNew({
                     />
                   </Grid>
                 )}
-                {(issue && isCountyBuildingIssue === "Yes" && building) ||
+                {/*
+                    Additional Location Information.
+                    Displayed if the issue occurred in a building, and the issue as well as
+                    building have been specified
+                    Or the issue did not occur in a building but address has been specified and a
+                    latitude was able to retrieved via Google GeoCode.
+                  */}
+                {(issue && isCountyBuildingIssue === 'Yes' && building) ||
                 (issue &&
-                  isCountyBuildingIssue === "No" &&
+                  isCountyBuildingIssue === 'No' &&
                   address &&
                   address.lat) ? (
                   <>
                     <Grid item xs={12}>
                       <IssueQuestionAnswers
                         index={2}
-                        id={"location-info"}
-                        question={"Additional Location Information:"}
+                        id={'location-info'}
+                        question={'Additional Location Information:'}
                         value={additonalLocationInfo}
                         updateSelection={(newValue) =>
                           setAdditonalLocationInfo(newValue)
@@ -284,6 +379,9 @@ export default function IncidentInformationNew({
                       />
                     </Grid>
 
+                    {/*
+                      Questions and answers specific to the selected issue
+                    */}
                     <CallerQuestionAnswersNew
                       questions={questions}
                       answers={answers}
@@ -293,19 +391,19 @@ export default function IncidentInformationNew({
 
                     <Grid item xs={12}>
                       <IssueQuestionAnswers
-                        id={"issue-description"}
-                        question={"Description of the Issue:"}
+                        id={'issue-description'}
+                        question={'Description of the Issue:'}
                         value={issueDescription}
                         updateSelection={(newValue) =>
                           setIssueDescription(newValue)
                         }
                         placeholder={
-                          "(Be as detailed and specific as possible)"
+                          '(Be as detailed and specific as possible)'
                         }
                       />
                     </Grid>
 
-                    <Grid item xs={12} sx={{ my: 5, textAlign: "center" }}>
+                    <Grid item xs={12} sx={{ my: 5, textAlign: 'center' }}>
                       <Button type="submit" variant="contained">
                         Next
                       </Button>
@@ -316,7 +414,7 @@ export default function IncidentInformationNew({
             </>
           )}
 
-          {isCountyBuildingIssue === "Yes" && (
+          {isCountyBuildingIssue === 'Yes' && (
             <>
               {building && (
                 <>{issue && <Grid item container sx={{ my: 5 }}></Grid>}</>

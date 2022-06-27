@@ -1,78 +1,89 @@
-import { Grid } from "@mui/material";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Geocode from "react-geocode";
+import { Grid } from '@mui/material';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Geocode from 'react-geocode';
 
-import Step1 from "./pages/Step1";
-import Step2 from "./pages/Step2";
+import Step1 from './pages/Step1';
+import Step2 from './pages/Step2';
 
-import problems from "./data/issuesListDomainSpecific.json";
-import questionandAnswers from "./data/questionanswersProblemSpecific.json";
-import Success from "./pages/Success";
-import GoogleMap from "./components/Map";
+import problems from './data/issuesListDomainSpecific.json';
+import questionandAnswers from './data/questionanswersProblemSpecific.json';
+import Success from './pages/Success';
+import GoogleMap from './components/Map';
 
-import "./App.css";
+import './App.css';
 
 const googleKey = `AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`;
 
 Geocode.setApiKey(googleKey);
-Geocode.setLocationType("ROOFTOP");
+Geocode.setLocationType('ROOFTOP');
 
 function App() {
-  const [isCountyBuildingIssue, setIsCountyBuildingIssue] = useState("");
-  const [domain, setDomain] = useState("");
+  const [isCountyBuildingIssue, setIsCountyBuildingIssue] = useState('');
+  const [domain, setDomain] = useState('');
   const [domainID, setDomainID] = useState();
-  const [building, setBuilding] = useState("");
+  const [building, setBuilding] = useState('');
   const [issues, setIssues] = useState([]);
-  const [issue, setIssue] = useState("");
+  const [issue, setIssue] = useState('');
   const [issueID, setIssueID] = useState();
-  const [additonalLocationInfo, setAdditonalLocationInfo] = useState("");
-  const [department, setDepartment] = useState("");
+  const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
+  const [department, setDepartment] = useState('');
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState(new Map());
-  const [issueDescription, setIssueDescription] = useState("");
+  const [issueDescription, setIssueDescription] = useState('');
   const [address, setAddress] = useState({
     StreetName: null,
-    street: "",
-    streetNumber: "",
-    city: "",
-    zip: "",
-    county: "",
-    shortAddress: "",
-    lat: "",
-    lng: "",
+    street: '',
+    streetNumber: '',
+    city: '',
+    zip: '',
+    county: '',
+    shortAddress: '',
+    lat: '',
+    lng: '',
   });
   const [open, setOpen] = useState(false);
 
-  const [problemArea, setProblemArea] = useState("");
+  const [problemArea, setProblemArea] = useState('');
   const [questionAnswers, setQuestionAnswers] = useState([]);
   const [selectedAnswersText, setSelectedAnswersText] = useState({});
 
   const refreshFormFields = () => {
     // Clear all other selections
-    setIssue("");
+    setIssue('');
     setIssueID();
-    setDepartment("");
+    setDepartment('');
     setSelectedAnswers(new Map());
     setAnswers([]);
     setQuestions([]);
-    setIssueDescription("");
+    setIssueDescription('');
   };
 
+  /*
+    handleIsCountyBuildingIssueChange is fired when
+    a user answers the question, 'Is the issue related
+    to a county building?'  If it is not building, sets
+    the domain and domainId.  If it is a building, further
+    evaluation is required to determine the issue domain
+  */
   const handleIsCountyBuildingIssueChange = (e) => {
     setIsCountyBuildingIssue(e.target.value);
-    setIssue("");
+    setIssue('');
     setIssueID();
 
-    if (e.target.value === "No") {
-      setDomain("Default");
+    if (e.target.value === 'No') {
+      setDomain('Default');
       setDomainID(1);
       setIssues([]);
     }
   };
 
+  /*
+    Calls CityWorks endpoint to obtain Problems/Issues by domainID.  The
+    issues returned will be used to populate the issues dropdown
+  */
   const handleDomainIdChange = () => {
     // const result = axios.get(
     //   `http://test-cw-app1/Cityworks_Test_Forms/services/Ams/ServiceRequest/Problems?data={"DomainId": ${domainID}}&token=eyJFbXBsb3llZVNpZCI6MzMwLCJFeHBpcmVzIjpudWxsLCJJc3N1ZWRUaW1lIjoxNjU1MTQ0NTQwODUwLCJMb2dpbk5hbWUiOiJGYWNSZXF1ZXN0QXBwIiwiU2lnbmF0dXJlIjoiMkhWaVcyVGU3czV2dC9zNHpOWjlTbnAySy9pbkV4a2dqaUxub2tLNktyWT0iLCJUb2tlbiI6IjVrc2g4ZlEzeEh4ZVdrVUFCR3lGNDV0dWJaTnVGS1ZlOHRpNWhXVGhBdFk9In0=`
@@ -85,30 +96,44 @@ function App() {
     setIssues(data);
   };
 
+  /*
+    Fires when there is a change in domainID.
+    DomainID set to 1 (Public Works) when then the issue reported
+    did not occurr in a building, or it is in a building but the building
+    is part of 'CritFac' otherwise DomainID is set to 3 (Facilities)
+  */
   useEffect(() => {
     if (domainID) handleDomainIdChange();
     refreshFormFields();
   }, [domainID]);
 
+  /*
+    Fires when the user selects a building from the 'Building' dropdown
+  */
   const handleBuildingChange = (val) => {
     setBuilding(val);
 
-    if (val && val.Dept.includes("CritFac")) {
+    if (val && val.Dept.includes('CritFac')) {
       //Set Domain - Public Works
-      setDomain("Default");
+      setDomain('Default');
       setDomainID(1);
-    } else if (val && val.Dept.includes("GenFac")) {
+    } else if (val && val.Dept.includes('GenFac')) {
       //Set Domain - Facilities
-      setDomain("ACFD");
+      setDomain('ACFD');
       setDomainID(3);
     } else {
       refreshFormFields();
-      setDomain("");
+      setDomain('');
       setDomainID();
       setIssues([]);
     }
   };
 
+  /*
+    Fires when there is a change to the building state variable
+    Calls updateAddress which obtains the address of the building
+    from its latitude and longitude
+  */
   useEffect(() => {
     if (building) updateAddress();
   }, [building]);
@@ -126,15 +151,25 @@ function App() {
     setDepartment(val);
   };
 
+  /*
+    Fires when user selects and issue/problem from the dropdown
+    labeled 'Please Select an Issue to Report'
+  */
   const handleIssueSelection = (e) => {
     setIssue(e.target.value);
     setIssueID(parseInt(e.target.value.ProblemSid));
   };
 
+  /*
+    Fires when there is a change to issueID state variable
+  */
   useEffect(() => {
     if (issueID) getQuestionAnswersforSelectedIssue();
   }, [issueID]);
 
+  /*
+    Sets the Q&As for the selected issue
+  */
   const getQuestionAnswersforSelectedIssue = () => {
     // const result = axios.get(
     //   `http://test-cw-app1/Cityworks_Test_Forms/services/Ams/ServiceRequest/QA?data={"ProblemSid": ${issueID}}&token=eyJFbXBsb3llZVNpZCI6MzMwLCJFeHBpcmVzIjpudWxsLCJJc3N1ZWRUaW1lIjoxNjU1MTQ0NTQwODUwLCJMb2dpbk5hbWUiOiJGYWNSZXF1ZXN0QXBwIiwiU2lnbmF0dXJlIjoiMkhWaVcyVGU3czV2dC9zNHpOWjlTbnAySy9pbkV4a2dqaUxub2tLNktyWT0iLCJUb2tlbiI6IjVrc2g4ZlEzeEh4ZVdrVUFCR3lGNDV0dWJaTnVGS1ZlOHRpNWhXVGhBdFk9In0=`
@@ -158,7 +193,7 @@ function App() {
 
   const handleOpen = () => setOpen(true);
   const handleClose = (e, reason) => {
-    if (reason !== "backdropClick") setOpen(false);
+    if (reason !== 'backdropClick') setOpen(false);
   };
 
   let navigate = useNavigate();
@@ -166,26 +201,26 @@ function App() {
   const getStreetName = (street) => {
     if (street)
       if (
-        street.toUpperCase() === "SW" ||
-        street.toUpperCase() === "SOUTH WEST"
+        street.toUpperCase() === 'SW' ||
+        street.toUpperCase() === 'SOUTH WEST'
       )
-        return "South West";
-    if (street.toUpperCase() === "SE" || street.toUpperCase() === "SOUTH EAST")
-      return "South East";
-    if (street.toUpperCase() === "NW" || street.toUpperCase() === "NORTH WEST")
-      return "North West";
-    if (street.toUpperCase() === "NE" || street.toUpperCase() === "NORTH EAST")
-      return "North East";
+        return 'South West';
+    if (street.toUpperCase() === 'SE' || street.toUpperCase() === 'SOUTH EAST')
+      return 'South East';
+    if (street.toUpperCase() === 'NW' || street.toUpperCase() === 'NORTH WEST')
+      return 'North West';
+    if (street.toUpperCase() === 'NE' || street.toUpperCase() === 'NORTH EAST')
+      return 'North East';
     if (
-      street.toUpperCase() === "NC" ||
-      street.toUpperCase() === "NORTH CENTRAL"
+      street.toUpperCase() === 'NC' ||
+      street.toUpperCase() === 'NORTH CENTRAL'
     )
-      return "North Central";
+      return 'North Central';
     if (
-      street.toUpperCase() === "SC" ||
-      street.toUpperCase() === "SOUTH CENTRAL"
+      street.toUpperCase() === 'SC' ||
+      street.toUpperCase() === 'SOUTH CENTRAL'
     )
-      return "South Central";
+      return 'South Central';
     return null;
   };
 
@@ -197,25 +232,25 @@ function App() {
     for (let i = 0; i < data.address_components.length; i++) {
       for (let j = 0; j < data.address_components[i].types.length; j++) {
         switch (data.address_components[i].types[j]) {
-          case "locality":
+          case 'locality':
             addressObj.city = data.address_components[i].long_name;
             break;
-          case "administrative_area_level_2":
+          case 'administrative_area_level_2':
             addressObj.county = data.address_components[i].long_name;
             break;
-          case "postal_code":
+          case 'postal_code':
             addressObj.zip = data.address_components[i].long_name;
             break;
-          case "route":
+          case 'route':
             addressObj.shortAddress = data.address_components[i].short_name;
             addressObj.StreetName = getStreetName(
               data.address_components[i].short_name.substring(
                 0,
-                data.address_components[i].short_name.indexOf(" ")
+                data.address_components[i].short_name.indexOf(' ')
               )
             );
             break;
-          case "street_number":
+          case 'street_number':
             addressObj.streetNumber = data.address_components[i].long_name;
             break;
           default:
@@ -235,13 +270,13 @@ function App() {
   };
 
   const convertQuestionAnswerstoString = () => {
-    let result = "";
+    let result = '';
     questionAnswers.forEach((element) => {
       result +=
         element.question.text +
-        ": " +
+        ': ' +
         selectedAnswersText[selectedAnswers[element.question.id]] +
-        ". ";
+        '. ';
     });
     return result;
   };
@@ -251,29 +286,29 @@ function App() {
 
     const data = {
       ProblemSid: issueID,
-      Details: issueDescription + ". " + convertQuestionAnswerstoString(),
+      Details: issueDescription + '. ' + convertQuestionAnswerstoString(),
       Comments:
         issue +
-        ": " +
+        ': ' +
         issueDescription +
-        ". " +
+        '. ' +
         convertQuestionAnswerstoString(),
-      Address: address.streetNumber + " " + address.shortAddress,
+      Address: address.streetNumber + ' ' + address.shortAddress,
       City: address.city,
-      State: "Florida",
+      State: 'Florida',
       Zip: address.zip,
       Landmark:
-        building.label && building.label.includes("Other")
+        building.label && building.label.includes('Other')
           ? null
           : building.label,
       District: address.StreetName,
       Location:
-        department && department.includes("Other")
+        department && department.includes('Other')
           ? additonalLocationInfo
-          : department + " " + additonalLocationInfo,
+          : department + ' ' + additonalLocationInfo,
       X: address.lat,
       Y: address.lng,
-      CallerType: "Visitor",
+      CallerType: 'Visitor',
       CallerFirstName: e.target.firstName.value,
       CallerLastName: e.target.lastName.value,
       CallerAddress: e.target.address.value,
@@ -281,11 +316,11 @@ function App() {
       CallerCity: e.target.city.value,
       CallerState: e.target.state.value,
       CallerZip: e.target.zipcode.value,
-      CallerWorkPhone: e.target.workPhoneNumber.value.replace(/[^0-9]/gi, ""),
-      CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ""),
+      CallerWorkPhone: e.target.workPhoneNumber.value.replace(/[^0-9]/gi, ''),
+      CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerOtherPhone:
         e.target.otherWorkPhoneNumber.value &&
-        e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, ""),
+        e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerEmail: e.target.email.value,
       CallerComments: `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`,
       Answers: convertAnswersToAnswers(),
@@ -295,10 +330,10 @@ function App() {
     console.log(data);
 
     axios
-      .post("http://localhost:7010/submitRequest", data)
+      .post('http://localhost:7010/submitRequest', data)
       .then((response) => {
         console.log(response);
-        navigate("/servicerequest/success", {
+        navigate('/servicerequest/success', {
           state: { status: true, requestID: response.data },
         });
       })

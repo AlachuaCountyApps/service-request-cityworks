@@ -38,6 +38,7 @@ function App() {
     street: '',
     streetNumber: '',
     city: '',
+    state: '',
     zip: '',
     county: '',
     shortAddress: '',
@@ -284,60 +285,105 @@ function App() {
   const submitRequest = (e) => {
     e.preventDefault();
 
-    const data = {
-      ProblemSid: issueID,
-      Details: issueDescription + '. ' + convertQuestionAnswerstoString(),
-      Comments:
-        issue +
-        ': ' +
-        issueDescription +
-        '. ' +
-        convertQuestionAnswerstoString(),
-      Address: address.streetNumber + ' ' + address.shortAddress,
-      City: address.city,
-      State: 'Florida',
-      Zip: address.zip,
-      Landmark:
-        building.label && building.label.includes('Other')
-          ? null
-          : building.label,
-      District: address.StreetName,
-      Location:
-        department && department.includes('Other')
-          ? additonalLocationInfo
-          : department + ' ' + additonalLocationInfo,
-      X: address.lat,
-      Y: address.lng,
-      CallerType: 'Visitor',
-      CallerFirstName: e.target.firstName.value,
-      CallerLastName: e.target.lastName.value,
-      CallerAddress: e.target.address.value,
-      CallerAptNum: e.target.unitnumber.value,
-      CallerCity: e.target.city.value,
-      CallerState: e.target.state.value,
-      CallerZip: e.target.zipcode.value,
-      CallerWorkPhone: e.target.workPhoneNumber.value.replace(/[^0-9]/gi, ''),
-      CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
-      CallerOtherPhone:
-        e.target.otherWorkPhoneNumber.value &&
-        e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, ''),
-      CallerEmail: e.target.email.value,
-      CallerComments: `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`,
-      Answers: convertAnswersToAnswers(),
-      GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
-    };
+    // const data = {
+    //   ProblemSid: issueID,
+    //   Details: issueDescription + '. ' + convertQuestionAnswerstoString(),
+    //   Comments:
+    //     issue +
+    //     ': ' +
+    //     issueDescription +
+    //     '. ' +
+    //     convertQuestionAnswerstoString(),
+    //   Address: address.streetNumber + ' ' + address.shortAddress,
+    //   City: address.city,
+    //   State: 'Florida',
+    //   Zip: address.zip,
+    //   Landmark:
+    //     building.label && building.label.includes('Other')
+    //       ? null
+    //       : building.label,
+    //   District: address.StreetName,
+    //   Location:
+    //     department && department.includes('Other')
+    //       ? additonalLocationInfo
+    //       : department + ' ' + additonalLocationInfo,
+    //   X: address.lat,
+    //   Y: address.lng,
+    //   CallerType: 'Visitor',
+    //   CallerFirstName: e.target.firstName.value,
+    //   CallerLastName: e.target.lastName.value,
+    //   CallerAddress: e.target.address.value,
+    //   CallerAptNum: e.target.unitnumber.value,
+    //   CallerCity: e.target.city.value,
+    //   CallerState: e.target.state.value,
+    //   CallerZip: e.target.zipcode.value,
+    //   CallerWorkPhone: e.target.workPhoneNumber.value.replace(/[^0-9]/gi, ''),
+    //   CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
+    //   CallerOtherPhone:
+    //     e.target.otherWorkPhoneNumber.value &&
+    //     e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, ''),
+    //   CallerEmail: e.target.email.value,
+    //   CallerComments: `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`,
+    //   Answers: convertAnswersToAnswers(),
+    //   GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
+    // };
 
-    console.log(data);
+    // console.log(data);
 
-    axios
-      .post('http://localhost:7010/submitRequest', data)
-      .then((response) => {
-        console.log(response);
-        navigate('/servicerequest/success', {
-          state: { status: true, requestID: response.data },
-        });
-      })
-      .catch((error) => console.log(error));
+    // axios
+    //   .post('http://localhost:7010/submitRequest', data)
+    //   .then((response) => {
+    //     console.log(response);
+    //     navigate('/servicerequest/success', {
+    //       state: { status: true, requestID: response.data },
+    //     });
+    //   })
+    //   .catch((error) => console.log(error));
+
+    console.log('issueID:', issueID);
+    console.log(
+      'issueDescription:',
+      issueDescription + '. ' + convertQuestionAnswerstoString()
+    );
+    console.log('issue:', issue);
+    console.log('address:', address.streetNumber, address.shortAddress);
+    console.log('City:', address.city);
+    console.log('State:', address.state);
+    console.log('Zip:', address.zip);
+    console.log('Building Label:', building.label);
+    console.log('District:', address.StreetName);
+    console.log('Location:', department);
+    console.log('Additional Info:', additonalLocationInfo);
+    console.log('lat:', address.lat);
+    console.log('lng:', address.lng);
+    console.log('CallerType:', 'Visitor');
+    console.log('CallerFirstName:', e.target.firstName.value);
+    console.log('CallerLastName:', e.target.lastName.value);
+    console.log('CallerAddress:', e.target.address.value);
+    console.log('CallerAptNum:', e.target.unitnumber.value);
+    console.log('CallerCity:', e.target.city.value);
+    console.log('CallerState:', e.target.state.value);
+    console.log('CallerZip:', e.target.zipcode.value);
+    console.log(
+      'CallerWorkPhone:',
+      e.target.workPhoneNumber.value.replace(/[^0-9]/gi, '')
+    );
+    console.log(
+      'CallerCellPhone:',
+      e.target.phoneNumber.value.replace(/[^0-9]/gi, '')
+    );
+    console.log(
+      'CallerOtherPhone:',
+      e.target.otherWorkPhoneNumber.value &&
+        e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, '')
+    );
+    console.log('CallerEmail:', e.target.email.value);
+    console.log(
+      'CallerComments:',
+      `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`
+    );
+    console.log('Answers:', convertAnswersToAnswers());
+    console.log('GeocodeAddress:', true);
   };
 
   return (

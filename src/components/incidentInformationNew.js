@@ -389,6 +389,9 @@ export default function IncidentInformationNew({
                       updateSelectedAnswers={updateSelectedAnswers}
                     />
 
+                    {/*
+                      Description of the  Issue
+                    */}
                     <Grid item xs={12}>
                       <IssueQuestionAnswers
                         id={'issue-description'}

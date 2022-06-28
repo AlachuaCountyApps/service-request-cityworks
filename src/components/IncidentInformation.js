@@ -66,7 +66,6 @@ export default function IncidentInformationNew({
       autocompleteData is by default null.  autocompleteData is set
       when a user selects an address from the 'Google TypeAhead'
     */
-    console.log(autocompleteData);
     if (autocompleteData) {
       /*
         geocodeByPlaceId is a 3rd party import.  geocodeByPlaceId allows

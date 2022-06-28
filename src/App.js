@@ -272,6 +272,10 @@ function App() {
     setAddress(addressObj);
   };
 
+  const formatSelectedAnswers = (answers) => {
+    console.log(answers);
+  };
+
   const submitRequest = (e) => {
     e.preventDefault();
 
@@ -369,7 +373,7 @@ function App() {
       "CallerComments:",
       `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`
     );
-    console.log("Answers:", selectedAnswers);
+    console.log("Answers:", formatSelectedAnswers(selectedAnswers));
     console.log("GeocodeAddress:", true);
   };
 
@@ -423,6 +427,7 @@ function App() {
               path="servicerequest/step2"
               element={
                 <Step2
+                  domain={domain}
                   callerInformation={callerInformation}
                   updateCallerInformation={updateCallerInformation}
                   submitRequest={submitRequest}

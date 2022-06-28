@@ -4,12 +4,20 @@ import CallerInformation from "../components/CallerInformation";
 import OtherContact from "../components/OtherContact";
 import EmergencyContact from "../components/EmergencyContact";
 import SubmitForm from "../components/SubmitForm";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Step2({
+  domain,
   callerInformation,
   updateCallerInformation,
   submitRequest,
 }) {
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (!domain) navigate("/servicerequest/step1");
+  }, [domain]);
+
   return (
     <form id="submitForm" onSubmit={submitRequest}>
       <Grid container spacing={3}>

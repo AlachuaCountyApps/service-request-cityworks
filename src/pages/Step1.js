@@ -29,6 +29,11 @@ export default function Step1({
   handleIssueSelection,
   questions,
   answers,
+  getLocation,
+  selectaddressonMap,
+  setSelectAddressonMap,
+  autocompleteData,
+  setAutocompleteData,
 }) {
   return (
     <Grid container spacing={3}>
@@ -81,6 +86,11 @@ export default function Step1({
           handleIssueSelection={handleIssueSelection}
           questions={questions}
           answers={answers}
+          getLocation={getLocation}
+          selectaddressonMap={selectaddressonMap}
+          setSelectAddressonMap={setSelectAddressonMap}
+          autocompleteData={autocompleteData}
+          setAutocompleteData={setAutocompleteData}
         />
 
         <EmergencyContact />

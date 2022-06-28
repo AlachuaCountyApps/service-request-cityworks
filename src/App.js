@@ -51,19 +51,11 @@ function App() {
   const [autocompleteData, setAutocompleteData] = useState(null);
   const [callerInformation, setCallerInformation] = useState(new Map());
 
-  const [problemArea, setProblemArea] = useState("");
-  const [questionAnswers, setQuestionAnswers] = useState([]);
-  const [selectedAnswersText, setSelectedAnswersText] = useState(new Map());
-
   const updateCallerInformation = (fieldId, value) => {
     const tempCallerInformation = new Map(callerInformation);
     tempCallerInformation.set(fieldId, value);
     setCallerInformation(tempCallerInformation);
   };
-
-  useEffect(() => {
-    console.log(selectedAnswersText);
-  }, [selectedAnswersText]);
 
   const refreshFormFields = () => {
     // Clear all other selections
@@ -280,26 +272,6 @@ function App() {
     setAddress(addressObj);
   };
 
-  const convertAnswersToAnswers = () => {
-    const answersArray = [];
-    Object.entries(selectedAnswersText).forEach(([key, value]) => {
-      answersArray.push({ [key]: value });
-    });
-    return answersArray;
-  };
-
-  const convertQuestionAnswerstoString = () => {
-    let result = "";
-    questionAnswers.forEach((element) => {
-      result +=
-        element.question.text +
-        ": " +
-        selectedAnswersText[selectedAnswers[element.question.id]] +
-        ". ";
-    });
-    return result;
-  };
-
   const submitRequest = (e) => {
     e.preventDefault();
 
@@ -342,7 +314,7 @@ function App() {
     //     e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, ''),
     //   CallerEmail: e.target.email.value,
     //   CallerComments: `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`,
-    //   Answers: convertAnswersToAnswers(),
+    //   Answers: selectedAnswers,
     //   GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
     // };
 
@@ -359,10 +331,7 @@ function App() {
     //   .catch((error) => console.log(error));
 
     console.log("issueID:", issueID);
-    console.log(
-      "issueDescription:",
-      issueDescription + ". " + convertQuestionAnswerstoString()
-    );
+    console.log("issueDescription:", issueDescription + ". " + selectedAnswers);
     console.log("issue:", issue);
     console.log("address:", address.streetNumber, address.shortAddress);
     console.log("City:", address.city);
@@ -400,7 +369,7 @@ function App() {
       "CallerComments:",
       `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`
     );
-    console.log("Answers:", convertAnswersToAnswers());
+    console.log("Answers:", selectedAnswers);
     console.log("GeocodeAddress:", true);
   };
 
@@ -420,9 +389,7 @@ function App() {
               path="servicerequest/step1"
               element={
                 <Step1
-                  domain={domain}
                   issue={issue}
-                  questionAnswers={questionAnswers}
                   selectedAnswers={selectedAnswers}
                   updateSelectedAnswers={updateSelectedAnswers}
                   building={building}

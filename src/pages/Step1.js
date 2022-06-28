@@ -1,15 +1,11 @@
 import { Grid, Typography } from "@mui/material";
 
 import IncidentInformation from "../components/IncidentInformation";
-import IncidentInformationNew from "../components/IncidentInformationNew";
 
 import EmergencyContact from "../components/EmergencyContact";
 
 export default function Step1({
-  domain,
   issue,
-  handleIssueChange,
-  questionAnswers,
   selectedAnswers,
   updateSelectedAnswers,
   building,
@@ -63,10 +59,8 @@ export default function Step1({
           updateSelectedAddress={updateSelectedAddress}
         /> */}
 
-        <IncidentInformationNew
+        <IncidentInformation
           issue={issue}
-          handleIssueChange={handleIssueChange}
-          questionAnswers={questionAnswers}
           selectedAnswers={selectedAnswers}
           updateSelectedAnswers={updateSelectedAnswers}
           building={building}

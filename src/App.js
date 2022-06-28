@@ -273,7 +273,14 @@ function App() {
   };
 
   const formatSelectedAnswers = (answers) => {
-    console.log(answers);
+    const formattedAnswers = [];
+    for (const [key, value] of answers) {
+      const tempAnswer = {};
+      tempAnswer.AnswerId = value.AnswerId;
+      tempAnswer.AnswerValue = value.Answer;
+      formattedAnswers.push(tempAnswer);
+    }
+    return formattedAnswers;
   };
 
   const submitRequest = (e) => {
@@ -428,6 +435,7 @@ function App() {
               element={
                 <Step2
                   domain={domain}
+                  issueID={issueID}
                   callerInformation={callerInformation}
                   updateCallerInformation={updateCallerInformation}
                   submitRequest={submitRequest}

@@ -9,14 +9,15 @@ import { useNavigate } from "react-router-dom";
 
 export default function Step2({
   domain,
+  issueID,
   callerInformation,
   updateCallerInformation,
   submitRequest,
 }) {
   let navigate = useNavigate();
   useEffect(() => {
-    if (!domain) navigate("/servicerequest/step1");
-  }, [domain]);
+    if (!domain || !issueID) navigate("/servicerequest/step1");
+  }, [domain, issueID]);
 
   return (
     <form id="submitForm" onSubmit={submitRequest}>

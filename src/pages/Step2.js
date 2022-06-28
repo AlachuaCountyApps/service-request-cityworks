@@ -1,19 +1,30 @@
-import { Grid } from '@mui/material';
+import { Grid } from "@mui/material";
 
-import CallerInformation from '../components/CallerInformation';
-import OtherContact from '../components/OtherContact';
-import EmergencyContact from '../components/EmergencyContact';
-import SubmitForm from '../components/SubmitForm';
+import CallerInformation from "../components/CallerInformation";
+import OtherContact from "../components/OtherContact";
+import EmergencyContact from "../components/EmergencyContact";
+import SubmitForm from "../components/SubmitForm";
 
-export default function Step2({ submitRequest }) {
+export default function Step2({
+  callerInformation,
+  updateCallerInformation,
+  submitRequest,
+}) {
   return (
-    <form id='submitForm' onSubmit={submitRequest}>
+    <form id="submitForm" onSubmit={submitRequest}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <CallerInformation submitRequest={submitRequest} />
+          <CallerInformation
+            callerInformation={callerInformation}
+            updateCallerInformation={updateCallerInformation}
+            submitRequest={submitRequest}
+          />
         </Grid>
         <Grid item xs={12}>
-          <OtherContact />
+          <OtherContact
+            callerInformation={callerInformation}
+            updateCallerInformation={updateCallerInformation}
+          />
         </Grid>
         <Grid item xs={12}>
           <SubmitForm />

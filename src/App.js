@@ -49,10 +49,21 @@ function App() {
   const [userLocation, setUserLocation] = useState(false);
   const [selectaddressonMap, setSelectAddressonMap] = useState(false);
   const [autocompleteData, setAutocompleteData] = useState(null);
+  const [callerInformation, setCallerInformation] = useState(new Map());
 
   const [problemArea, setProblemArea] = useState("");
   const [questionAnswers, setQuestionAnswers] = useState([]);
-  const [selectedAnswersText, setSelectedAnswersText] = useState({});
+  const [selectedAnswersText, setSelectedAnswersText] = useState(new Map());
+
+  const updateCallerInformation = (fieldId, value) => {
+    const tempCallerInformation = new Map(callerInformation);
+    tempCallerInformation.set(fieldId, value);
+    setCallerInformation(tempCallerInformation);
+  };
+
+  useEffect(() => {
+    console.log(selectedAnswersText);
+  }, [selectedAnswersText]);
 
   const refreshFormFields = () => {
     // Clear all other selections
@@ -443,7 +454,13 @@ function App() {
             />
             <Route
               path="servicerequest/step2"
-              element={<Step2 submitRequest={submitRequest} />}
+              element={
+                <Step2
+                  callerInformation={callerInformation}
+                  updateCallerInformation={updateCallerInformation}
+                  submitRequest={submitRequest}
+                />
+              }
             />
             <Route path="servicerequest/success" element={<Success />} />
           </Routes>

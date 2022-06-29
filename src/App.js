@@ -286,15 +286,12 @@ function App() {
   const submitRequest = (e) => {
     e.preventDefault();
 
+    console.log(issue);
+
     const data = {
       ProblemSid: issueID,
-      // Details: issueDescription + '. ' + convertQuestionAnswerstoString(),
-      // Comments:
-      //   issue +
-      //   ': ' +
-      //   issueDescription +
-      //   '. ' +
-      //   convertQuestionAnswerstoString(),
+      Details: issueDescription,
+      Comments: 'Comments', //issueDescription,
       Address: address.streetNumber + ' ' + address.shortAddress,
       City: address.city,
       State: 'Florida',
@@ -304,10 +301,7 @@ function App() {
           ? null
           : building.label,
       District: address.StreetName,
-      Location:
-        department && department.includes('Other')
-          ? additonalLocationInfo
-          : department + ' ' + additonalLocationInfo,
+      Location: additonalLocationInfo,
       X: address.lat,
       Y: address.lng,
       CallerType: 'Visitor',
@@ -325,7 +319,7 @@ function App() {
         e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerEmail: e.target.email.value,
       CallerComments: `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`,
-      Answers: selectedAnswers,
+      Answers: formatSelectedAnswers(selectedAnswers),
       GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
     };
 

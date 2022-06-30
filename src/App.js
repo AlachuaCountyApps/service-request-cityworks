@@ -283,6 +283,18 @@ function App() {
     return formattedAnswers;
   };
 
+  const convertQuestionAnswersToString = () => {
+    let formattedQuestionAnswers = '';
+    for (const [key, value] of selectedAnswers) {
+      for(let i = 0; i < questions.length; i++) {
+        if(questions[i].QuestionId === value.QuestionId) {
+          formattedQuestionAnswers += `${questions[i].Question}: ${value.Answer} \n`
+        }
+      }
+    }
+    return formattedQuestionAnswers;
+  }
+
   const submitRequest = (e) => {
     e.preventDefault();
 
@@ -291,7 +303,7 @@ function App() {
     const data = {
       ProblemSid: issueID,
       Details: issueDescription,
-      Comments: 'Comments', //issueDescription,
+      Comments: convertQuestionAnswersToString(),
       Address: address.streetNumber + ' ' + address.shortAddress,
       City: address.city,
       State: 'Florida',
@@ -323,7 +335,9 @@ function App() {
       GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
     };
 
-    console.log(data);
+    convertQuestionAnswersToString();
+
+    // console.log(data);
 
     axios
       .post('http://localhost:7010/submitRequest', data)

@@ -792,17 +792,6 @@
     "lng": -82.49283059999999
   },
   {
-    "BuildingId": "GEN12_FAM",
-    "label": "Farmers Market",
-    "Address": "5900 NW 13th St",
-    "City": "Gainesville",
-    "State": "FL",
-    "Zip": "32653",
-    "Dept": "GenFac",
-    "lat": 29.7098605,
-    "lng": -82.3530667
-  },
-  {
     "BuildingId": "PRK02_CAMP",
     "label": "Camp Cuscowilla",
     "Address": "210 SE 134th Avenue",

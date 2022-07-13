@@ -91,14 +91,12 @@ function App() {
     Calls CityWorks endpoint to obtain Problems/Issues by domainID.  The
     issues returned will be used to populate the issues dropdown
   */
-  const handleDomainIdChange = () => {
-    // const result = axios.get(
-    //   `http://test-cw-app1/Cityworks_Test_Forms/services/Ams/ServiceRequest/Problems?data={"DomainId": ${domainID}}&token=eyJFbXBsb3llZVNpZCI6MzMwLCJFeHBpcmVzIjpudWxsLCJJc3N1ZWRUaW1lIjoxNjU1MTQ0NTQwODUwLCJMb2dpbk5hbWUiOiJGYWNSZXF1ZXN0QXBwIiwiU2lnbmF0dXJlIjoiMkhWaVcyVGU3czV2dC9zNHpOWjlTbnAySy9pbkV4a2dqaUxub2tLNktyWT0iLCJUb2tlbiI6IjVrc2g4ZlEzeEh4ZVdrVUFCR3lGNDV0dWJaTnVGS1ZlOHRpNWhXVGhBdFk9In0=`
-    // );
+  const handleDomainIdChange = async () => {
+    const result = await axios.post(
+      `http://192.168.46.90:7010/cityWorksAPI/GetIssuesByDomainId?Id=${domainID}`
+    );
 
-    // const data = result.data.Value; // Uncomment this when running on virtual machine or in production environment
-
-    const data = problems; // Just for development purposes
+    const data = result.data.Value;
 
     setIssues(data);
   };
@@ -177,14 +175,12 @@ function App() {
   /*
     Sets the Q&As for the selected issue
   */
-  const getQuestionAnswersforSelectedIssue = () => {
-    // const result = axios.get(
-    //   `http://test-cw-app1/Cityworks_Test_Forms/services/Ams/ServiceRequest/QA?data={"ProblemSid": ${issueID}}&token=eyJFbXBsb3llZVNpZCI6MzMwLCJFeHBpcmVzIjpudWxsLCJJc3N1ZWRUaW1lIjoxNjU1MTQ0NTQwODUwLCJMb2dpbk5hbWUiOiJGYWNSZXF1ZXN0QXBwIiwiU2lnbmF0dXJlIjoiMkhWaVcyVGU3czV2dC9zNHpOWjlTbnAySy9pbkV4a2dqaUxub2tLNktyWT0iLCJUb2tlbiI6IjVrc2g4ZlEzeEh4ZVdrVUFCR3lGNDV0dWJaTnVGS1ZlOHRpNWhXVGhBdFk9In0=`
-    // );
+  const getQuestionAnswersforSelectedIssue = async () => {
+    const result = await axios.post(
+      `http://192.168.46.90:7010/cityWorksAPI/GetQAsByProblemSid?Id=${issueID}`
+    );
 
-    // const data = result.data.Value; // Uncomment this when running on virtual machine or in production environment
-
-    const data = questionandAnswers; // Just for development purposes
+    const data = result.data.Value;
 
     setQuestions(data.Questions);
     setAnswers(data.Answers);

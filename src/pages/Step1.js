@@ -26,6 +26,7 @@ export default function Step1({
   questions,
   answers,
   getLocation,
+  userLocation,
   selectaddressonMap,
   setSelectAddressonMap,
   autocompleteData,
@@ -81,6 +82,7 @@ export default function Step1({
           questions={questions}
           answers={answers}
           getLocation={getLocation}
+          userLocation={userLocation}
           selectaddressonMap={selectaddressonMap}
           setSelectAddressonMap={setSelectAddressonMap}
           autocompleteData={autocompleteData}

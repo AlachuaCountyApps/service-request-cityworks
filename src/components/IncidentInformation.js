@@ -17,10 +17,31 @@ import IssueQuestionAnswers from "./IssueQuestionAnswers";
 import buildings from "../data/buildings.json";
 import departments from "../data/departments.json";
 import CallerQuestionAnswers from "./CallerQuestionAnswers";
+import UserLocation from './UserLocation';
+
 import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
 } from "react-google-places-autocomplete";
 import { useNavigate } from "react-router-dom";
+
+function closestLocation(targetLocation, locationData) {
+  function vectorDistance(dx, dy) {
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  function locationDistance(location1, location2) {
+    var dx = location1.lat - location2.lat,
+      dy = location1.lng - location2.lng;
+
+    return vectorDistance(dx, dy);
+  }
+
+  return locationData.reduce(function (prev, curr) {
+    var prevDistance = locationDistance(targetLocation, prev),
+      currDistance = locationDistance(targetLocation, curr);
+    return prevDistance < currDistance ? prev : curr;
+  });
+}
 
 export default function IncidentInformationNew({
   issue,
@@ -44,12 +65,34 @@ export default function IncidentInformationNew({
   questions,
   answers,
   getLocation,
+  userLocation,
   selectaddressonMap,
   setSelectAddressonMap,
   autocompleteData,
   setAutocompleteData,
 }) {
   let navigate = useNavigate();
+
+  const getUserLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const buildingToSelect = closestLocation(
+        {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        },
+        buildings
+      );
+      console.log('Latitude is : ', position.coords.latitude);
+      console.log('Longitude is : ', position.coords.longitude);
+      handleBuildingChange(
+        buildings[
+          buildings.findIndex(
+            (build) => build.BuildingId === buildingToSelect.BuildingId
+          )
+        ]
+      );
+    });
+  };
 
   /*
     A change to autocompleteData occurs when a user manually
@@ -326,6 +369,8 @@ export default function IncidentInformationNew({
                   </Grid>
                 </Grid>
               )}
+
+              {userLocation && <UserLocation getUserLocation={getUserLocation} />}
 
               <Grid item container sx={{ my: 5 }}>
                 {/*

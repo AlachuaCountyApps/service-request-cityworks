@@ -9,6 +9,7 @@ import {
   Select,
   TextField,
   Typography,
+  CircularProgress
 } from "@mui/material";
 import React, { useEffect } from "react";
 
@@ -70,6 +71,7 @@ export default function IncidentInformationNew({
   setSelectAddressonMap,
   autocompleteData,
   setAutocompleteData,
+  isLoading
 }) {
   let navigate = useNavigate();
 
@@ -230,6 +232,13 @@ export default function IncidentInformationNew({
                   will be dynamically assigned a set of issus/problems for that
                   Domain
                 */}
+              {isLoading && (
+                <Grid item xs={12} mb={3}>
+                  <Grid container sx={{ bgcolor: "#aec4e5", p: 2 }}>
+                    <p><CircularProgress /> Loading Issues....</p>
+                  </Grid>
+                </Grid>
+              )}
               {issues && issues.length > 0 && (
                 <Grid item xs={12} mb={3}>
                   <Grid container sx={{ bgcolor: "#aec4e5", p: 2 }}>

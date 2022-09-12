@@ -31,6 +31,7 @@ export default function Step1({
   setSelectAddressonMap,
   autocompleteData,
   setAutocompleteData,
+  isLoading
 }) {
   return (
     <Grid container spacing={3}>
@@ -41,25 +42,6 @@ export default function Step1({
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        {/* <IncidentInformation
-          issue={issue}
-          handleIssueChange={handleIssueChange}
-          questionAnswers={questionAnswers}
-          selectedAnswers={selectedAnswers}
-          updateSelectedAnswers={updateSelectedAnswers}
-          building={building}
-          handleBuildingChange={handleBuildingChange}
-          department={department}
-          handleDepartmentChange={handleDepartmentChange}
-          additonalLocationInfo={additonalLocationInfo}
-          setAdditonalLocationInfo={setAdditonalLocationInfo}
-          issueDescription={issueDescription}
-          setIssueDescription={setIssueDescription}
-          handleOpen={handleOpen}
-          address={address}
-          updateSelectedAddress={updateSelectedAddress}
-        /> */}
-
         <IncidentInformation
           issue={issue}
           selectedAnswers={selectedAnswers}
@@ -87,8 +69,8 @@ export default function Step1({
           setSelectAddressonMap={setSelectAddressonMap}
           autocompleteData={autocompleteData}
           setAutocompleteData={setAutocompleteData}
+          isLoading={isLoading}
         />
-
         <EmergencyContact />
       </Grid>
     </Grid>

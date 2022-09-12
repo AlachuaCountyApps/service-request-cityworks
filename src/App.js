@@ -22,11 +22,10 @@ Geocode.setLocationType('ROOFTOP');
 function App() {
   const [isCountyBuildingIssue, setIsCountyBuildingIssue] = useState('');
   const [domain, setDomain] = useState('');
-  const [domainID, setDomainID] = useState();
   const [building, setBuilding] = useState('');
   const [issues, setIssues] = useState([]);
   const [issue, setIssue] = useState('');
-  const [issueID, setIssueID] = useState();
+  const [issueID, setIssueID] = useState('');
   const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
   const [department, setDepartment] = useState('');
   const [questions, setQuestions] = useState([]);
@@ -50,6 +49,7 @@ function App() {
   const [selectaddressonMap, setSelectAddressonMap] = useState(false);
   const [autocompleteData, setAutocompleteData] = useState(null);
   const [callerInformation, setCallerInformation] = useState(new Map());
+  const [isLoading, setIsLoading] = useState(false);
 
   const updateCallerInformation = (fieldId, value) => {
     const tempCallerInformation = new Map(callerInformation);
@@ -60,12 +60,20 @@ function App() {
   const refreshFormFields = () => {
     // Clear all other selections
     setIssue('');
-    setIssueID();
+    setIssueID('');
     setDepartment('');
     setSelectedAnswers(new Map());
     setAnswers([]);
     setQuestions([]);
     setIssueDescription('');
+  };
+
+  const GetIssuesPubicWorks = async () => {
+    const result = await axios.post(
+      `http://192.168.46.90:7010/cityWorksAPI/GetIssuesPublicWorks`
+    );
+
+    return result;
   };
 
   /*
@@ -75,62 +83,88 @@ function App() {
     the domain and domainId.  If it is a building, further
     evaluation is required to determine the issue domain
   */
-  const handleIsCountyBuildingIssueChange = (e) => {
+  const handleIsCountyBuildingIssueChange = async (e) => {
     setIsCountyBuildingIssue(e.target.value);
     setIssue('');
-    setIssueID();
+    setIssueID('');
+    setIssues([]);
 
     if (e.target.value === 'No') {
       setDomain('Default');
-      setDomainID(1);
-      setIssues([]);
+
+      setIsLoading(true);
+      let result = await GetIssuesPubicWorks();
+      console.log('data',result.data);
+      setIssues(result.data);
+      setIsLoading(false);
     }
   };
 
   /*
-    Calls CityWorks endpoint to obtain Problems/Issues by domainID.  The
-    issues returned will be used to populate the issues dropdown
+    Calls CityWorks endpoint to obtain Problems/Issues for Public Works.
+    The issues returned will be used to populate the issues dropdown
   */
-  const handleDomainIdChange = async () => {
-    const result = await axios.post(
-      `http://192.168.46.90:7010/cityWorksAPI/GetIssuesByDomainId?Id=${domainID}`
-    );
+    const GetIssuesPubicWorksCritFac = async () => {
+      const result = await axios.post(
+        `http://192.168.46.90:7010/cityWorksAPI/GetIssuesPubicWorksCritFac`
+      );
+  
+      return result;
+    };
 
-    const data = result.data.Value;
-
-    setIssues(data);
-  };
-
-  /*
-    Fires when there is a change in domainID.
-    DomainID set to 1 (Public Works) when then the issue reported
-    did not occurr in a building, or it is in a building but the building
-    is part of 'CritFac' otherwise DomainID is set to 3 (Facilities)
+    /*
+    Calls CityWorks endpoint to obtain Problems/Issues for Facilities.
+    The issues returned will be used to populate the issues dropdown
   */
-  useEffect(() => {
-    if (domainID) handleDomainIdChange();
-    refreshFormFields();
-  }, [domainID]);
+    const GetIssuesFacilitiesGenFac = async () => {
+      const result = await axios.post(
+        `http://192.168.46.90:7010/cityWorksAPI/GetIssuesFacilitiesGenFac`
+      );
+  
+      return result;
+    };
 
   /*
     Fires when the user selects a building from the 'Building' dropdown
   */
-  const handleBuildingChange = (val) => {
+  const handleBuildingChange = async (val) => {
+    setIssues([]);
     setBuilding(val);
 
-    if (val && val.Dept.includes('CritFac')) {
-      //Set Domain - Public Works
-      setDomain('Default');
-      setDomainID(1);
-    } else if (val && val.Dept.includes('GenFac')) {
+    // if (val && val.Dept.includes('CritFac')) {
+    //   //Set Domain - Public Works
+    //   setDomain('Default');
+    //   setIsLoading(true);
+    //   let result = await GetIssuesPubicWorksCritFac();
+    //   console.log('data', result.data);
+    //   setIssues(result.data);
+    //   setIsLoading(false);
+    // } else if (val && val.Dept.includes('GenFac')) {
+    //   //Set Domain - Facilities
+    //   setDomain('ACFD');
+    //   setIsLoading(true);
+    //   let result = await GetIssuesFacilitiesGenFac();
+    //   console.log('data', result.data)
+    //   setIssues(result.data);
+    //   setIsLoading(false);
+    // } else {
+    //   refreshFormFields();
+    //   setDomain('');
+    //   // setIssues([]);
+    // }
+
+    if (val && (val.Dept.includes('GenFac') || val.Dept.includes('CritFac'))) {
       //Set Domain - Facilities
       setDomain('ACFD');
-      setDomainID(3);
+      setIsLoading(true);
+      let result = await GetIssuesFacilitiesGenFac();
+      console.log('data', result.data)
+      setIssues(result.data);
+      setIsLoading(false);
     } else {
       refreshFormFields();
       setDomain('');
-      setDomainID();
-      setIssues([]);
+      // setIssues([]);
     }
   };
 
@@ -336,7 +370,7 @@ function App() {
     // console.log(data);
 
     axios
-      .post('http://localhost:7010/submitRequest', data)
+      .post('http://192.168.46.90:7010/submitRequest', data)
       .then((response) => {
         console.log(response);
         navigate('/servicerequest/success', {
@@ -390,6 +424,7 @@ function App() {
                   setSelectAddressonMap={setSelectAddressonMap}
                   autocompleteData={autocompleteData}
                   setAutocompleteData={setAutocompleteData}
+                  isLoading={isLoading}
                 />
               }
             />

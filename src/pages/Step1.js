@@ -12,8 +12,8 @@ export default function Step1({
   handleBuildingChange,
   department,
   handleDepartmentChange,
-  additonalLocationInfo,
-  setAdditonalLocationInfo,
+  additionalLocationInfo,
+  setAdditionalLocationInfo,
   issueDescription,
   setIssueDescription,
   handleOpen,
@@ -50,8 +50,8 @@ export default function Step1({
           handleBuildingChange={handleBuildingChange}
           department={department}
           handleDepartmentChange={handleDepartmentChange}
-          additonalLocationInfo={additonalLocationInfo}
-          setAdditonalLocationInfo={setAdditonalLocationInfo}
+          additionalLocationInfo={additionalLocationInfo}
+          setAdditionalLocationInfo={setAdditionalLocationInfo}
           issueDescription={issueDescription}
           setIssueDescription={setIssueDescription}
           handleOpen={handleOpen}

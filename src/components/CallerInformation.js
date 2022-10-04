@@ -169,23 +169,6 @@ export default function CallerInformation({
           />
         </Grid>
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
-          Unit #:
-        </Grid>
-        <Grid item xs={9} sm={10}>
-          <TextField
-            id="unitnumber"
-            name="unitnumber"
-            value={
-              callerInformation && callerInformation.has("unitnumber")
-                ? callerInformation.get("unitnumber")
-                : ""
-            }
-            onChange={(e) =>
-              updateCallerInformation("unitnumber", e.target.value)
-            }
-          />
-        </Grid>
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
           City:
         </Grid>
         <Grid item xs={9} sm={4}>

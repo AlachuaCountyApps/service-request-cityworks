@@ -26,6 +26,9 @@ import GooglePlacesAutocomplete, {
 import { useNavigate } from "react-router-dom";
 
 function closestLocation(targetLocation, locationData) {
+  console.log('targetLocation', targetLocation)
+  console.log('locationData', locationData)
+  
   function vectorDistance(dx, dy) {
     return Math.sqrt(dx * dx + dy * dy);
   }
@@ -39,7 +42,7 @@ function closestLocation(targetLocation, locationData) {
 
   return locationData.reduce(function (prev, curr) {
     var prevDistance = locationDistance(targetLocation, prev),
-      currDistance = locationDistance(targetLocation, curr);
+        currDistance = locationDistance(targetLocation, curr);
     return prevDistance < currDistance ? prev : curr;
   });
 }
@@ -52,8 +55,8 @@ export default function IncidentInformationNew({
   handleBuildingChange,
   department,
   handleDepartmentChange,
-  additonalLocationInfo,
-  setAdditonalLocationInfo,
+  additionalLocationInfo,
+  setAdditionalLocationInfo,
   issueDescription,
   setIssueDescription,
   handleOpen,
@@ -382,28 +385,7 @@ export default function IncidentInformationNew({
               {userLocation && <UserLocation getUserLocation={getUserLocation} />}
 
               <Grid item container sx={{ my: 5 }}>
-                {/*
-                  Department Dropdown.  Displayed if the issue occurred in a building and an
-                  issue/problem has been selected
-                 */}
-                {isCountyBuildingIssue === "Yes" && issue && (
-                  <Grid item xs={12}>
-                    <IssueQuestionAnswers
-                      id={"department"}
-                      index={2}
-                      question={"Department:"}
-                      value={department}
-                      updateSelection={(newValue) =>
-                        handleDepartmentChange(newValue)
-                      }
-                      options={departments.sort((a, b) =>
-                        a > b ? 1 : b > a ? -1 : 0
-                      )}
-                      AdditionalComponent={true}
-                      required={false}
-                    />
-                  </Grid>
-                )}
+                
                 {/*
                     Additional Location Information.
                     Displayed if the issue occurred in a building, and the issue as well as
@@ -422,9 +404,9 @@ export default function IncidentInformationNew({
                         index={2}
                         id={"location-info"}
                         question={"Additional Location Information:"}
-                        value={additonalLocationInfo}
+                        value={additionalLocationInfo}
                         updateSelection={(newValue) =>
-                          setAdditonalLocationInfo(newValue)
+                          setAdditionalLocationInfo(newValue)
                         }
                         placeholder={`(Example - First Floor Women's Restroom / Closest intersection or what direction from the intersection)`}
                       />

@@ -7,8 +7,6 @@ import Geocode from 'react-geocode';
 import Step1 from './pages/Step1';
 import Step2 from './pages/Step2';
 
-import problems from './data/issuesListDomainSpecific.json';
-import questionandAnswers from './data/questionanswersProblemSpecific.json';
 import Success from './pages/Success';
 import GoogleMap from './components/Map';
 
@@ -26,7 +24,7 @@ function App() {
   const [issues, setIssues] = useState([]);
   const [issue, setIssue] = useState('');
   const [issueID, setIssueID] = useState('');
-  const [additonalLocationInfo, setAdditonalLocationInfo] = useState('');
+  const [additionalLocationInfo, setAdditionalLocationInfo] = useState('');
   const [department, setDepartment] = useState('');
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
@@ -66,6 +64,7 @@ function App() {
     setAnswers([]);
     setQuestions([]);
     setIssueDescription('');
+    setIsCountyBuildingIssue('')
   };
 
   const GetIssuesPubicWorks = async () => {
@@ -104,9 +103,9 @@ function App() {
     Calls CityWorks endpoint to obtain Problems/Issues for Public Works.
     The issues returned will be used to populate the issues dropdown
   */
-    const GetIssuesPubicWorksCritFac = async () => {
+    const GetIssuesForBuilding = async () => {
       const result = await axios.post(
-        `http://192.168.46.90:7010/cityWorksAPI/GetIssuesPubicWorksCritFac`
+        `http://192.168.46.90:7010/cityWorksAPI/GetIssuesForBuilding`
       );
   
       return result;
@@ -130,35 +129,12 @@ function App() {
   const handleBuildingChange = async (val) => {
     setIssues([]);
     setBuilding(val);
+    setDomain('ACFD');
 
-    // if (val && val.Dept.includes('CritFac')) {
-    //   //Set Domain - Public Works
-    //   setDomain('Default');
-    //   setIsLoading(true);
-    //   let result = await GetIssuesPubicWorksCritFac();
-    //   console.log('data', result.data);
-    //   setIssues(result.data);
-    //   setIsLoading(false);
-    // } else if (val && val.Dept.includes('GenFac')) {
-    //   //Set Domain - Facilities
-    //   setDomain('ACFD');
-    //   setIsLoading(true);
-    //   let result = await GetIssuesFacilitiesGenFac();
-    //   console.log('data', result.data)
-    //   setIssues(result.data);
-    //   setIsLoading(false);
-    // } else {
-    //   refreshFormFields();
-    //   setDomain('');
-    //   // setIssues([]);
-    // }
-
-    if (val && (val.Dept.includes('GenFac') || val.Dept.includes('CritFac'))) {
-      //Set Domain - Facilities
-      setDomain('ACFD');
+    if (val) {
       setIsLoading(true);
-      let result = await GetIssuesFacilitiesGenFac();
-      console.log('data', result.data)
+      let result = await GetIssuesForBuilding();
+      console.log('data', result.data);
       setIssues(result.data);
       setIsLoading(false);
     } else {
@@ -173,19 +149,40 @@ function App() {
     Calls updateAddress which obtains the address of the building
     from its latitude and longitude
   */
-  useEffect(() => {
-    if (building) updateAddress();
-  }, [building]);
+    useEffect(() => {
+      if (building) updateAddress();
+    }, [building]);
+  
+    const updateAddress = () => {
+      Geocode.fromAddress(`${building.Address}, ${building.City}, ${building.State}`)
+        .then((response) => {
+          const data = response.results[0];
 
-  const updateAddress = () => {
-    Geocode.fromLatLng(building.lat, building.lng)
-      .then((response) => {
-        const data = response.results[0];
-        updateSelectedAddress(data);
-      })
-      .catch((error) => console.log(error));
-  };
+          const addressObj = {};
 
+          for (let i = 0; i < data.address_components.length; i++) {
+            for (let j = 0; j < data.address_components[i].types.length; j++) {
+              switch (data.address_components[i].types[j]) {
+                case 'route':
+                  addressObj.shortAddress = data.address_components[i].short_name;
+                  addressObj.StreetName = getStreetName(
+                    data.address_components[i].short_name.substring(
+                      0,
+                      data.address_components[i].short_name.indexOf(' ')
+                    )
+                  );
+                  break;
+                default:
+                  break;
+              }
+            }
+          }
+          setAddress(addressObj);
+          console.log('addressObj:',addressObj);
+        })
+        .catch((error) => console.log(`${building.Address}, ${building.City}, ${building.State}`, error));
+    };
+  
   const handleDepartmentChange = (val) => {
     setDepartment(val);
   };
@@ -270,6 +267,7 @@ function App() {
     addressObj.lat = data.geometry.location.lat;
     addressObj.lng = data.geometry.location.lng;
     addressObj.street = data.formatted_address;
+    
     for (let i = 0; i < data.address_components.length; i++) {
       for (let j = 0; j < data.address_components[i].types.length; j++) {
         switch (data.address_components[i].types[j]) {
@@ -328,29 +326,36 @@ function App() {
   const submitRequest = (e) => {
     e.preventDefault();
 
-    console.log(issue);
-
     const data = {
       ProblemSid: issueID,
-      Details: issueDescription,
-      Comments: convertQuestionAnswersToString(),
-      Address: address.streetNumber + ' ' + address.shortAddress,
-      City: address.city,
+      //Details: issueDescription,
+      Comments: issueDescription, //convertQuestionAnswersToString(),
+      Address: isCountyBuildingIssue === 'Yes'
+          ? building.Address 
+          : address.streetNumber + ' ' + address.shortAddress,
+      City: isCountyBuildingIssue === 'Yes'
+          ? building.City
+          : address.city,
       State: 'Florida',
-      Zip: address.zip,
+      Zip: isCountyBuildingIssue  === 'Yes'
+          ? building.Zip 
+          : address.zip,
       Landmark:
         building.label && building.label.includes('Other')
           ? null
           : building.label,
       District: address.StreetName,
-      Location: additonalLocationInfo,
-      X: address.lat,
-      Y: address.lng,
+      Location: additionalLocationInfo,
+      X: isCountyBuildingIssue === 'Yes'
+          ? building.X 
+          : null,
+      Y: isCountyBuildingIssue === 'Yes'
+          ? building.Y 
+          : null,
       CallerType: 'Visitor',
       CallerFirstName: e.target.firstName.value,
       CallerLastName: e.target.lastName.value,
       CallerAddress: e.target.address.value,
-      CallerAptNum: e.target.unitnumber.value,
       CallerCity: e.target.city.value,
       CallerState: e.target.state.value,
       CallerZip: e.target.zipcode.value,
@@ -367,7 +372,7 @@ function App() {
 
     convertQuestionAnswersToString();
 
-    // console.log(data);
+    console.log('data', data);
 
     axios
       .post('http://192.168.46.90:7010/submitRequest', data)
@@ -377,7 +382,7 @@ function App() {
           state: { status: true, requestID: response.data },
         });
       })
-      .catch(() => console.log('NO!!!!!'));
+      .catch(() => console.log('There was a problem communicating with the  Cityworks API'));
   };
 
   return (
@@ -403,8 +408,8 @@ function App() {
                   handleBuildingChange={handleBuildingChange}
                   department={department}
                   handleDepartmentChange={handleDepartmentChange}
-                  additonalLocationInfo={additonalLocationInfo}
-                  setAdditonalLocationInfo={setAdditonalLocationInfo}
+                  additionalLocationInfo={additionalLocationInfo}
+                  setAdditionalLocationInfo={setAdditionalLocationInfo}
                   issueDescription={issueDescription}
                   setIssueDescription={setIssueDescription}
                   handleOpen={handleOpen}

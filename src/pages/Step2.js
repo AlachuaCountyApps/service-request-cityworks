@@ -38,9 +38,9 @@ export default function Step2({
         <Grid item xs={12}>
           <SubmitForm />
         </Grid>
-        <Grid item xs={12}>
+        {domain === 'ACFD' && <Grid item xs={12}>
           <EmergencyContact />
-        </Grid>
+        </Grid>}
       </Grid>
     </form>
   );

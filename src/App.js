@@ -401,6 +401,7 @@ function App() {
               path="servicerequest/step1"
               element={
                 <Step1
+                  domain={domain}
                   issue={issue}
                   selectedAnswers={selectedAnswers}
                   updateSelectedAnswers={updateSelectedAnswers}

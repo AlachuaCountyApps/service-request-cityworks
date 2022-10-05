@@ -19,7 +19,7 @@ export default function EmergencyContact() {
       <Grid item xs={12}>
         <Typography variant='body1' gutterBottom>
           Contact Facilities at <b>352-548-3759 or 213-4840 after hours</b>{' '}
-          <br /> OR Facilities Manager 352-451-5537
+          <br /> OR Facilities Manager 352-262-7123
         </Typography>
       </Grid>
     </Grid>

@@ -5,6 +5,7 @@ import IncidentInformation from "../components/IncidentInformation";
 import EmergencyContact from "../components/EmergencyContact";
 
 export default function Step1({
+  domain,
   issue,
   selectedAnswers,
   updateSelectedAnswers,
@@ -71,7 +72,9 @@ export default function Step1({
           setAutocompleteData={setAutocompleteData}
           isLoading={isLoading}
         />
-        <EmergencyContact />
+        {domain === 'ACFD' && <Grid item xs={12}>
+          <EmergencyContact />
+        </Grid>}
       </Grid>
     </Grid>
   );

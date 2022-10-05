@@ -77,31 +77,6 @@ export default function CallerInformation({
           />
         </Grid>
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
-          Cell Phone Number:
-        </Grid>
-        <Grid item xs={9} sm={4}>
-          <ReactInputMask
-            mask="999 - 999 - 9999"
-            value={
-              callerInformation && callerInformation.has("phoneNumber")
-                ? callerInformation.get("phoneNumber")
-                : ""
-            }
-            onChange={(e) =>
-              updateCallerInformation("phoneNumber", e.target.value)
-            }
-          >
-            {() => (
-              <TextField
-                id="phoneNumber"
-                name="phoneNumber"
-                required={true}
-                fullWidth
-              />
-            )}
-          </ReactInputMask>
-        </Grid>
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
           Work Phone Number:
         </Grid>
         <Grid item xs={9} sm={4}>
@@ -121,6 +96,30 @@ export default function CallerInformation({
                 id="workPhoneNumber"
                 name="workPhoneNumber"
                 required={true}
+                fullWidth
+              />
+            )}
+          </ReactInputMask>
+        </Grid>
+        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+          Cell Phone Number (Optional):
+        </Grid>
+        <Grid item xs={9} sm={4}>
+          <ReactInputMask
+            mask="999 - 999 - 9999"
+            value={
+              callerInformation && callerInformation.has("phoneNumber")
+                ? callerInformation.get("phoneNumber")
+                : ""
+            }
+            onChange={(e) =>
+              updateCallerInformation("phoneNumber", e.target.value)
+            }
+          >
+            {() => (
+              <TextField
+                id="phoneNumber"
+                name="phoneNumber"
                 fullWidth
               />
             )}

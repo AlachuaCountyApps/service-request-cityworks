@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import ReactInputMask from "react-input-mask";
 
 export default function CallerInformation({
+  domain,
   callerInformation,
   updateCallerInformation,
 }) {
@@ -38,6 +39,7 @@ export default function CallerInformation({
         <Grid item xs={9} sm={10} sx={{ cursor: "not-allowed" }}>
           {moment().format("MM/DD/YYYY")}
         </Grid>
+
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
           First Name:
         </Grid>
@@ -57,6 +59,7 @@ export default function CallerInformation({
             fullWidth
           />
         </Grid>
+
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
           Last Name:
         </Grid>
@@ -76,33 +79,104 @@ export default function CallerInformation({
             fullWidth
           />
         </Grid>
+
+        {
+        domain === 'Default' && 
+        <>
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
-          Work Phone Number:
+          Home Phone Number*:
         </Grid>
         <Grid item xs={9} sm={4}>
           <ReactInputMask
             mask="999 - 999 - 9999"
             value={
-              callerInformation && callerInformation.has("workPhoneNumber")
-                ? callerInformation.get("workPhoneNumber")
+              callerInformation && callerInformation.has("homePhoneNumber")
+                ? callerInformation.get("homePhoneNumber")
                 : ""
             }
             onChange={(e) =>
-              updateCallerInformation("workPhoneNumber", e.target.value)
+              updateCallerInformation("homePhoneNumber", e.target.value)
             }
           >
             {() => (
               <TextField
-                id="workPhoneNumber"
-                name="workPhoneNumber"
+                id="homePhoneNumber"
+                name="homePhoneNumber"
                 required={true}
                 fullWidth
               />
             )}
           </ReactInputMask>
         </Grid>
+        </>
+        }
+        
+        
+        {
+          domain === 'ACFD' &&
+          <>
+            <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+              Work Phone Number*:
+            </Grid>
+            <Grid item xs={9} sm={4}>
+              <ReactInputMask
+                mask="999 - 999 - 9999"
+                value={
+                  callerInformation && callerInformation.has("workPhoneNumber")
+                    ? callerInformation.get("workPhoneNumber")
+                    : ""
+                }
+                onChange={(e) =>
+                  updateCallerInformation("workPhoneNumber", e.target.value)
+                }
+              >
+                {() => (
+                  <TextField
+                    id="workPhoneNumber"
+                    name="workPhoneNumber"
+                    required={true}
+                    fullWidth
+                  />
+                )}
+              </ReactInputMask>
+            </Grid>
+          </>
+        }
+
+{
+          domain === 'Default' &&
+          <>
+            <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+              Work Phone Number:
+            </Grid>
+            <Grid item xs={9} sm={4}>
+              <ReactInputMask
+                mask="999 - 999 - 9999"
+                value={
+                  callerInformation && callerInformation.has("workPhoneNumber")
+                    ? callerInformation.get("workPhoneNumber")
+                    : ""
+                }
+                onChange={(e) =>
+                  updateCallerInformation("workPhoneNumber", e.target.value)
+                }
+              >
+                {() => (
+                  <TextField
+                    id="workPhoneNumber"
+                    name="workPhoneNumber"
+                    fullWidth
+                  />
+                )}
+              </ReactInputMask>
+            </Grid>
+          </>
+        }
+        
+
+
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
-          Cell Phone Number (Optional):
+          Cell Phone Number:
         </Grid>
         <Grid item xs={9} sm={4}>
           <ReactInputMask
@@ -125,6 +199,8 @@ export default function CallerInformation({
             )}
           </ReactInputMask>
         </Grid>
+        
+        
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
           Email:
         </Grid>
@@ -143,13 +219,20 @@ export default function CallerInformation({
             fullWidth
           />
         </Grid>
-        <Grid
-          item
-          xs={3}
-          sm={2}
-          sx={{ textAlign: "end", alignSelf: "center" }}
-        ></Grid>
-        <Grid item xs={9} sm={4}></Grid>
+
+        {
+          domain === 'ACFD' &&
+          <>
+          <Grid
+            item
+            xs={3}
+            sm={2}
+            sx={{ textAlign: "end", alignSelf: "center" }}
+          ></Grid>
+          <Grid item xs={9} sm={4}></Grid>
+          </>
+        }
+
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
           Address:
         </Grid>

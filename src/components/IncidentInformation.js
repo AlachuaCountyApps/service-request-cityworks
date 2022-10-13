@@ -24,6 +24,7 @@ import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
 } from "react-google-places-autocomplete";
 import { useNavigate } from "react-router-dom";
+import { ShowChart } from "@mui/icons-material";
 
 function closestLocation(targetLocation, locationData) {
   console.log('targetLocation', targetLocation)
@@ -74,7 +75,10 @@ export default function IncidentInformationNew({
   setSelectAddressonMap,
   autocompleteData,
   setAutocompleteData,
-  isLoading
+  isLoading,
+  showAddressAlert,
+  setShowAddressAlert,
+  setAddress
 }) {
   let navigate = useNavigate();
 
@@ -134,12 +138,28 @@ export default function IncidentInformationNew({
 
   /*when there is a change detected in the value of
     selectaddressonMap, selectaddressonMap is evaluated
-    and if true, updateAddresswhenEnterManually() is called
+    and if false, updateAddresswhenEnterManually() is called
   */
   useEffect(() => {
-    //if
     if (!selectaddressonMap) {
       updateAddresswhenEnterManually();
+      setShowAddressAlert(false);
+    }
+    
+    if (selectaddressonMap) {
+      setAddress({
+        StreetName: null,
+        street: '',
+        streetNumber: '',
+        city: '',
+        state: '',
+        zip: '',
+        county: '',
+        shortAddress: '',
+        lat: '',
+        lng: '',
+      });
+      setShowAddressAlert(true);      
     }
   }, [selectaddressonMap]);
 
@@ -308,8 +328,14 @@ export default function IncidentInformationNew({
                             shown when selectaddressonMap is true
                           */}
                           {selectaddressonMap && (
+                            <>
                             <TextField value={address.street} fullWidth />
+                            <FormHelperText sx={{ color: "red" }}>
+                              {showAddressAlert && "Please verify that address is accurate."}
+                            </FormHelperText>
+                            </>
                           )}
+
                           {/*
                             shown when selectedaddressonMap is false (Google Maps Type Ahead)
                           */}

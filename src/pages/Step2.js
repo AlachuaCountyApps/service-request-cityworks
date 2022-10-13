@@ -30,18 +30,27 @@ export default function Step2({
             submitRequest={submitRequest}
           />
         </Grid>
-        <Grid item xs={12}>
-          <OtherContact
-            callerInformation={callerInformation}
-            updateCallerInformation={updateCallerInformation}
-          />
-        </Grid>
+
+        {
+          domain === 'ACFD' &&
+          <Grid item xs={12}>
+            <OtherContact
+              callerInformation={callerInformation}
+              updateCallerInformation={updateCallerInformation}
+            />
+          </Grid>
+        }
+        
         <Grid item xs={12}>
           <SubmitForm />
         </Grid>
-        {domain === 'ACFD' && <Grid item xs={12}>
+        
+        {
+          domain === 'ACFD' && 
+          <Grid item xs={12}>
           <EmergencyContact />
-        </Grid>}
+        </Grid>
+        }
       </Grid>
     </form>
   );

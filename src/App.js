@@ -48,6 +48,7 @@ function App() {
   const [autocompleteData, setAutocompleteData] = useState(null);
   const [callerInformation, setCallerInformation] = useState(new Map());
   const [isLoading, setIsLoading] = useState(false);
+  const [showAddressAlert, setShowAddressAlert] = useState(false);
 
   const updateCallerInformation = (fieldId, value) => {
     const tempCallerInformation = new Map(callerInformation);
@@ -64,7 +65,7 @@ function App() {
     setAnswers([]);
     setQuestions([]);
     setIssueDescription('');
-    setIsCountyBuildingIssue('')
+    setIsCountyBuildingIssue('');
   };
 
   const GetIssuesPubicWorks = async () => {
@@ -178,7 +179,6 @@ function App() {
             }
           }
           setAddress(addressObj);
-          console.log('addressObj:',addressObj);
         })
         .catch((error) => console.log(`${building.Address}, ${building.City}, ${building.State}`, error));
     };
@@ -332,14 +332,20 @@ function App() {
       Comments: issueDescription, //convertQuestionAnswersToString(),
       Address: isCountyBuildingIssue === 'Yes'
           ? building.Address 
-          : address.streetNumber + ' ' + address.shortAddress,
+          : address.streetNumber && address.shortAddress
+              ? address.streetNumber + ' ' + address.shortAddress
+              : null,
       City: isCountyBuildingIssue === 'Yes'
           ? building.City
-          : address.city,
+          : address.city
+              ? address.city
+              : null,
       State: 'Florida',
       Zip: isCountyBuildingIssue  === 'Yes'
           ? building.Zip 
-          : address.zip,
+          : address.zip 
+              ? address.zip 
+              : null,
       Landmark:
         building.label && building.label.includes('Other')
           ? null
@@ -359,14 +365,18 @@ function App() {
       CallerCity: e.target.city.value,
       CallerState: e.target.state.value,
       CallerZip: e.target.zipcode.value,
-      CallerHomePhone: e.target.homePhoneNumber.value.replace(/[^0-9]/gi, ''),
+      CallerHomePhone: 
+          domain === 'Default' &&
+          e.target.homePhoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerWorkPhone: e.target.workPhoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerOtherPhone:
-        e.target.otherWorkPhoneNumber.value &&
+        domain === 'ACFD' &&
         e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerEmail: e.target.email.value,
-      CallerComments: `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`,
+      CallerComments: 
+        domain === 'ACFD' &&
+          `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`,
       Answers: formatSelectedAnswers(selectedAnswers),
       GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
     };
@@ -432,6 +442,9 @@ function App() {
                   autocompleteData={autocompleteData}
                   setAutocompleteData={setAutocompleteData}
                   isLoading={isLoading}
+                  showAddressAlert={showAddressAlert}
+                  setShowAddressAlert={setShowAddressAlert}
+                  setAddress={setAddress}
                 />
               }
             />

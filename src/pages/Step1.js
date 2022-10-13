@@ -32,7 +32,10 @@ export default function Step1({
   setSelectAddressonMap,
   autocompleteData,
   setAutocompleteData,
-  isLoading
+  isLoading,
+  showAddressAlert,
+  setShowAddressAlert,
+  setAddress
 }) {
   return (
     <Grid container spacing={3}>
@@ -71,6 +74,9 @@ export default function Step1({
           autocompleteData={autocompleteData}
           setAutocompleteData={setAutocompleteData}
           isLoading={isLoading}
+          showAddressAlert={showAddressAlert}
+          setShowAddressAlert={setShowAddressAlert}
+          setAddress={setAddress}
         />
         {domain === 'ACFD' && <Grid item xs={12}>
           <EmergencyContact />

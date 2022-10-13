@@ -41,7 +41,7 @@ export default function CallerInformation({
         </Grid>
 
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
-          First Name:
+          First Name:*
         </Grid>
         <Grid item xs={9} sm={4}>
           <TextField
@@ -61,7 +61,7 @@ export default function CallerInformation({
         </Grid>
 
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
-          Last Name:
+          Last Name:*
         </Grid>
         <Grid item xs={9} sm={4}>
           <TextField
@@ -84,7 +84,7 @@ export default function CallerInformation({
         domain === 'Default' && 
         <>
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
-          Home Phone Number*:
+          Day Phone Number:*
         </Grid>
         <Grid item xs={9} sm={4}>
           <ReactInputMask
@@ -116,7 +116,7 @@ export default function CallerInformation({
           domain === 'ACFD' &&
           <>
             <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
-              Work Phone Number*:
+              Work Phone Number:*
             </Grid>
             <Grid item xs={9} sm={4}>
               <ReactInputMask
@@ -208,7 +208,6 @@ export default function CallerInformation({
           <TextField
             id="email"
             name="email"
-            required={true}
             value={
               callerInformation && callerInformation.has("email")
                 ? callerInformation.get("email")
@@ -218,6 +217,7 @@ export default function CallerInformation({
             type="email"
             fullWidth
           />
+          <span>Provide an email address to be notified when the problem has been resolved.</span>
         </Grid>
 
         {
@@ -246,10 +246,10 @@ export default function CallerInformation({
                 : ""
             }
             onChange={(e) => updateCallerInformation("address", e.target.value)}
-            required={true}
             fullWidth
           />
         </Grid>
+
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
           City:
         </Grid>
@@ -263,10 +263,10 @@ export default function CallerInformation({
                 : ""
             }
             onChange={(e) => updateCallerInformation("city", e.target.value)}
-            required={true}
             fullWidth
           />
         </Grid>
+
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
           State:
         </Grid>
@@ -280,10 +280,10 @@ export default function CallerInformation({
                 : ""
             }
             onChange={(e) => updateCallerInformation("state", e.target.value)}
-            required={true}
             fullWidth
           />
         </Grid>
+
         <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
           Zip Code:
         </Grid>
@@ -299,7 +299,6 @@ export default function CallerInformation({
             }
             onChange={(e) => updateCallerInformation("zipcode", e.target.value)}
             InputProps={{ inputProps: { min: 10000, max: 99999 } }}
-            required={true}
           />
         </Grid>
       </Grid>

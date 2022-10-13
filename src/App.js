@@ -112,18 +112,6 @@ function App() {
       return result;
     };
 
-    /*
-    Calls CityWorks endpoint to obtain Problems/Issues for Facilities.
-    The issues returned will be used to populate the issues dropdown
-  */
-    const GetIssuesFacilitiesGenFac = async () => {
-      const result = await axios.post(
-        `http://192.168.46.90:7010/cityWorksAPI/GetIssuesFacilitiesGenFac`
-      );
-  
-      return result;
-    };
-
   /*
     Fires when the user selects a building from the 'Building' dropdown
   */
@@ -141,7 +129,6 @@ function App() {
     } else {
       refreshFormFields();
       setDomain('');
-      // setIssues([]);
     }
   };
 

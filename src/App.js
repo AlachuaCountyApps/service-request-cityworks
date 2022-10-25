@@ -353,17 +353,20 @@ function App() {
       CallerState: e.target.state.value,
       CallerZip: e.target.zipcode.value,
       CallerHomePhone: 
-          domain === 'Default' &&
-          e.target.homePhoneNumber.value.replace(/[^0-9]/gi, ''),
+          domain === 'Default'
+            ? e.target.homePhoneNumber.value.replace(/[^0-9]/gi, '')
+            : null,
       CallerWorkPhone: e.target.workPhoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerOtherPhone:
-        domain === 'ACFD' &&
-        e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, ''),
+        domain === 'ACFD'
+          ? e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, '')
+          : null,
       CallerEmail: e.target.email.value,
       CallerComments: 
-        domain === 'ACFD' &&
-          `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`,
+        domain === 'ACFD'
+          ? `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`
+          : null,
       Answers: formatSelectedAnswers(selectedAnswers),
       GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
     };

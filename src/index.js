@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 
 window.renderServiceRequestCityworks = (containerId, history) => {
   ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename='/service-request-cityworks'>
       <App history={history} />
     </BrowserRouter>,
     document.getElementById(containerId)
@@ -23,7 +23,7 @@ window.unmountServiceRequestCityworks = (containerId) => {
 
 if (!document.getElementById('ServiceRequestCityworks-container')) {
   ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename='/service-request-cityworks'>
       <App />
     </BrowserRouter>,
     document.getElementById('root')

@@ -70,7 +70,8 @@ function App() {
 
   const GetIssuesPubicWorks = async () => {
     const result = await axios.post(
-      `http://192.168.46.90:7010/cityWorksAPI/GetIssuesPublicWorks`
+      //`http://192.168.46.90:7010/cityWorksAPI/GetIssuesPublicWorks`
+      `https://api.alachuacounty.us/service-request-api/cityWorksAPI/GetIssuesPublicWorks`
     );
 
     return result;
@@ -106,7 +107,8 @@ function App() {
   */
     const GetIssuesForBuilding = async () => {
       const result = await axios.post(
-        `http://192.168.46.90:7010/cityWorksAPI/GetIssuesForBuilding`
+        // `http://192.168.46.90:7010/cityWorksAPI/GetIssuesForBuilding`
+        `https://api.alachuacounty.us/service-request-api/cityWorksAPI/GetIssuesForBuilding`
       );
   
       return result;
@@ -195,7 +197,8 @@ function App() {
   */
   const getQuestionAnswersforSelectedIssue = async () => {
     const result = await axios.post(
-      `http://192.168.46.90:7010/cityWorksAPI/GetQAsByProblemSid?Id=${issueID}`
+      // `http://192.168.46.90:7010/cityWorksAPI/GetQAsByProblemSid?Id=${issueID}`
+      `https://api.alachuacounty.us/service-request-api/cityWorksAPI/GetQAsByProblemSid?Id=${issueID}`
     );
 
     const data = result.data.Value;
@@ -376,7 +379,8 @@ function App() {
     console.log('data', data);
 
     axios
-      .post('http://192.168.46.90:7010/submitRequest', data)
+      // .post('http://192.168.46.90:7010/submitRequest', data)
+      .post('https://api.alachuacounty.us/service-request-api/submitRequest', data)
       .then((response) => {
         console.log(response);
         navigate('/servicerequest/success', {
@@ -399,7 +403,7 @@ function App() {
         <Grid item xs={12} sx={{ mx: { xs: 1 } }}>
           <Routes>
             <Route
-              path="servicerequest/step1"
+              path="/servicerequest/step1"
               element={
                 <Step1
                   domain={domain}
@@ -439,7 +443,7 @@ function App() {
               }
             />
             <Route
-              path="servicerequest/step2"
+              path="/servicerequest/step2"
               element={
                 <Step2
                   domain={domain}
@@ -450,7 +454,7 @@ function App() {
                 />
               }
             />
-            <Route path="servicerequest/success" element={<Success />} />
+            <Route path="/servicerequest/success" element={<Success />} />
           </Routes>
         </Grid>
       </Grid>

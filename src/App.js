@@ -383,7 +383,7 @@ function App() {
       .post('https://api.alachuacounty.us/service-request-api/submitRequest', data)
       .then((response) => {
         console.log(response);
-        navigate('/servicerequest/success', {
+        navigate('/success', {
           state: { status: true, requestID: response.data },
         });
       })
@@ -403,7 +403,7 @@ function App() {
         <Grid item xs={12} sx={{ mx: { xs: 1 } }}>
           <Routes>
             <Route
-              path="/servicerequest/step1"
+              path="/"
               element={
                 <Step1
                   domain={domain}
@@ -443,7 +443,7 @@ function App() {
               }
             />
             <Route
-              path="/servicerequest/step2"
+              path="/step2"
               element={
                 <Step2
                   domain={domain}
@@ -454,7 +454,7 @@ function App() {
                 />
               }
             />
-            <Route path="/servicerequest/success" element={<Success />} />
+            <Route path="/success" element={<Success />} />
           </Routes>
         </Grid>
       </Grid>

@@ -16,7 +16,7 @@ export default function Step2({
 }) {
   let navigate = useNavigate();
   useEffect(() => {
-    if (!domain || !issueID) navigate("/servicerequest/step1");
+    if (!domain || !issueID) navigate("/");
   }, [domain, issueID]);
 
   return (

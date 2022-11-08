@@ -337,8 +337,8 @@ function App() {
       comments += `\nOther Work Phone Number: ${otherWorkPhoneNumber}.`;
     }
 
-    console.log(`${issueDescription}\n${comments}`);
-    return `${issueDescription}\n${comments}`;
+    console.log(`${issueDescription}${comments}`);
+    return `${issueDescription}${comments}`;
   };
 
   const submitRequest = (e) => {
@@ -347,7 +347,7 @@ function App() {
     const data = {
       ProblemSid: issueID,
       //Details: issueDescription,
-      Comments: buildComments(e.target),
+      Comments: domain === "ACFD" ? buildComments(e.target) : issueDescription,
       Address:
         isCountyBuildingIssue === "Yes"
           ? building.Address

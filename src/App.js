@@ -367,10 +367,7 @@ function App() {
           : address.zip
           ? address.zip
           : null,
-      Landmark:
-        building.label && building.label.includes("Other")
-          ? null
-          : building.label,
+      Landmark: building.label,
       District: address.StreetName,
       Location: additionalLocationInfo,
       X: isCountyBuildingIssue === "Yes" ? building.X : null,
@@ -433,7 +430,7 @@ function App() {
         <Grid item xs={12} sx={{ mx: { xs: 1 } }}>
           <Routes>
             <Route
-              path="/"
+              path='/'
               element={
                 <Step1
                   domain={domain}
@@ -473,7 +470,7 @@ function App() {
               }
             />
             <Route
-              path="/step2"
+              path='/step2'
               element={
                 <Step2
                   domain={domain}
@@ -484,7 +481,7 @@ function App() {
                 />
               }
             />
-            <Route path="/success" element={<Success />} />
+            <Route path='/success' element={<Success />} />
           </Routes>
         </Grid>
       </Grid>

@@ -1,5 +1,18 @@
 [
   {
+    "BuildingId": "Other",
+    "label": "Other",
+    "Address": "",
+    "City": "",
+    "State": "",
+    "Zip": "",
+    "Dept": "",
+    "lng": "",
+    "lat": "",
+    "X": "",
+    "Y": ""
+  },
+  {
     "BuildingId": "GEN02_ADA",
     "label": "Administration - Annex",
     "Address": "120 S Main St ",

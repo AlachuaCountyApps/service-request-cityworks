@@ -4,14 +4,19 @@ import 'core-js/stable/symbol';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 window.renderServiceRequestCityworks = (containerId, history) => {
   ReactDOM.render(
-    <BrowserRouter basename='/service-request-cityworks'>
-      <App history={history} />
+    <BrowserRouter
+      navigator={history}
+      location={history.location}
+      basename='/service-request-cityworks/'
+    >
+      <App />
     </BrowserRouter>,
     document.getElementById(containerId)
   );
@@ -21,9 +26,15 @@ window.unmountServiceRequestCityworks = (containerId) => {
   ReactDOM.unmountComponentAtNode(document.getElementById(containerId));
 };
 
+const defaultHistory = createBrowserHistory();
+
 if (!document.getElementById('ServiceRequestCityworks-container')) {
   ReactDOM.render(
-    <BrowserRouter basename='/service-request-cityworks'>
+    <BrowserRouter
+      navigator={defaultHistory}
+      location={defaultHistory.location}
+      basename='/service-request-cityworks/'
+    >
       <App />
     </BrowserRouter>,
     document.getElementById('root')

@@ -14,7 +14,7 @@ window.renderServiceRequestCityworks = (containerId, history) => {
     <BrowserRouter
       navigator={history}
       location={history.location}
-      basename='/service-request-cityworks/'
+      basename="/service-request-cityworks/"
     >
       <App />
     </BrowserRouter>,
@@ -33,7 +33,7 @@ if (!document.getElementById('ServiceRequestCityworks-container')) {
     <BrowserRouter
       navigator={defaultHistory}
       location={defaultHistory.location}
-      basename='/service-request-cityworks/'
+      basename="/service-request-cityworks/"
     >
       <App />
     </BrowserRouter>,

@@ -1,5 +1,5 @@
-import { FormHelperText, Grid, MenuItem, Select } from "@mui/material";
-import React from "react";
+import { FormHelperText, Grid, MenuItem, Select } from '@mui/material';
+import React from 'react';
 
 export default function CallerQuestionAnswersNew({
   questions,
@@ -11,12 +11,12 @@ export default function CallerQuestionAnswersNew({
     const questionId = question.QuestionId;
 
     return (
-      <Grid container key={index} sx={{ bgcolor: "#ebf2f7", p: 2 }}>
+      <Grid container key={index} sx={{ bgcolor: '#ebf2f7', p: 2 }}>
         <Grid
           item
           xs={11}
           sm={4}
-          sx={{ alignSelf: "center", fontWeight: "bold", my: { xs: 2 } }}
+          sx={{ alignSelf: 'center', fontWeight: 'bold', my: { xs: 2 } }}
         >
           {question.Question}
         </Grid>
@@ -25,10 +25,10 @@ export default function CallerQuestionAnswersNew({
             value={
               selectedAnswers.has(questionId)
                 ? selectedAnswers.get(questionId)
-                : ""
+                : ''
             }
             onChange={(e) => updateSelectedAnswers(e.target.value)}
-            style={{ fontWeight: "bold" }}
+            style={{ fontWeight: 'bold' }}
             fullWidth
             required
           >
@@ -40,10 +40,10 @@ export default function CallerQuestionAnswersNew({
               ) : null
             )}
           </Select>
-          <FormHelperText sx={{ color: "green" }}>
+          <FormHelperText sx={{ color: 'green' }}>
             {selectedAnswers.has(questionId)
               ? selectedAnswers.get(questionId).TellCaller
-              : ""}
+              : ''}
           </FormHelperText>
         </Grid>
       </Grid>

@@ -12,8 +12,8 @@ export default function SubmitForm() {
           sm={6}
           sx={{ textAlign: { xs: 'center', sm: 'end' } }}
         >
-          <Link to='/' style={{ textDecoration: 'none' }}>
-            <Button variant='outlined' startIcon={<ArrowBackIcon />}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <Button variant="outlined" startIcon={<ArrowBackIcon />}>
               Go Back
             </Button>
           </Link>
@@ -24,7 +24,7 @@ export default function SubmitForm() {
           sm={6}
           sx={{ textAlign: { xs: 'center', sm: 'start' } }}
         >
-          <Button form='submitForm' type='submit' variant='contained'>
+          <Button form="submitForm" type="submit" variant="contained">
             Submit Service Request
           </Button>
         </Grid>

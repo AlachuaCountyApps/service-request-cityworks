@@ -126,7 +126,7 @@ export default function Map({
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <Button
-              variant='contained'
+              variant="contained"
               onClick={handleAddressSelectionModeChange}
               fullWidth
             >
@@ -148,8 +148,8 @@ export default function Map({
               {getAddressManually && (
                 <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
                   <input
-                    type='text'
-                    placeholder='Enter Issue Address'
+                    type="text"
+                    placeholder="Enter Issue Address"
                     style={{
                       boxSizing: `border-box`,
                       border: `1px solid transparent`,
@@ -176,7 +176,7 @@ export default function Map({
             <>
               <Grid item xs={12}>
                 <TextField
-                  label='Address'
+                  label="Address"
                   value={addressLocationonMap}
                   disabled
                   fullWidth
@@ -184,7 +184,7 @@ export default function Map({
               </Grid>
               <Grid item xs={12}>
                 <Button
-                  variant='contained'
+                  variant="contained"
                   onClick={() => {
                     handleOnClose();
                     handleClose();
@@ -198,7 +198,7 @@ export default function Map({
           ) : (
             <Grid item xs={12}>
               <Button
-                variant='contained'
+                variant="contained"
                 onClick={() => {
                   handleClose();
                 }}

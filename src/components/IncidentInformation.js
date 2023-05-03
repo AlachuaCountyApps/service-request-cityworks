@@ -9,27 +9,27 @@ import {
   Select,
   TextField,
   Typography,
-  CircularProgress
-} from "@mui/material";
-import React, { useEffect } from "react";
+  CircularProgress,
+} from '@mui/material';
+import React, { useEffect } from 'react';
 
-import IssueQuestionAnswers from "./IssueQuestionAnswers";
+import IssueQuestionAnswers from './IssueQuestionAnswers';
 
-import buildings from "../data/buildings.json";
-import departments from "../data/departments.json";
-import CallerQuestionAnswers from "./CallerQuestionAnswers";
+import buildings from '../data/buildings.json';
+import departments from '../data/departments.json';
+import CallerQuestionAnswers from './CallerQuestionAnswers';
 import UserLocation from './UserLocation';
 
 import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
-} from "react-google-places-autocomplete";
-import { useNavigate } from "react-router-dom";
-import { ShowChart } from "@mui/icons-material";
+} from 'react-google-places-autocomplete';
+import { useNavigate } from 'react-router-dom';
+import { ShowChart } from '@mui/icons-material';
 
 function closestLocation(targetLocation, locationData) {
-  console.log('targetLocation', targetLocation)
-  console.log('locationData', locationData)
-  
+  console.log('targetLocation', targetLocation);
+  console.log('locationData', locationData);
+
   function vectorDistance(dx, dy) {
     return Math.sqrt(dx * dx + dy * dy);
   }
@@ -43,7 +43,7 @@ function closestLocation(targetLocation, locationData) {
 
   return locationData.reduce(function (prev, curr) {
     var prevDistance = locationDistance(targetLocation, prev),
-        currDistance = locationDistance(targetLocation, curr);
+      currDistance = locationDistance(targetLocation, curr);
     return prevDistance < currDistance ? prev : curr;
   });
 }
@@ -78,7 +78,7 @@ export default function IncidentInformationNew({
   isLoading,
   showAddressAlert,
   setShowAddressAlert,
-  setAddress
+  setAddress,
 }) {
   let navigate = useNavigate();
 
@@ -145,7 +145,7 @@ export default function IncidentInformationNew({
       updateAddresswhenEnterManually();
       setShowAddressAlert(false);
     }
-    
+
     if (selectaddressonMap) {
       setAddress({
         StreetName: null,
@@ -159,14 +159,14 @@ export default function IncidentInformationNew({
         lat: '',
         lng: '',
       });
-      setShowAddressAlert(true);      
+      setShowAddressAlert(true);
     }
   }, [selectaddressonMap]);
 
   const submitPage1 = (e) => {
     e.preventDefault();
-    if (address) navigate("/step2");
-    else alert("Issue Location Address/Building is required");
+    if (address) navigate('/step2');
+    else alert('Issue Location Address/Building is required');
   };
 
   return (
@@ -183,7 +183,7 @@ export default function IncidentInformationNew({
           }}
           display="flex"
         >
-          <Grid item xs={12} sx={{ textAlign: "center", mb: 2 }}>
+          <Grid item xs={12} sx={{ textAlign: 'center', mb: 2 }}>
             <Typography variant="h4">Incident Information</Typography>
           </Grid>
 
@@ -206,8 +206,8 @@ export default function IncidentInformationNew({
                 label="Is the issue related to a county building?"
                 onChange={handleIsCountyBuildingIssueChange}
               >
-                <MenuItem value={"Yes"}>Yes</MenuItem>
-                <MenuItem value={"No"}>No</MenuItem>
+                <MenuItem value={'Yes'}>Yes</MenuItem>
+                <MenuItem value={'No'}>No</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -228,12 +228,12 @@ export default function IncidentInformationNew({
                   mapped to Domain 1 - Public Works, otherwise the issue
                   will be mapped to Domain 3 - Facilities
                 */}
-              {isCountyBuildingIssue === "Yes" && (
+              {isCountyBuildingIssue === 'Yes' && (
                 <Grid item xs={12} mb={3}>
                   <IssueQuestionAnswers
-                    id={"building"}
+                    id={'building'}
                     index={0}
-                    question={"Building:"}
+                    question={'Building:'}
                     value={building}
                     updateSelection={(newValue) =>
                       handleBuildingChange(newValue)
@@ -257,14 +257,16 @@ export default function IncidentInformationNew({
                 */}
               {isLoading && (
                 <Grid item xs={12} mb={3}>
-                  <Grid container sx={{ bgcolor: "#aec4e5", p: 2 }}>
-                    <p><CircularProgress /> Loading Issues....</p>
+                  <Grid container sx={{ bgcolor: '#aec4e5', p: 2 }}>
+                    <p>
+                      <CircularProgress /> Loading Issues....
+                    </p>
                   </Grid>
                 </Grid>
               )}
               {issues && issues.length > 0 && (
                 <Grid item xs={12} mb={3}>
-                  <Grid container sx={{ bgcolor: "#aec4e5", p: 2 }}>
+                  <Grid container sx={{ bgcolor: '#aec4e5', p: 2 }}>
                     <FormControl fullWidth>
                       <InputLabel id="issue-label">
                         Please Select an Issue to Report
@@ -294,17 +296,17 @@ export default function IncidentInformationNew({
                   Public Works.  For these issues, the user must also specify the
                   address where the issue occurred.
                 */}
-              {isCountyBuildingIssue === "No" && (
-                <Grid item xs={12} sx={{ bgcolor: "#aec4e5", p: 2 }}>
+              {isCountyBuildingIssue === 'No' && (
+                <Grid item xs={12} sx={{ bgcolor: '#aec4e5', p: 2 }}>
                   <Grid container>
                     <Grid
                       item
                       xs={12}
                       sm={4}
                       sx={{
-                        alignSelf: "center",
+                        alignSelf: 'center',
 
-                        fontWeight: "bold",
+                        fontWeight: 'bold',
                         my: { xs: 2 },
                       }}
                     >
@@ -314,7 +316,7 @@ export default function IncidentInformationNew({
                       item
                       xs={12}
                       sm={8}
-                      sx={{ display: "flex", alignItems: "center" }}
+                      sx={{ display: 'flex', alignItems: 'center' }}
                     >
                       <Grid container spacing={1}>
                         <Grid item xs={12} sm={8}>
@@ -329,10 +331,11 @@ export default function IncidentInformationNew({
                           */}
                           {selectaddressonMap && (
                             <>
-                            <TextField value={address.street} fullWidth />
-                            <FormHelperText sx={{ color: "red" }}>
-                              {showAddressAlert && "Please verify that address is accurate."}
-                            </FormHelperText>
+                              <TextField value={address.street} fullWidth />
+                              <FormHelperText sx={{ color: 'red' }}>
+                                {showAddressAlert &&
+                                  'Please verify that address is accurate.'}
+                              </FormHelperText>
                             </>
                           )}
 
@@ -341,7 +344,7 @@ export default function IncidentInformationNew({
                           */}
                           <span
                             style={{
-                              display: selectaddressonMap ? "none" : "block",
+                              display: selectaddressonMap ? 'none' : 'block',
                             }}
                           >
                             {/*
@@ -358,8 +361,8 @@ export default function IncidentInformationNew({
                                 onChange: setAutocompleteData,
                               }}
                             />
-                            <FormHelperText sx={{ color: "red" }}>
-                              {!autocompleteData && "Required"}
+                            <FormHelperText sx={{ color: 'red' }}>
+                              {!autocompleteData && 'Required'}
                             </FormHelperText>
                           </span>
                         </Grid>
@@ -367,7 +370,7 @@ export default function IncidentInformationNew({
                           item
                           xs={12}
                           sm={4}
-                          sx={{ alignSelf: "center", textAlign: "center" }}
+                          sx={{ alignSelf: 'center', textAlign: 'center' }}
                         >
                           {/*
                           When the user clicks the green button labeled 'SET ISSUE LOCATION 
@@ -408,10 +411,11 @@ export default function IncidentInformationNew({
                 </Grid>
               )}
 
-              {userLocation && <UserLocation getUserLocation={getUserLocation} />}
+              {userLocation && (
+                <UserLocation getUserLocation={getUserLocation} />
+              )}
 
               <Grid item container sx={{ my: 5 }}>
-                
                 {/*
                     Additional Location Information.
                     Displayed if the issue occurred in a building, and the issue as well as
@@ -419,17 +423,17 @@ export default function IncidentInformationNew({
                     Or the issue did not occur in a building but address has been specified and a
                     latitude was able to retrieved via Google GeoCode.
                   */}
-                {(issue && isCountyBuildingIssue === "Yes" && building) ||
+                {(issue && isCountyBuildingIssue === 'Yes' && building) ||
                 (issue &&
-                  isCountyBuildingIssue === "No" &&
+                  isCountyBuildingIssue === 'No' &&
                   address &&
                   address.lat) ? (
                   <>
                     <Grid item xs={12}>
                       <IssueQuestionAnswers
                         index={2}
-                        id={"location-info"}
-                        question={"Additional Location Information:"}
+                        id={'location-info'}
+                        question={'Additional Location Information:'}
                         value={additionalLocationInfo}
                         updateSelection={(newValue) =>
                           setAdditionalLocationInfo(newValue)
@@ -453,19 +457,19 @@ export default function IncidentInformationNew({
                     */}
                     <Grid item xs={12}>
                       <IssueQuestionAnswers
-                        id={"issue-description"}
-                        question={"Description of the Issue:"}
+                        id={'issue-description'}
+                        question={'Description of the Issue:'}
                         value={issueDescription}
                         updateSelection={(newValue) =>
                           setIssueDescription(newValue)
                         }
                         placeholder={
-                          "(Be as detailed and specific as possible)"
+                          '(Be as detailed and specific as possible)'
                         }
                       />
                     </Grid>
 
-                    <Grid item xs={12} sx={{ my: 5, textAlign: "center" }}>
+                    <Grid item xs={12} sx={{ my: 5, textAlign: 'center' }}>
                       <Button type="submit" variant="contained">
                         Next
                       </Button>
@@ -476,7 +480,7 @@ export default function IncidentInformationNew({
             </>
           )}
 
-          {isCountyBuildingIssue === "Yes" && (
+          {isCountyBuildingIssue === 'Yes' && (
             <>
               {building && (
                 <>{issue && <Grid item container sx={{ my: 5 }}></Grid>}</>

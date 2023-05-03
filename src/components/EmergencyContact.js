@@ -7,7 +7,7 @@ export default function EmergencyContact() {
       style={{ textAlign: 'center', border: '1px solid black', padding: 10 }}
     >
       <Grid item xs={12}>
-        <Typography variant='body1' gutterBottom>
+        <Typography variant="body1" gutterBottom>
           <b>Emergency Contact - </b> Medical Emergency call 911.
           <br />
           Please call Facilities Department immediately if there is a
@@ -17,7 +17,7 @@ export default function EmergencyContact() {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant='body1' gutterBottom>
+        <Typography variant="body1" gutterBottom>
           Contact Facilities at <b>352-548-3759 or 213-4840 after hours</b>{' '}
           <br /> OR Facilities Manager 352-262-7123
         </Typography>

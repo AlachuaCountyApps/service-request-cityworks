@@ -7,9 +7,9 @@ export default function Problem({
 }) {
   return (
     <StyledDropdown
-      id='program-area'
-      title='Select Problem Area'
-      label='program-area-label'
+      id="program-area"
+      title="Select Problem Area"
+      label="program-area-label"
       value={problemArea}
       onChange={handleProblemAreaChange}
       data={problemAreas}

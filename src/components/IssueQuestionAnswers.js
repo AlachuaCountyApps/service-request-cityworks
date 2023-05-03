@@ -1,6 +1,6 @@
-import MyLocation from "@mui/icons-material/MyLocation";
-import { Autocomplete, Grid, IconButton, TextField } from "@mui/material";
-import React from "react";
+import MyLocation from '@mui/icons-material/MyLocation';
+import { Autocomplete, Grid, IconButton, TextField } from '@mui/material';
+import React from 'react';
 
 export default function IssueQuestionAnswers({
   id,
@@ -18,13 +18,13 @@ export default function IssueQuestionAnswers({
     <Grid
       container
       key={index}
-      sx={{ bgcolor: index % 2 ? "#aec4e5" : "#ebf2f7", p: 2 }}
+      sx={{ bgcolor: index % 2 ? '#aec4e5' : '#ebf2f7', p: 2 }}
     >
       <Grid
         item
         xs={11}
         sm={4}
-        sx={{ alignSelf: "center", fontWeight: "bold", my: { xs: 2 } }}
+        sx={{ alignSelf: 'center', fontWeight: 'bold', my: { xs: 2 } }}
       >
         {question}
       </Grid>
@@ -33,7 +33,7 @@ export default function IssueQuestionAnswers({
           item
           xs={12}
           sm={8}
-          sx={{ display: "flex", alignItems: "flex-end" }}
+          sx={{ display: 'flex', alignItems: 'flex-end' }}
         >
           <Autocomplete
             id={id}
@@ -51,7 +51,7 @@ export default function IssueQuestionAnswers({
               color="primary"
               aria-label="get-my-location"
               component="span"
-              sx={{ m: "auto" }}
+              sx={{ m: 'auto' }}
               onClick={getLocation}
             >
               <MyLocation />

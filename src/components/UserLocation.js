@@ -27,8 +27,8 @@ export default function UserLocation({ getUserLocation }) {
     <div>
       {showLink && (
         <Link
-          href='https://support.google.com/chrome/answer/142065?hl=en'
-          target='_blank'
+          href="https://support.google.com/chrome/answer/142065?hl=en"
+          target="_blank"
         >
           How to allow a website to access your location
         </Link>

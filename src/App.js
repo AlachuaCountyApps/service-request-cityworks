@@ -1,46 +1,46 @@
-import { Grid } from "@mui/material";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Geocode from "react-geocode";
+import { Grid } from '@mui/material';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Geocode from 'react-geocode';
 
-import Step1 from "./pages/Step1";
-import Step2 from "./pages/Step2";
+import Step1 from './pages/Step1';
+import Step2 from './pages/Step2';
 
-import Success from "./pages/Success";
-import GoogleMap from "./components/Map";
+import Success from './pages/Success';
+import GoogleMap from './components/Map';
 
-import "./App.css";
+import './App.css';
 
 const googleKey = `AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`;
 
 Geocode.setApiKey(googleKey);
-Geocode.setLocationType("ROOFTOP");
+Geocode.setLocationType('ROOFTOP');
 
 function App() {
-  const [isCountyBuildingIssue, setIsCountyBuildingIssue] = useState("");
-  const [domain, setDomain] = useState("");
-  const [building, setBuilding] = useState("");
+  const [isCountyBuildingIssue, setIsCountyBuildingIssue] = useState('');
+  const [domain, setDomain] = useState('');
+  const [building, setBuilding] = useState('');
   const [issues, setIssues] = useState([]);
-  const [issue, setIssue] = useState("");
-  const [issueID, setIssueID] = useState("");
-  const [additionalLocationInfo, setAdditionalLocationInfo] = useState("");
-  const [department, setDepartment] = useState("");
+  const [issue, setIssue] = useState('');
+  const [issueID, setIssueID] = useState('');
+  const [additionalLocationInfo, setAdditionalLocationInfo] = useState('');
+  const [department, setDepartment] = useState('');
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState(new Map());
-  const [issueDescription, setIssueDescription] = useState("");
+  const [issueDescription, setIssueDescription] = useState('');
   const [address, setAddress] = useState({
     StreetName: null,
-    street: "",
-    streetNumber: "",
-    city: "",
-    state: "",
-    zip: "",
-    county: "",
-    shortAddress: "",
-    lat: "",
-    lng: "",
+    street: '',
+    streetNumber: '',
+    city: '',
+    state: '',
+    zip: '',
+    county: '',
+    shortAddress: '',
+    lat: '',
+    lng: '',
   });
   const [open, setOpen] = useState(false);
   const [userLocation, setUserLocation] = useState(false);
@@ -58,14 +58,14 @@ function App() {
 
   const refreshFormFields = () => {
     // Clear all other selections
-    setIssue("");
-    setIssueID("");
-    setDepartment("");
+    setIssue('');
+    setIssueID('');
+    setDepartment('');
     setSelectedAnswers(new Map());
     setAnswers([]);
     setQuestions([]);
-    setIssueDescription("");
-    setIsCountyBuildingIssue("");
+    setIssueDescription('');
+    setIsCountyBuildingIssue('');
   };
 
   const GetIssuesPubicWorks = async () => {
@@ -86,16 +86,16 @@ function App() {
   */
   const handleIsCountyBuildingIssueChange = async (e) => {
     setIsCountyBuildingIssue(e.target.value);
-    setIssue("");
-    setIssueID("");
+    setIssue('');
+    setIssueID('');
     setIssues([]);
 
-    if (e.target.value === "No") {
-      setDomain("Default");
+    if (e.target.value === 'No') {
+      setDomain('Default');
 
       setIsLoading(true);
       let result = await GetIssuesPubicWorks();
-      console.log("data", result.data);
+      console.log('data', result.data);
       setIssues(result.data);
       setIsLoading(false);
     }
@@ -120,17 +120,17 @@ function App() {
   const handleBuildingChange = async (val) => {
     setIssues([]);
     setBuilding(val);
-    setDomain("ACFD");
+    setDomain('ACFD');
 
     if (val) {
       setIsLoading(true);
       let result = await GetIssuesForBuilding();
-      console.log("data", result.data);
+      console.log('data', result.data);
       setIssues(result.data);
       setIsLoading(false);
     } else {
       refreshFormFields();
-      setDomain("");
+      setDomain('');
     }
   };
 
@@ -155,12 +155,12 @@ function App() {
         for (let i = 0; i < data.address_components.length; i++) {
           for (let j = 0; j < data.address_components[i].types.length; j++) {
             switch (data.address_components[i].types[j]) {
-              case "route":
+              case 'route':
                 addressObj.shortAddress = data.address_components[i].short_name;
                 addressObj.StreetName = getStreetName(
                   data.address_components[i].short_name.substring(
                     0,
-                    data.address_components[i].short_name.indexOf(" ")
+                    data.address_components[i].short_name.indexOf(' ')
                   )
                 );
                 break;
@@ -228,7 +228,7 @@ function App() {
 
   const handleOpen = () => setOpen(true);
   const handleClose = (e, reason) => {
-    if (reason !== "backdropClick") setOpen(false);
+    if (reason !== 'backdropClick') setOpen(false);
   };
 
   let navigate = useNavigate();
@@ -236,26 +236,26 @@ function App() {
   const getStreetName = (street) => {
     if (street)
       if (
-        street.toUpperCase() === "SW" ||
-        street.toUpperCase() === "SOUTH WEST"
+        street.toUpperCase() === 'SW' ||
+        street.toUpperCase() === 'SOUTH WEST'
       )
-        return "South West";
-    if (street.toUpperCase() === "SE" || street.toUpperCase() === "SOUTH EAST")
-      return "South East";
-    if (street.toUpperCase() === "NW" || street.toUpperCase() === "NORTH WEST")
-      return "North West";
-    if (street.toUpperCase() === "NE" || street.toUpperCase() === "NORTH EAST")
-      return "North East";
+        return 'South West';
+    if (street.toUpperCase() === 'SE' || street.toUpperCase() === 'SOUTH EAST')
+      return 'South East';
+    if (street.toUpperCase() === 'NW' || street.toUpperCase() === 'NORTH WEST')
+      return 'North West';
+    if (street.toUpperCase() === 'NE' || street.toUpperCase() === 'NORTH EAST')
+      return 'North East';
     if (
-      street.toUpperCase() === "NC" ||
-      street.toUpperCase() === "NORTH CENTRAL"
+      street.toUpperCase() === 'NC' ||
+      street.toUpperCase() === 'NORTH CENTRAL'
     )
-      return "North Central";
+      return 'North Central';
     if (
-      street.toUpperCase() === "SC" ||
-      street.toUpperCase() === "SOUTH CENTRAL"
+      street.toUpperCase() === 'SC' ||
+      street.toUpperCase() === 'SOUTH CENTRAL'
     )
-      return "South Central";
+      return 'South Central';
     return null;
   };
 
@@ -268,25 +268,25 @@ function App() {
     for (let i = 0; i < data.address_components.length; i++) {
       for (let j = 0; j < data.address_components[i].types.length; j++) {
         switch (data.address_components[i].types[j]) {
-          case "locality":
+          case 'locality':
             addressObj.city = data.address_components[i].long_name;
             break;
-          case "administrative_area_level_2":
+          case 'administrative_area_level_2':
             addressObj.county = data.address_components[i].long_name;
             break;
-          case "postal_code":
+          case 'postal_code':
             addressObj.zip = data.address_components[i].long_name;
             break;
-          case "route":
+          case 'route':
             addressObj.shortAddress = data.address_components[i].short_name;
             addressObj.StreetName = getStreetName(
               data.address_components[i].short_name.substring(
                 0,
-                data.address_components[i].short_name.indexOf(" ")
+                data.address_components[i].short_name.indexOf(' ')
               )
             );
             break;
-          case "street_number":
+          case 'street_number':
             addressObj.streetNumber = data.address_components[i].long_name;
             break;
           default:
@@ -310,19 +310,19 @@ function App() {
 
   const buildComments = (target) => {
     const homePhoneNumber = target.homePhoneNumber
-      ? target.homePhoneNumber.value.replace(/[^0-9]/gi, "")
+      ? target.homePhoneNumber.value.replace(/[^0-9]/gi, '')
       : null;
     const workPhoneNumber = target.workPhoneNumber
-      ? target.workPhoneNumber.value.replace(/[^0-9]/gi, "")
+      ? target.workPhoneNumber.value.replace(/[^0-9]/gi, '')
       : null;
     const cellPhoneNumber = target.phoneNumber
-      ? target.phoneNumber.value.replace(/[^0-9]/gi, "")
+      ? target.phoneNumber.value.replace(/[^0-9]/gi, '')
       : null;
     const otherWorkPhoneNumber = target.otherWorkPhoneNumber
-      ? target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, "")
+      ? target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, '')
       : null;
 
-    let comments = "";
+    let comments = '';
 
     if (homePhoneNumber) {
       comments += `\nHome Phone Number: ${homePhoneNumber}.`;
@@ -347,22 +347,22 @@ function App() {
     const data = {
       ProblemSid: issueID,
       //Details: issueDescription,
-      Comments: domain === "ACFD" ? buildComments(e.target) : issueDescription,
+      Comments: domain === 'ACFD' ? buildComments(e.target) : issueDescription,
       Address:
-        isCountyBuildingIssue === "Yes"
+        isCountyBuildingIssue === 'Yes'
           ? building.Address
           : address.streetNumber && address.shortAddress
-          ? address.streetNumber + " " + address.shortAddress
+          ? address.streetNumber + ' ' + address.shortAddress
           : null,
       City:
-        isCountyBuildingIssue === "Yes"
+        isCountyBuildingIssue === 'Yes'
           ? building.City
           : address.city
           ? address.city
           : null,
-      State: "Florida",
+      State: 'Florida',
       Zip:
-        isCountyBuildingIssue === "Yes"
+        isCountyBuildingIssue === 'Yes'
           ? building.Zip
           : address.zip
           ? address.zip
@@ -370,9 +370,9 @@ function App() {
       Landmark: building.label,
       District: address.StreetName,
       Location: additionalLocationInfo,
-      X: isCountyBuildingIssue === "Yes" ? building.X : null,
-      Y: isCountyBuildingIssue === "Yes" ? building.Y : null,
-      CallerType: "Visitor",
+      X: isCountyBuildingIssue === 'Yes' ? building.X : null,
+      Y: isCountyBuildingIssue === 'Yes' ? building.Y : null,
+      CallerType: 'Visitor',
       CallerFirstName: e.target.firstName.value,
       CallerLastName: e.target.lastName.value,
       CallerAddress: e.target.address.value,
@@ -380,40 +380,40 @@ function App() {
       CallerState: e.target.state.value,
       CallerZip: e.target.zipcode.value,
       CallerHomePhone:
-        domain === "Default"
-          ? e.target.homePhoneNumber.value.replace(/[^0-9]/gi, "")
+        domain === 'Default'
+          ? e.target.homePhoneNumber.value.replace(/[^0-9]/gi, '')
           : null,
-      CallerWorkPhone: e.target.workPhoneNumber.value.replace(/[^0-9]/gi, ""),
-      CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ""),
+      CallerWorkPhone: e.target.workPhoneNumber.value.replace(/[^0-9]/gi, ''),
+      CallerCellPhone: e.target.phoneNumber.value.replace(/[^0-9]/gi, ''),
       CallerOtherPhone:
-        domain === "ACFD"
-          ? e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, "")
+        domain === 'ACFD'
+          ? e.target.otherWorkPhoneNumber.value.replace(/[^0-9]/gi, '')
           : null,
       CallerEmail: e.target.email.value,
       CallerComments:
-        domain === "ACFD"
+        domain === 'ACFD'
           ? `Other Contact: ${e.target.otherFirstName.value} ${e.target.otherLastName.value}, Email: ${e.target.otherEmail.value}`
           : null,
       Answers: formatSelectedAnswers(selectedAnswers),
       GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
     };
 
-    console.log("data", data);
+    console.log('data', data);
 
     axios
       // .post('http://192.168.46.90:7010/submitRequest', data)
       .post(
-        "https://api.alachuacounty.us/service-request-api/submitRequest",
+        'https://api.alachuacounty.us/service-request-api/submitRequest',
         data
       )
       .then((response) => {
         console.log(response);
-        navigate("/success", {
+        navigate('/success', {
           state: { status: true, requestID: response.data },
         });
       })
       .catch(() =>
-        console.log("There was a problem communicating with the  Cityworks API")
+        console.log('There was a problem communicating with the  Cityworks API')
       );
   };
 
@@ -430,7 +430,7 @@ function App() {
         <Grid item xs={12} sx={{ mx: { xs: 1 } }}>
           <Routes>
             <Route
-              path='/'
+              path="/"
               element={
                 <Step1
                   domain={domain}
@@ -470,7 +470,7 @@ function App() {
               }
             />
             <Route
-              path='/step2'
+              path="/step2"
               element={
                 <Step2
                   domain={domain}
@@ -481,7 +481,7 @@ function App() {
                 />
               }
             />
-            <Route path='/success' element={<Success />} />
+            <Route path="/success" element={<Success />} />
           </Routes>
         </Grid>
       </Grid>

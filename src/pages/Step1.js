@@ -1,8 +1,8 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography } from '@mui/material';
 
-import IncidentInformation from "../components/IncidentInformation";
+import IncidentInformation from '../components/IncidentInformation';
 
-import EmergencyContact from "../components/EmergencyContact";
+import EmergencyContact from '../components/EmergencyContact';
 
 export default function Step1({
   domain,
@@ -35,11 +35,11 @@ export default function Step1({
   isLoading,
   showAddressAlert,
   setShowAddressAlert,
-  setAddress
+  setAddress,
 }) {
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} style={{ textAlign: "center" }}>
+      <Grid item xs={12} style={{ textAlign: 'center' }}>
         <Typography variant="h3">New Service Request</Typography>
         <Typography variant="caption" display="block" color="red" gutterBottom>
           (See below for Emergency Contact Information)
@@ -78,9 +78,11 @@ export default function Step1({
           setShowAddressAlert={setShowAddressAlert}
           setAddress={setAddress}
         />
-        {domain === 'ACFD' && <Grid item xs={12}>
-          <EmergencyContact />
-        </Grid>}
+        {domain === 'ACFD' && (
+          <Grid item xs={12}>
+            <EmergencyContact />
+          </Grid>
+        )}
       </Grid>
     </Grid>
   );

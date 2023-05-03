@@ -1,5 +1,5 @@
-import { Paper, Grid, Typography, TextField } from "@mui/material";
-import ReactInputMask from "react-input-mask";
+import { Paper, Grid, Typography, TextField } from '@mui/material';
+import ReactInputMask from 'react-input-mask';
 
 export default function CallerInformation({
   callerInformation,
@@ -14,7 +14,7 @@ export default function CallerInformation({
             provide name and contact information:
           </Typography>
         </Grid>
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           First Name:
         </Grid>
         <Grid item xs={9} sm={4}>
@@ -22,18 +22,18 @@ export default function CallerInformation({
             id="otherFirstName"
             name="otherFirstName"
             value={
-              callerInformation && callerInformation.has("otherFirstName")
-                ? callerInformation.get("otherFirstName")
-                : ""
+              callerInformation && callerInformation.has('otherFirstName')
+                ? callerInformation.get('otherFirstName')
+                : ''
             }
             onChange={(e) =>
-              updateCallerInformation("otherFirstName", e.target.value)
+              updateCallerInformation('otherFirstName', e.target.value)
             }
             fullWidth
           />
         </Grid>
 
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Last Name:
         </Grid>
         <Grid item xs={9} sm={4}>
@@ -41,30 +41,30 @@ export default function CallerInformation({
             id="otherLastName"
             name="otherLastName"
             value={
-              callerInformation && callerInformation.has("otherLastName")
-                ? callerInformation.get("otherLastName")
-                : ""
+              callerInformation && callerInformation.has('otherLastName')
+                ? callerInformation.get('otherLastName')
+                : ''
             }
             onChange={(e) =>
-              updateCallerInformation("otherLastName", e.target.value)
+              updateCallerInformation('otherLastName', e.target.value)
             }
             fullWidth
           />
         </Grid>
 
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Phone Number:
         </Grid>
         <Grid item xs={9} sm={4}>
           <ReactInputMask
             mask="999 - 999 - 9999"
             value={
-              callerInformation && callerInformation.has("otherWorkPhoneNumber")
-                ? callerInformation.get("otherWorkPhoneNumber")
-                : ""
+              callerInformation && callerInformation.has('otherWorkPhoneNumber')
+                ? callerInformation.get('otherWorkPhoneNumber')
+                : ''
             }
             onChange={(e) =>
-              updateCallerInformation("otherWorkPhoneNumber", e.target.value)
+              updateCallerInformation('otherWorkPhoneNumber', e.target.value)
             }
           >
             {() => (
@@ -77,7 +77,7 @@ export default function CallerInformation({
           </ReactInputMask>
         </Grid>
 
-        <Grid item xs={3} sm={2} sx={{ textAlign: "end", alignSelf: "center" }}>
+        <Grid item xs={3} sm={2} sx={{ textAlign: 'end', alignSelf: 'center' }}>
           Email:
         </Grid>
         <Grid item xs={9} sm={4}>
@@ -85,14 +85,14 @@ export default function CallerInformation({
             id="otherEmail"
             name="otherEmail"
             value={
-              callerInformation && callerInformation.has("otherEmail")
-                ? callerInformation.get("otherEmail")
-                : ""
+              callerInformation && callerInformation.has('otherEmail')
+                ? callerInformation.get('otherEmail')
+                : ''
             }
             onChange={(e) =>
-              updateCallerInformation("otherEmail", e.target.value)
+              updateCallerInformation('otherEmail', e.target.value)
             }
-            type={"email"}
+            type={'email'}
             fullWidth
           />
         </Grid>

@@ -337,17 +337,19 @@ function App() {
       comments += `\nOther Work Phone Number: ${otherWorkPhoneNumber}.`;
     }
 
-    console.log(`${issueDescription}${comments}`);
-    return `${issueDescription}${comments}`;
+    let id = issueDescription.replace(/[^a-zA-Z0-9 -]|(\n)|(\r)/g, '');
+    return `${id}${comments}`;
   };
 
   const submitRequest = (e) => {
     e.preventDefault();
 
-    const data = {
+    let id = issueDescription.replace(/[^a-zA-Z0-9 -]|(\n)|(\r)/g, '');
+    let ali = additionalLocationInfo.replace(/[^a-zA-Z0-9 -]|(\n)|(\r)/g, '');
+
+    let data = {
       ProblemSid: issueID,
-      //Details: issueDescription,
-      Comments: domain === 'ACFD' ? buildComments(e.target) : issueDescription,
+      Comments: domain === 'ACFD' ? buildComments(e.target) : id,
       Address:
         isCountyBuildingIssue === 'Yes'
           ? building.Address
@@ -369,7 +371,7 @@ function App() {
           : null,
       Landmark: building.label,
       District: address.StreetName,
-      Location: additionalLocationInfo,
+      Location: ali,
       X: isCountyBuildingIssue === 'Yes' ? building.X : null,
       Y: isCountyBuildingIssue === 'Yes' ? building.Y : null,
       CallerType: 'Visitor',
@@ -398,7 +400,7 @@ function App() {
       GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
     };
 
-    console.log('data', data);
+    console.log('DATA', data);
 
     axios
       // .post('http://192.168.46.90:7010/submitRequest', data)

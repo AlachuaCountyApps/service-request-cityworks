@@ -11,11 +11,7 @@ import reportWebVitals from './reportWebVitals';
 
 window.renderServiceRequestCityworks = (containerId, history) => {
   ReactDOM.render(
-    <BrowserRouter
-      navigator={history}
-      location={history.location}
-      basename="/service-request-cityworks/"
-    >
+    <BrowserRouter basename="/service-request-cityworks/">
       <App />
     </BrowserRouter>,
     document.getElementById(containerId)
@@ -30,11 +26,7 @@ const defaultHistory = createBrowserHistory();
 
 if (!document.getElementById('ServiceRequestCityworks-container')) {
   ReactDOM.render(
-    <BrowserRouter
-      navigator={defaultHistory}
-      location={defaultHistory.location}
-      basename="/service-request-cityworks/"
-    >
+    <BrowserRouter basename="/service-request-cityworks/">
       <App />
     </BrowserRouter>,
     document.getElementById('root')

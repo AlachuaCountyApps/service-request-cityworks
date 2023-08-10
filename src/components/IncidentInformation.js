@@ -355,8 +355,6 @@ export default function IncidentInformationNew({
                             <GooglePlacesAutocomplete
                               apiKey={`AIzaSyBRbdKmyFU_X9r-UVmsapYMcKDJQJmQpAg`}
                               selectProps={{
-                                defaultInputValue:
-                                  autocompleteData && autocompleteData.label,
                                 autocompleteData,
                                 onChange: setAutocompleteData,
                               }}
@@ -382,7 +380,8 @@ export default function IncidentInformationNew({
                           When the user clicks the green button labeled 'SET ISSUE LOCATION 
                           MANUALLY', selectaddressonMap is set to false.
                           */}
-                          {!selectaddressonMap ? (
+
+                          {/* {!selectaddressonMap ? (
                             <Button
                               variant="contained"
                               color="success"
@@ -403,7 +402,7 @@ export default function IncidentInformationNew({
                             >
                               Set Issue Location Manually
                             </Button>
-                          )}
+                          )} */}
                         </Grid>
                       </Grid>
                     </Grid>

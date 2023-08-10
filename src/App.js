@@ -421,13 +421,13 @@ function App() {
 
   return (
     <>
-      <GoogleMap
+      {/* <GoogleMap
         open={open}
         handleClose={handleClose}
         address={address}
         updateSelectedAddress={updateSelectedAddress}
         Geocode={Geocode}
-      />
+      /> */}
       <Grid container spacing={3} sx={{ py: 6 }}>
         <Grid item xs={12} sx={{ mx: { xs: 1 } }}>
           <Routes>

@@ -17,7 +17,6 @@ export default function Step1({
   setAdditionalLocationInfo,
   issueDescription,
   setIssueDescription,
-  handleOpen,
   address,
   updateSelectedAddress,
   isCountyBuildingIssue,
@@ -58,7 +57,6 @@ export default function Step1({
           setAdditionalLocationInfo={setAdditionalLocationInfo}
           issueDescription={issueDescription}
           setIssueDescription={setIssueDescription}
-          handleOpen={handleOpen}
           address={address}
           updateSelectedAddress={updateSelectedAddress}
           isCountyBuildingIssue={isCountyBuildingIssue}

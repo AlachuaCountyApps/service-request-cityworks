@@ -16,7 +16,6 @@ import React, { useEffect } from 'react';
 import IssueQuestionAnswers from './IssueQuestionAnswers';
 
 import buildings from '../data/buildings.json';
-import departments from '../data/departments.json';
 import CallerQuestionAnswers from './CallerQuestionAnswers';
 import UserLocation from './UserLocation';
 
@@ -24,7 +23,6 @@ import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
 } from 'react-google-places-autocomplete';
 import { useNavigate } from 'react-router-dom';
-import { ShowChart } from '@mui/icons-material';
 
 function closestLocation(targetLocation, locationData) {
   console.log('targetLocation', targetLocation);
@@ -60,7 +58,6 @@ export default function IncidentInformationNew({
   setAdditionalLocationInfo,
   issueDescription,
   setIssueDescription,
-  handleOpen,
   address,
   updateSelectedAddress,
   isCountyBuildingIssue,
@@ -363,46 +360,6 @@ export default function IncidentInformationNew({
                               {!autocompleteData && 'Required'}
                             </FormHelperText>
                           </span>
-                        </Grid>
-                        <Grid
-                          item
-                          xs={12}
-                          sm={4}
-                          sx={{ alignSelf: 'center', textAlign: 'center' }}
-                        >
-                          {/*
-                          When the user clicks the green button labeled 'SET ISSUE LOCATION 
-                          ON MAP', selectaddressonMap is set to true and handleOpen()
-                          is called.  handleOpen() is defined in App.js.  App.js defines
-                          an 'open' prop which is set to true.  When 'open' is true, a
-                          modal containing a custom map component is displayed.
-
-                          When the user clicks the green button labeled 'SET ISSUE LOCATION 
-                          MANUALLY', selectaddressonMap is set to false.
-                          */}
-
-                          {/* {!selectaddressonMap ? (
-                            <Button
-                              variant="contained"
-                              color="success"
-                              onClick={() => {
-                                setSelectAddressonMap(true);
-                                handleOpen();
-                              }}
-                            >
-                              Set Issue Location on Map
-                            </Button>
-                          ) : (
-                            <Button
-                              variant="contained"
-                              color="success"
-                              onClick={() => {
-                                setSelectAddressonMap(false);
-                              }}
-                            >
-                              Set Issue Location Manually
-                            </Button>
-                          )} */}
                         </Grid>
                       </Grid>
                     </Grid>

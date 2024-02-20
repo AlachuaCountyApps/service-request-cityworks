@@ -8,7 +8,6 @@ import Step1 from './pages/Step1';
 import Step2 from './pages/Step2';
 
 import Success from './pages/Success';
-import GoogleMap from './components/Map';
 
 import './App.css';
 
@@ -42,7 +41,6 @@ function App() {
     lat: '',
     lng: '',
   });
-  const [open, setOpen] = useState(false);
   const [userLocation, setUserLocation] = useState(false);
   const [selectaddressonMap, setSelectAddressonMap] = useState(false);
   const [autocompleteData, setAutocompleteData] = useState(null);
@@ -70,7 +68,6 @@ function App() {
 
   const GetIssuesPubicWorks = async () => {
     const result = await axios.post(
-      //`http://192.168.46.90:7010/cityWorksAPI/GetIssuesPublicWorks`
       `https://api.alachuacounty.us/service-request-api/cityWorksAPI/GetIssuesPublicWorks`
     );
 
@@ -107,7 +104,6 @@ function App() {
   */
   const GetIssuesForBuilding = async () => {
     const result = await axios.post(
-      // `http://192.168.46.90:7010/cityWorksAPI/GetIssuesForBuilding`
       `https://api.alachuacounty.us/service-request-api/cityWorksAPI/GetIssuesForBuilding`
     );
 
@@ -140,44 +136,45 @@ function App() {
     from its latitude and longitude
   */
   useEffect(() => {
-    if (building) updateAddress();
-  }, [building]);
+    const updateAddress = () => {
+      Geocode.fromAddress(
+        `${building.Address}, ${building.City}, ${building.State}`
+      )
+        .then((response) => {
+          const data = response.results[0];
 
-  const updateAddress = () => {
-    Geocode.fromAddress(
-      `${building.Address}, ${building.City}, ${building.State}`
-    )
-      .then((response) => {
-        const data = response.results[0];
+          const addressObj = {};
 
-        const addressObj = {};
-
-        for (let i = 0; i < data.address_components.length; i++) {
-          for (let j = 0; j < data.address_components[i].types.length; j++) {
-            switch (data.address_components[i].types[j]) {
-              case 'route':
-                addressObj.shortAddress = data.address_components[i].short_name;
-                addressObj.StreetName = getStreetName(
-                  data.address_components[i].short_name.substring(
-                    0,
-                    data.address_components[i].short_name.indexOf(' ')
-                  )
-                );
-                break;
-              default:
-                break;
+          for (let i = 0; i < data.address_components.length; i++) {
+            for (let j = 0; j < data.address_components[i].types.length; j++) {
+              switch (data.address_components[i].types[j]) {
+                case 'route':
+                  addressObj.shortAddress =
+                    data.address_components[i].short_name;
+                  addressObj.StreetName = getStreetName(
+                    data.address_components[i].short_name.substring(
+                      0,
+                      data.address_components[i].short_name.indexOf(' ')
+                    )
+                  );
+                  break;
+                default:
+                  break;
+              }
             }
           }
-        }
-        setAddress(addressObj);
-      })
-      .catch((error) =>
-        console.log(
-          `${building.Address}, ${building.City}, ${building.State}`,
-          error
-        )
-      );
-  };
+          setAddress(addressObj);
+        })
+        .catch((error) =>
+          console.log(
+            `${building.Address}, ${building.City}, ${building.State}`,
+            error
+          )
+        );
+    };
+
+    if (building) updateAddress();
+  }, [building]);
 
   const handleDepartmentChange = (val) => {
     setDepartment(val);
@@ -196,23 +193,22 @@ function App() {
     Fires when there is a change to issueID state variable
   */
   useEffect(() => {
-    if (issueID) getQuestionAnswersforSelectedIssue();
-  }, [issueID]);
-
-  /*
+    /*
     Sets the Q&As for the selected issue
   */
-  const getQuestionAnswersforSelectedIssue = async () => {
-    const result = await axios.post(
-      // `http://192.168.46.90:7010/cityWorksAPI/GetQAsByProblemSid?Id=${issueID}`
-      `https://api.alachuacounty.us/service-request-api/cityWorksAPI/GetQAsByProblemSid?Id=${issueID}`
-    );
+    const getQuestionAnswersforSelectedIssue = async () => {
+      const result = await axios.post(
+        `https://api.alachuacounty.us/service-request-api/cityWorksAPI/GetQAsByProblemSid?Id=${issueID}`
+      );
 
-    const data = result.data.Value;
+      const data = result.data.Value;
 
-    setQuestions(data.Questions);
-    setAnswers(data.Answers);
-  };
+      setQuestions(data.Questions);
+      setAnswers(data.Answers);
+    };
+
+    if (issueID) getQuestionAnswersforSelectedIssue();
+  }, [issueID]);
 
   const updateSelectedAnswers = (val) => {
     const userSelectedAnswers = new Map(selectedAnswers);
@@ -224,11 +220,6 @@ function App() {
 
   const getLocation = () => {
     setUserLocation(!userLocation);
-  };
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = (e, reason) => {
-    if (reason !== 'backdropClick') setOpen(false);
   };
 
   let navigate = useNavigate();
@@ -299,7 +290,7 @@ function App() {
 
   const formatSelectedAnswers = (answers) => {
     const formattedAnswers = [];
-    for (const [key, value] of answers) {
+    for (const value of answers) {
       const tempAnswer = {};
       tempAnswer.AnswerId = value.AnswerId;
       tempAnswer.AnswerValue = value.Answer;
@@ -341,7 +332,7 @@ function App() {
     return `${id}${comments}`;
   };
 
-  const submitRequest = (e) => {
+  const submitRequest = async (e) => {
     e.preventDefault();
 
     let id = issueDescription.replace(/[^a-zA-Z0-9 -]|(\n)|(\r)/g, '');
@@ -350,6 +341,7 @@ function App() {
     let data = {
       ProblemSid: issueID,
       Comments: domain === 'ACFD' ? buildComments(e.target) : id,
+      Details: domain === 'ACFD' ? id : null,
       Address:
         isCountyBuildingIssue === 'Yes'
           ? building.Address
@@ -400,23 +392,47 @@ function App() {
       GeocodeAddress: true, // Use the first result from the geocode service with the HIGHEST SCORE to update Address, City, State, Zip, MapPage, TileNo, Shop, District and XY values. Ignored if a valid XY is provided.
     };
 
-    console.log('DATA', data);
-
-    axios
-      // .post('http://192.168.46.90:7010/submitRequest', data)
-      .post(
+    try {
+      const submitRequstResponse = await axios.post(
         'https://api.alachuacounty.us/service-request-api/submitRequest',
         data
-      )
-      .then((response) => {
-        console.log(response);
-        navigate('/success', {
-          state: { status: true, requestID: response.data },
-        });
-      })
-      .catch(() =>
-        console.log('There was a problem communicating with the  Cityworks API')
       );
+
+      const requestID = submitRequstResponse.data;
+
+      if (domain === 'ACFD') {
+        const customerData = {
+          RequestId: requestID,
+          ProbDetails: id,
+        };
+
+        await axios.post(
+          'https://api.alachuacounty.us/service-request-api/submitRequest',
+          customerData
+        );
+      }
+
+      navigate('/success', {
+        state: { status: true, requestID: submitRequstResponse.data },
+      });
+    } catch (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    }
   };
 
   return (
@@ -447,7 +463,6 @@ function App() {
                   setAdditionalLocationInfo={setAdditionalLocationInfo}
                   issueDescription={issueDescription}
                   setIssueDescription={setIssueDescription}
-                  handleOpen={handleOpen}
                   address={address}
                   updateSelectedAddress={updateSelectedAddress}
                   isCountyBuildingIssue={isCountyBuildingIssue}

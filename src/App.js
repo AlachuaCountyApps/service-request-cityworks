@@ -407,7 +407,7 @@ function App() {
         };
 
         await axios.post(
-          'https://api.alachuacounty.us/service-request-api/submitRequest',
+          'https://api.alachuacounty.us/service-request-api/submitRequest/customerCall',
           customerData
         );
       }

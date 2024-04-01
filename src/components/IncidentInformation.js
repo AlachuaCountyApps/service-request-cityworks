@@ -207,6 +207,10 @@ export default function IncidentInformationNew({
                 <MenuItem value={'No'}>No</MenuItem>
               </Select>
             </FormControl>
+            <Typography variant="caption" display="block" gutterBottom>
+              Selecting "Yes" will direct the request to Facilities Management.
+              Selecting "No" will route the request to Public Works.
+            </Typography>
           </Grid>
 
           {/*

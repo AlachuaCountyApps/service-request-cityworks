@@ -714,7 +714,7 @@
   },
   {
     "BuildingId": "ACFR-SW24",
-    "label": "Relocation of 80",
+    "label": "Station 80",
     "Address": "10404 SW 24th Ave",
     "City": "Gainesville",
     "State": "FL",
@@ -935,7 +935,7 @@
   },
   {
     "BuildingId": "ACFR-80",
-    "label": "Station 80",
+    "label": "Station 36",
     "Address": "2000 SW 43rd St",
     "City": "Gainesville",
     "State": "FL",

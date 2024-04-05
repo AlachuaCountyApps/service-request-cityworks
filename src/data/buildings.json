@@ -726,19 +726,6 @@
     "Y": "235404.0199"
   },
   {
-    "BuildingId": "GEN19_EPD",
-    "label": "Seagle Bldg EPD",
-    "Address": "410 W University Ave",
-    "City": "Gainesville",
-    "State": "FL",
-    "Zip": "32601",
-    "Dept": "GenFac",
-    "lng": "-82.32916659",
-    "lat": "29.6520767",
-    "X": "2658023.932",
-    "Y": "243707.3957"
-  },
-  {
     "BuildingId": "ASO-FLEET",
     "label": "Sheriff Fleet",
     "Address": "1000 SE 27th St",
@@ -1049,5 +1036,44 @@
     "lat": "29.60117755",
     "X": "2714585.931",
     "Y": "226312.0952"
+  },
+  {
+    "BuildingId": "SOF-MEO",
+    "label": "Alachua County Medical Examiner",
+    "Address": "3217 SW 47th Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "32608",
+    "Dept": "GenFac",
+    "lng": "-82.36962001",
+    "lat": "29.60906001",
+    "X": "2645468.471",
+    "Y": "227824.084"
+  },
+  {
+    "BuildingId": "ARMORY",
+    "label": "Armory - EOC",
+    "Address": "1125 NE 8th Ave",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "32601",
+    "Dept": "CritFac",
+    "lng": "-82.31087001",
+    "lat": "29.65895001",
+    "X": "2663786.796",
+    "Y": "246317.631"
+  },
+  {
+    "BuildingId": "GEN30_CTA",
+    "label": "Children's Trust",
+    "Address": "4010 NW 25th Pl",
+    "City": "Gainesville",
+    "State": "FL",
+    "Zip": "32606",
+    "Dept": "GenFac",
+    "lng": "-82.38698001",
+    "lat": "29.67703001",
+    "X": "2639494.562",
+    "Y": "252435.505"
   }
 ]

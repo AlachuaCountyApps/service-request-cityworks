@@ -82,12 +82,15 @@ function App() {
     evaluation is required to determine the issue domain
   */
   const handleIsCountyBuildingIssueChange = async (e) => {
-    setIsCountyBuildingIssue(e.target.value);
-    setIssue('');
-    setIssueID('');
-    setIssues([]);
+    if (e.target.value === 'Yes') {
+      window.location.href =
+        'https://app.getflowpath.com/create_work_order/alachuacounty?uuid=0e878ca6-fabe-4229-8722-e202ab457362&form_uuid=5a33787d-5b34-4c6b-a3e0-d4ddae2c55f7';
+    } else {
+      setIsCountyBuildingIssue(e.target.value);
+      setIssue('');
+      setIssueID('');
+      setIssues([]);
 
-    if (e.target.value === 'No') {
       setDomain('Default');
 
       setIsLoading(true);
